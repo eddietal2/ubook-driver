@@ -1,0 +1,25 @@
+#logo {
+  background: lightblue;
+  width: 100px; height: 100px;
+  margin: 70px auto 40px auto;
+}
+
+#login-button,
+#sign-up-button,
+#forgot-button {
+  width: 140px;
+  display: block;
+  margin: 20px auto;
+}
+
+#forgot-button {
+  font-size: 0.7em;
+  color: #222;
+  --background: #eef;
+  --box-shadow: none;
+}
+
+ion-input {
+  --background: #fff;
+  margin: 10px;
+}

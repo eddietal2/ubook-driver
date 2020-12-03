@@ -1,0 +1,29 @@
+<ion-header style="display: none;">
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col class="ion-text-center" size="10">
+        <h1 style="margin: 40px 0px">Driver</h1>
+      </ion-col>
+      <ion-col size="10">
+        <form>
+          <ion-input type="text" placeholder="Email"></ion-input>
+          <ion-input type="text" placeholder="Password"></ion-input>
+        </form>
+      </ion-col>
+      <ion-col size="10">
+        <ion-button id="login-button" (click)="login()">
+          Login
+        </ion-button>
+        <ion-button id="sign-up-button" (click)="register()">
+          Sign-Up
+        </ion-button>
+        <ion-button id="forgot-button" (click)="forgotPassowrd()">
+          Forgot Password
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

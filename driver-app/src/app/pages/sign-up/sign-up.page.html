@@ -1,0 +1,68 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="10">
+        <h2>Sign up as a Driver!</h2>
+        <hr class="line">
+      </ion-col>
+      <ion-col size="10">
+        <form [formGroup]='registerDriverForm' >
+          <ion-input type="text"
+            formControlName="first" placeholder="First Name"></ion-input>
+          <ion-input type="text"
+            formControlName="last" placeholder="Last Name"></ion-input>
+          <ion-input type="phone"
+            formControlName="phone" placeholder="Phone">+1</ion-input>
+          <ion-input type="email"
+            formControlName="email" placeholder="Email"></ion-input>
+          <!-- Email Validation-->
+          <div class="validation-errors">
+              <ng-container *ngFor="let validation of validationMessasges.email">
+                <div class="error-message"
+                *ngIf="registerDriverForm
+                  .get('email')
+                  .hasError(validation.type) && (registerDriverForm.get('email')
+                  .dirty || registerDriverForm.get('email').touched)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+          </div>
+
+          <ion-input type="password"
+            formControlName="password" placeholder="Password"></ion-input>
+          <!-- Password Validation-->
+          <div class="validation-errors">
+                <ng-container *ngFor="let validation of validationMessasges.password">
+                  <div class="error-message" *ngIf="registerDriverForm.get('password').hasError(validation.type) && (registerDriverForm.get('password').dirty || registerDriverForm.get('password').touched)">
+                    {{ validation.message }}
+                  </div>
+                </ng-container>
+          </div>
+
+          <ion-input type="password"
+            formControlName="reEnterPassword" placeholder="Re-enter Password"></ion-input>
+          <!-- Password Validation-->
+          <div class="validation-errors">
+                <ng-container *ngFor="let validation of validationMessasges.password">
+                  <div class="error-message" *ngIf="registerDriverForm.get('reEnterPassword').hasError(validation.type) && (registerDriverForm.get('reEnterPassword').dirty || registerDriverForm.get('reEnterPassword').touched)">
+                    {{ validation.message }}
+                  </div>
+                </ng-container>
+          </div>
+
+          <ion-button expand="full" type="submit" id="sign-up-button" (click)="register()">
+            Sign Up
+          </ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
