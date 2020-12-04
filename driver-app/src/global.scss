@@ -25,6 +25,12 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
+ion-input {
+  --background: #dde;
+  font-size: 1.2em;
+  margin: 25px auto;
+}
+
 .line {
   border-bottom: 1px solid #888;
   margin-top: 24px;
@@ -38,9 +44,10 @@ ion-button {
   color: red;
   font-size: 1.1em;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
-.registered-toast {
+.success-toast {
   --background: green;
   color: white;
   font-size: 1.2em;

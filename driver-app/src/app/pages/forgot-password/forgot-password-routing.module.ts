@@ -9,8 +9,12 @@ const routes: Routes = [
     component: ForgotPasswordPage
   },
   {
-    path: 'enter-code/:type/:value',
+    path: 'enter-code/:phone',
     loadChildren: () => import('./enter-code/enter-code.module').then( m => m.EnterCodePageModule)
+  },
+  {
+    path: 'change-password/:phone',
+    loadChildren: () => import('./change-password/change-password.module').then( m => m.ChangePasswordPageModule)
   }
 ];
 

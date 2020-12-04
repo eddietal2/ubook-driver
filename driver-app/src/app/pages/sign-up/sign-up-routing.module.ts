@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: SignUpPage
+  },
+  {
+    path: 'enter-code/:name/:phone/:email/:password',
+    loadChildren: () => import('./enter-code/enter-code.module').then( m => m.EnterCodePageModule)
   }
 ];
 

@@ -47,12 +47,21 @@
           </ion-item>
 
           <ion-button [disabled]="!codesMatch" expand="full" type="submit" id="enter-code-button" (click)="register()">
-            Change Password
+            Sign Up
           </ion-button>
         </form>
       </ion-col>
     </ion-row>
+    
   </ion-grid>
 </ion-content>
+
+<ion-row *ngIf="registered" class="registered-popin ion-justify-content-center">
+  <ion-col size="10">
+    <h1>Registered!</h1>
+    <p>Thanks for signing up with UBook Frieght. You can now login.</p>
+  </ion-col>
+</ion-row>
+
 
 

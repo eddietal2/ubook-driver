@@ -81,7 +81,15 @@ export class EnterCodePage implements OnInit {
 
   register() {
     console.log('Attempting to register..');
-    this.router.navigate(['/forgot-password/change-password', this.phone]);
+    
+    this.registerService.registerDriver(this.name, this.email, this.phone, this.password).subscribe(
+      registeredDriver => {
+        console.log(registeredDriver);
+        this.registered = true;
+        setTimeout(() => {
+          this.router.navigate(['']);
+        }, 4000);
+      });
   }
 
 

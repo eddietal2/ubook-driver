@@ -63,7 +63,8 @@ export class ForgotPasswordPage implements OnInit {
         })
       )
       .subscribe();
-      // this.router.navigate(['/forgot-password/enter-code', 'Phone', '1' + this.forgotPasswordForm.controls.phone.value]);
+      console.log(this.forgotPasswordForm.controls.phone.value);
+      this.router.navigate(['/forgot-password/enter-code', '1' + this.forgotPasswordForm.controls.phone.value]);
     }
     if (this.useEmail) {
       console.log('Sending code to Email');

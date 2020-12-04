@@ -13,8 +13,22 @@ export class RegisterService {
   constructor(
     private http: HttpClient) { }
 
-  registerDriver(driver) {
+  checkEmailAndPhone(email, phone) {
     // tslint:disable-next-line: max-line-length
-    return this.http.post(`${this.BACKEND_URL}/api/driver/register`, {name: driver.first + ' ' + driver.last, email: driver.email, phone: driver.phone, password: driver.password});
+    return this.http.post(`${this.BACKEND_URL}/api/driver/register/check-email-and-phone`, {email, phone});
+  }
+  sendSMSCode(phone) {
+    // tslint:disable-next-line: max-line-length
+    return this.http.post(`${this.BACKEND_URL}/api/driver/register/send-sms-code`, { phone});
+  }
+  sendEmailCode(email, code) {
+    console.log(email, code);
+    
+    // tslint:disable-next-line: max-line-length
+    return this.http.post(`${this.BACKEND_URL}/api/driver/register/send-email-code`, { email, code});
+  }
+  registerDriver(name, email, phone, password) {
+    // tslint:disable-next-line: max-line-length
+    return this.http.post(`${this.BACKEND_URL}/api/driver/register`, {name, email, phone, password});
   }
 }
