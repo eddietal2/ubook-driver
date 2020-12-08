@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators,
   ReactiveFormsModule } from '@angular/forms';
-import { AlertController, ToastController } from '@ionic/angular';
+import { AlertController, ToastController, LoadingController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
 import { tap, catchError } from 'rxjs/operators';
 import { LoginService } from 'src/app/services/login.service';
@@ -25,6 +25,8 @@ export class ChangePasswordPage implements OnInit {
     private formBuilder: FormBuilder,
     private loginService: LoginService,
     private alertController: AlertController,
+    private toastController: ToastController,
+    private loadingController: LoadingController,
     private activatedRoute: ActivatedRoute,
     private router: Router) { }
 
@@ -58,16 +60,16 @@ export class ChangePasswordPage implements OnInit {
         console.log(data);
 
         this.changePasswordForm.statusChanges.subscribe(status => {
-          console.log(status);
-          if ( status === 'VALID') {
-            console.log('you did it bruh');
+          // tslint:disable-next-line: max-line-length
+          if ( status === 'VALID' && this.changePasswordForm.controls.password.value === this.changePasswordForm.controls.reEnterPassword.value) {
+            console.log('Form Status == Valid');
             this.passwordsMatch = true;
           }
         });
 
         if (this.changePasswordForm.controls.password.value === this.changePasswordForm.controls.reEnterPassword.value &&
           this.changePasswordForm.controls.password.touched &&
-          this.changePasswordForm.controls.email.valid) {
+          this.changePasswordForm.controls.reEnterPassword.valid) {
           console.log('Passwords Match');
       }
 
@@ -80,7 +82,7 @@ export class ChangePasswordPage implements OnInit {
   }
 
   togglePasswordDisplay() {
-    const password = document.getElementById('password');
+    const password = document.getElementById('password') as HTMLInputElement;
     if (password.type === 'password') {
       password.type = 'text';
     } else {
@@ -88,7 +90,7 @@ export class ChangePasswordPage implements OnInit {
     }
   }
   toggleReEnteredPasswordDisplay() {
-    const password = document.getElementById('re-enter-password');
+    const password = document.getElementById('re-enter-password') as HTMLInputElement;
     if (password.type === 'password') {
       password.type = 'text';
     } else {
@@ -98,11 +100,68 @@ export class ChangePasswordPage implements OnInit {
 
   changePassword() {
     console.log('Attempting to change password...');
-    this.loginService.changePassword(this.phone, this.changePasswordForm.controls.password.value).subscribe(
-      data => {
-        this.router.navigate(['']);
-      }
+    // tslint:disable-next-line: max-line-length
+    this.loginService.changePassword(this.phone, this.changePasswordForm.controls.password.value)
+      .pipe(
+        tap( res => {
+          if (!res) {
+            console.log('There was no response. There might be a bad password');
+          } else {
+            console.log(res);
+          }
+        }),
+        catchError( e => {
+          console.error(e.error.msg);
+          if (e.error.msg === 'Please enter a password that you have not used before.') {
+            console.log('This should work');
+            
+            this.presentAlert('Use a new Password', 'Please enter a password that you have not used before.');
+          }
+          throw new Error(e);
+        })
+      )
+      .subscribe(
+        data => {
+          this.presentLoading('Changing Password ...');
+          setTimeout(() => {
+            this.presentToast('Updated Password');
+            this.router.navigate(['']);
+          }, 1500);
+        }
     );
+  }
+
+  async presentAlert(header: string, msg: string) {
+    const alert = await this.alertController.create({
+      cssClass: 'success-alert',
+      header,
+      message: msg,
+      buttons: [{
+        text: 'OK'
+      }]
+    });
+
+    await alert.present();
+  }
+  async presentToast(msg: string) {
+    const alert = await this.toastController.create({
+      cssClass: 'success-toast',
+      message: msg,
+      buttons: [{
+        text: 'OK'
+      }]
+    });
+
+    await alert.present();
+  }
+  async presentLoading(msg) {
+    const alert = await this.loadingController.create({
+      message: msg,
+      duration: 1500,
+      keyboardClose: true,
+    });
+
+    await alert.present();
   }
 
 }

@@ -13,9 +13,13 @@ export class RegisterService {
   constructor(
     private http: HttpClient) { }
 
-  checkEmailAndPhone(email, phone) {
+  checkEmailAndPhoneCarrier(email, phone) {
     // tslint:disable-next-line: max-line-length
     return this.http.post(`${this.BACKEND_URL}/api/driver/register/check-email-and-phone`, {email, phone});
+  }
+  checkEmailAndPhoneShipper(email, phone) {
+    // tslint:disable-next-line: max-line-length
+    return this.http.post(`${this.BACKEND_URL}/api/driver/shipper/check-email-and-phone`, {email, phone});
   }
   sendSMSCode(phone) {
     // tslint:disable-next-line: max-line-length

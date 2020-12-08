@@ -8,9 +8,52 @@
         <h1 style="margin: 40px 0px">Driver</h1>
       </ion-col>
       <ion-col size="10">
-        <form>
-          <ion-input type="text" placeholder="Email"></ion-input>
-          <ion-input type="text" placeholder="Password"></ion-input>
+        <form [formGroup]="loginForm"
+        (ngSubmit)="login(this.loginForm.value)">
+          <ion-list class="line-input">
+            <ion-item lines="none">
+          <!-- Email -->
+            <ion-input
+              required
+              placeholder="Email"
+              inputmode="email"
+              formControlName="email"
+              type="email"
+              (keyup.enter)="login(this.loginForm.value)">
+            </ion-input>
+            </ion-item>
+            <!-- Email Validation-->
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validationMessasges.email">
+                <div class="error-message"
+                *ngIf="loginForm
+                  .get('email')
+                  .hasError(validation.type) && (loginForm.get('email')
+                  .dirty || loginForm.get('email').touched)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+            <!-- Password -->
+            <ion-item lines="none">
+          <ion-input
+            required
+            placeholder="Password"
+            inputmode="text"
+            formControlName="password"
+            type="password"
+            (keyup.enter)="login(this.loginForm.value)">
+          </ion-input>
+            </ion-item>
+            <!-- Password Validation-->
+            <div class="validation-errors">
+            <ng-container *ngFor="let validation of validationMessasges.password">
+          <div class="error-message" *ngIf="loginForm.get('password').hasError(validation.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+            {{ validation.message }}
+          </div>
+            </ng-container>
+            </div>
+          </ion-list>
         </form>
       </ion-col>
       <ion-col size="10">

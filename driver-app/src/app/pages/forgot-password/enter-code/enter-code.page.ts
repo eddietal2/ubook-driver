@@ -51,7 +51,7 @@ export class EnterCodePage implements OnInit {
     this.enterCodeButton = document.getElementById('enter-code-button');
 
     // Send Code to SMS when this page is initiated.
-    // this.sendSMSCode();
+    this.sendSMSCode();
 
     this.enterCodeForm = this.formBuilder.group({
       code: ['', [Validators.required]],

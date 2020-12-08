@@ -1,9 +1,9 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay">
+    <ion-menu id="ion-menu" contentId="main-content" type="overlay">
       <ion-content>
         <ion-list id="inbox-list">
-          <ion-list-header>Diver</ion-list-header>
+          <ion-list-header>Driver</ion-list-header>
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
@@ -11,6 +11,11 @@
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
+          <ion-item lines="none">
+            <ion-button id="logout-button" (click)="this.auth.logoutAlert('Are you sure you want to log out?')">
+              Logout
+            </ion-button>
+          </ion-item>
         </ion-list>
       </ion-content>
     </ion-menu>

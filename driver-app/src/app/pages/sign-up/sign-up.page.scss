@@ -20,3 +20,30 @@ ion-input {
   --color: #666;
   --box-shadow: none;
 }
+
+#carrier-button,
+#shipper-button  {
+  --background: none;
+  --border-width: 2px;
+  --border-color: blue;
+  --border-style: solid;
+  --border-radius: 5px;
+  --box-shadow: none;
+  --color: blue;
+  transition: 0.5s;
+}
+
+form {
+  opacity: 0;
+  animation: form-slide-in 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards;
+}
+
+@keyframes form-slide-in {
+  0% {
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
