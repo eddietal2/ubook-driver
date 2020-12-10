@@ -29,3 +29,8 @@ npm-debug.log*
 /platforms
 /plugins
 /www
+
+localhost-key.pem
+localhost.pem
+10.0.1.5-key.pem
+10.0.1.5.pem

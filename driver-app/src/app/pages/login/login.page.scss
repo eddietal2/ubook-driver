@@ -4,6 +4,21 @@
   margin: 70px auto 40px auto;
 }
 
+ion-item {
+  ion-input {
+    --background: #dde;
+    font-size: 1.2em;
+    margin: 8px auto;
+    --padding-start: 10px;
+  }
+  ion-label {
+    opacity: 0.1;
+    font-size: 1.15em;
+    --color: #2d98da;
+    animation: slide-left 0.5s ease forwards;
+  }
+}
+
 #login-button,
 #sign-up-button,
 #forgot-button {
@@ -19,7 +34,73 @@
   --box-shadow: none;
 }
 
-ion-input {
-  --background: #fff;
-  margin: 10px;
+.usertype-select {
+  height: 100vh;
+  width: 100%;
+  background: #eef;
+  color: #222;
+  text-align: center;
+  padding-top: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+
+  h1 {
+    margin-bottom: 40px;
+  }
+}
+
+#bottom-buttons {
+  position: absolute;
+  bottom: 50px;
+  width: 100%;
+}
+
+#shipper-button-bottom,
+#carrier-button-bottom{
+  animation: usertype-button-slide-in 0.5s ease-in forwards;
+  opacity: 0;
+}
+#shipper-header,
+#carrier-header{
+  animation: usertype-header-slide-in 0.5s ease-in forwards;
+  opacity: 0;
+  color: orangered;
+}
+
+@keyframes usertype-header-slide-in {
+  0%{
+    transform: translateX(-20px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+@-webkit-keyframes usertype-header-slide-in {
+  0%{
+    -webkit-transform: translateX(-20px);
+  }
+  100%{
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+  }
+}
+@keyframes usertype-button-slide-in {
+  0%{
+    transform: translateY(20px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+@-webkit-keyframes usertype-button-slide-in {
+  0%{
+    -webkit-transform: translateY(-20px);
+  }
+  100%{
+    -webkit-transform: translateY(0px);
+  }
 }

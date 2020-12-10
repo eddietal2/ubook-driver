@@ -1,13 +1,8 @@
-import { Injectable, ElementRef } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { Platform, AlertController, MenuController , LoadingController, ToastController} from '@ionic/angular';
-
-
-
-
 import { environment } from '../../environments/environment';
 import { tap, catchError } from 'rxjs/operators';
 import { BehaviorSubject, Subscription } from 'rxjs';
@@ -21,7 +16,11 @@ export class AuthService {
   user = null;
   authenticationState = new BehaviorSubject(false);
   loginSub: Subscription;
-  activeEmail = '';
+  email: string;
+  usertype: string;
+  name: string;
+  rating: number;
+  title: string;
 
   constructor(
     private http: HttpClient,
@@ -67,19 +66,21 @@ export class AuthService {
       if (token) {
         const decoded = this.helper.decodeToken(token);
         console.log('Token Email: ' + decoded.email);
-        this.activeEmail = decoded.email;
+        this.email = decoded.email;
       }
     });
   }
 
   // Login User
-  login(data) {
+  login(data, usertype) {
     console.log('Logging in');
-    console.log(data);
-    
-    return this.loginSub = this.http.post(`${this.BACKEND_URL}/api/driver/login`,
+    console.log(data, usertype);
+
+    if (usertype === 'Carrier') {
+      return this.loginSub = this.http.post(`${this.BACKEND_URL}/api/carrier/login/`,
     { email: data.email,
-      password: data.password
+      password: data.password,
+      usertype
     })
       .pipe(
         tap(res => {
@@ -88,16 +89,21 @@ export class AuthService {
           }
           this.storage.set(this.TOKEN_KEY, res['token']);
           this.user = this.helper.decodeToken( res['token']);
-          this.activeEmail = this.user.email;
-          this.authenticationState.next(true);
-          console.log('Active User: ' + this.user.email);
+          this.email = this.user.email;
+          this.usertype = this.user.usertype;
+          this.name = this.user.name;
+          this.rating = this.user.rating;
+          console.log('Email: ' + this.user.email);
+          console.log('Name: ' + this.user.name);
+          console.log('Usertype: ' + this.user.usertype);
+          console.log('Rating: ' + this.user.rating);
         }),
         catchError(e => {
           console.error(e);
           if (e.error.msg === 'The email and password don\'t match.') {
-            this.presentAlert('Incorrect Email/Password', "The email and password don't match.");
-          } else if (e.error.msg == 'The user does not exist') {
-            this.presentAlert('Nonexistent User Account', 'There is no account with that email address.');
+            this.presentAlert('Incorrect Email/Password', 'The email and password don\'t match.');
+          } else if (e.error.msg === 'The Carrier does not exist') {
+            this.presentAlert('Carrier does not exist', 'There is no account with that email address.');
           } else if (e.message.startsWith('Http failure response')) {
             this.presentAlert('Server Connection Error', 'There was a problem connecting to the server. Please try again later.');
           }  else {
@@ -105,8 +111,55 @@ export class AuthService {
           }
           throw new Error(e);
         })
-      )
-      .subscribe();
+      ).subscribe(
+        () => {
+          this.presentLoading();
+        }
+      );
+    }
+    if (usertype === 'Shipper') {
+      console.log('Shipper is attempting to log in...');
+      return this.loginSub = this.http.post(`${this.BACKEND_URL}/api/shipper/login/`,
+    { email: data.email,
+      password: data.password,
+      usertype
+    })
+      .pipe(
+        tap(res => {
+          if (!res) {
+            console.log('There was no response. There might be a bad password');
+          }
+          this.storage.set(this.TOKEN_KEY, res['token']);
+          this.user = this.helper.decodeToken( res['token']);
+          this.email = this.user.email;
+          this.title = this.user.title;
+          this.usertype = this.user.usertype;
+          this.name = this.user.name;
+          this.rating = this.user.rating;
+          console.log('Email: ' + this.user.email);
+          console.log('Name: ' + this.user.name);
+          console.log('Usertype: ' + this.user.usertype);
+          console.log('Title: ' + this.user.title);
+          console.log('Rating: ' + this.user.rating);
+        }),
+        catchError(e => {
+          console.error(e);
+          if (e.error.msg === 'The email and password don\'t match.') {
+            this.presentAlert('Incorrect Email/Password', 'The email and password don\'t match.');
+          } else if (e.error.msg === 'The Shipper does not exist') {
+            this.presentAlert('Shipper does not exist', 'There is no account with that email address.');
+          } else if (e.message.startsWith('Http failure response')) {
+            this.presentAlert('Server Connection Error', 'There was a problem connecting to the server. Please try again later.');
+          }  else {
+            this.presentAlert('Email/Password Error', 'Please try again.');
+          }
+          throw new Error(e);
+        })
+      ).subscribe(
+        () => {
+          this.presentLoading();
+        });
+    }
   }
 
   async presentAlert(header: string, msg: string) {
@@ -139,6 +192,21 @@ export class AuthService {
       .catch( e => {
         console.log(e);
       });
+  }
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      message: 'Logging in...',
+      duration: 1000,
+      cssClass: 'success-toast',
+      keyboardClose: true,
+    });
+    await loading.present();
+
+    await loading.onDidDismiss().then(() => {
+      this.authenticationState.next(true);
+    }
+    );
   }
 
   async logoutAlert(msg: string) {

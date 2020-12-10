@@ -3,14 +3,29 @@ import { ToastController, LoadingController, IonInput } from '@ionic/angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { trigger, state, style, animate, transition } from '@angular/animations';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
+  animations: [
+    trigger(
+      'inOutAnimation',
+      [
+        transition(':leave', [
+          animate('0.8s ease-out', style({ transform: 'translateX(100%)' }))
+        ])
+      ]
+    )
+  ]
 })
 export class LoginPage implements OnInit {
   loginForm: FormGroup;
+  usertypeSelected = false;
+  isCarrier = false;
+  isShipper = false;
 
   validationMessasges = {
     email: [
@@ -45,21 +60,13 @@ export class LoginPage implements OnInit {
   }
 
   login() {
-    this.presentLoading();
     console.log(this.loginForm.value);
-    this.auth.login(this.loginForm.value);
-  }
-
-  async presentLoading() {
-    const loading = await this.loading.create({
-      message: 'Logging in...',
-      duration: 1000,
-      cssClass: 'success-toast',
-      keyboardClose: true,
-    });
-    await loading.present();
-
-    const { role, data } = await loading.onDidDismiss();
+    if (this.isCarrier) {
+      this.auth.login(this.loginForm.value, 'Carrier');
+    }
+    if (this.isShipper) {
+      this.auth.login(this.loginForm.value, 'Shipper');
+    }
   }
 
   register() {
@@ -68,6 +75,17 @@ export class LoginPage implements OnInit {
 
   forgotPassowrd() {
     this.router.navigate(['/forgot-password']);
+  }
+
+  carrier() {
+    this.usertypeSelected = true;
+    this.isCarrier = true;
+    this.isShipper = false;
+  }
+  shipper() {
+    this.usertypeSelected = true;
+    this.isShipper = true;
+    this.isCarrier = false;
   }
 
 }

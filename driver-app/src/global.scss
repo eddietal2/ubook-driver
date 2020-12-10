@@ -32,7 +32,7 @@ ion-input {
 }
 
 .line {
-  border-bottom: 1px solid #888;
+  border-bottom: 6px solid #999;
   margin-top: 24px;
 }
 
@@ -53,3 +53,16 @@ ion-button {
   font-size: 1.2em;
   font-weight: 500;
 }
+
+.carrier-button,
+.shipper-button  {
+  --background: none;
+  --border-width: 2px;
+  --border-color: blue;
+  --border-style: solid;
+  --border-radius: 5px;
+  --box-shadow: none;
+  --color: blue;
+  transition: 0.5s;
+}
+

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center ion-margin-top">
+      <ion-col size="5">
+        <div style="height: 100px; width: 100px; background: lightslategray; border-radius: 100px;"></div>
+      </ion-col>
+      <ion-col pull="1" size="5">
+        <h3>{{name}}</h3>
+        <h5>Rating: {{rating}}</h5>
+        <h6>{{email}}</h6>
+        <h6>{{phone}}</h6>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <hr class="line">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

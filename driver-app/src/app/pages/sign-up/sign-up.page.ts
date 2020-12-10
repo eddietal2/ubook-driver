@@ -83,9 +83,10 @@ export class SignUpPage implements OnInit {
 
   // Refactor to check for Carrier or Shipper collections
   checkEmailAndPhone() {
-    console.log(this.registerCarrierForm.value);
     // tslint:disable-next-line: max-line-length
     if (this.usertype === 'Carrier') {
+      console.log('Registering a Carrier ...');
+      console.log(this.registerCarrierForm.value);
       // tslint:disable-next-line: max-line-length
       this.registerService.checkEmailAndPhoneCarrier(this.registerCarrierForm.controls.email.value, 1 + this.registerCarrierForm.controls.phone.value)
       .pipe(
@@ -106,15 +107,28 @@ export class SignUpPage implements OnInit {
       .subscribe(
       data => {
         // tslint:disable-next-line: max-line-length
-        this.router.navigate(['/sign-up/enter-code',  this.registerCarrierForm.controls.first.value + ' ' + this.registerCarrierForm.controls.last.value,
-        '1' + this.registerCarrierForm.controls.phone.value,
-        this.registerCarrierForm.controls.email.value,
-        this.registerCarrierForm.controls.password.value, this.usertype]);
+        this.registerService.newCarrier.name = this.registerCarrierForm.controls.first.value + ' ' + this.registerCarrierForm.controls.last.value;
+
+        this.registerService.newCarrier.email = this.registerCarrierForm.controls.email.value;
+
+        this.registerService.newCarrier.phone = '1' + this.registerCarrierForm.controls.phone.value;
+
+        this.registerService.newCarrier.insurance = this.registerCarrierForm.controls.insurance.value;
+
+        this.registerService.newCarrier.password = this.registerCarrierForm.controls.password.value;
+
+        console.log(this.registerService.newCarrier);
+
+        // tslint:disable-next-line: max-line-length
+        this.router.navigate(['/sign-up/enter-code-carrier', this.usertype, '1' + this.registerCarrierForm.controls.phone.value, this.registerCarrierForm.controls.email.value
+        ]);
       });
     }
     if (this.usertype === 'Shipper') {
+      console.log('Registering a Shipper ...');
+      console.log(this.registerShipperForm.value);
       // tslint:disable-next-line: max-line-length
-      this.registerService.checkEmailAndPhoneShipper(this.registerCarrierForm.controls.email.value, 1 + this.registerCarrierForm.controls.phone.value)
+      this.registerService.checkEmailAndPhoneShipper(this.registerShipperForm.controls.email.value, 1 + this.registerShipperForm.controls.phone.value)
       .pipe(
         tap(res => {
           console.log(res);
@@ -134,10 +148,8 @@ export class SignUpPage implements OnInit {
       data => {
         // Refactor to go to specific enter-code pages for each usertype
         // tslint:disable-next-line: max-line-length
-        this.router.navigate(['/sign-up/enter-code',  this.registerCarrierForm.controls.first.value + ' ' + this.registerCarrierForm.controls.last.value,
-        '1' + this.registerCarrierForm.controls.phone.value,
-        this.registerCarrierForm.controls.email.value,
-        this.registerCarrierForm.controls.password.value, this.usertype]);
+        this.router.navigate(['/sign-up/enter-code-shipper', this.usertype, '1' + this.registerShipperForm.controls.phone.value, this.registerShipperForm.controls.email.value
+        ]);
       });
     }
   }
@@ -175,20 +187,20 @@ export class SignUpPage implements OnInit {
   }
 
   togglePasswordDisplay() {
-    const password = document.getElementById('password');
-    // if (password.type === 'password') {
-    //   password.type = 'text';
-    // } else {
-    //   password.type = 'password';
-    // }
+    const password = document.getElementById('password') as HTMLInputElement;
+    if (password.type === 'password') {
+      password.type = 'text';
+    } else {
+      password.type = 'password';
+    }
   }
   toggleReEnteredPasswordDisplay() {
-    const password = document.getElementById('re-enter-password');
-    // if (password.type === 'password') {
-    //   password.type = 'text';
-    // } else {
-    //   password.type = 'password';
-    // }
+    const password = document.getElementById('re-enter-password') as HTMLInputElement;
+    if (password.type === 'password') {
+      password.type = 'text';
+    } else {
+      password.type = 'password';
+    }
   }
   formOnChangesCarrier(): void {
     console.log(this.registerCarrierForm);

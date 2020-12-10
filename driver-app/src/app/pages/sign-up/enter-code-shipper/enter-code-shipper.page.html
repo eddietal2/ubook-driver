@@ -10,7 +10,9 @@
   <ion-grid>
     <ion-row class="ion-justify-content-center">
       <ion-col size="10">
-        <h1>A 6 digit code has been sent to {{phone}}</h1>
+        <h1>{{usertype}}</h1>
+        <h4>A 6 digit code has been sent to :</h4>
+        <h3>{{phone}}</h3>
         <h3>{{code}}</h3>
       </ion-col>
       <ion-col size="10">
@@ -46,22 +48,15 @@
             </ion-button>
           </ion-item>
 
-          <ion-button [disabled]="!codesMatch" expand="full" type="submit" id="enter-code-button" (click)="register()">
-            Sign Up
+          <ion-button [disabled]="!codesMatch" expand="full" id="enter-code-button" (click)="register()">
+            Next
           </ion-button>
         </form>
       </ion-col>
     </ion-row>
-    
   </ion-grid>
 </ion-content>
 
-<ion-row *ngIf="registered" class="registered-popin ion-justify-content-center">
-  <ion-col size="10">
-    <h1>Registered!</h1>
-    <p>Thanks for signing up with UBook Frieght. You can now login.</p>
-  </ion-col>
-</ion-row>
 
 
 

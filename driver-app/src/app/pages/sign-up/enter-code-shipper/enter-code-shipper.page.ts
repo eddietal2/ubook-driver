@@ -5,11 +5,13 @@ import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angula
 import { ToastController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-enter-code',
-  templateUrl: './enter-code.page.html',
-  styleUrls: ['./enter-code.page.scss'],
+  selector: 'app-enter-code-shipper',
+  templateUrl: './enter-code-shipper.page.html',
+  styleUrls: ['./enter-code-shipper.page.scss'],
 })
-export class EnterCodePage implements OnInit {
+
+export class EnterCodeShipperPage implements OnInit {
+  usertype: string;
   name: string;
   phone: string;
   email: string;
@@ -40,6 +42,7 @@ export class EnterCodePage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.usertype = this.activatedRoute.snapshot.paramMap.get('usertype');
     this.name = this.activatedRoute.snapshot.paramMap.get('name');
     this.phone = this.activatedRoute.snapshot.paramMap.get('phone');
     this.email = this.activatedRoute.snapshot.paramMap.get('email');
@@ -51,11 +54,11 @@ export class EnterCodePage implements OnInit {
     this.enterCodeButton = document.getElementById('enter-code-button');
 
     // Send Code to SMS when this page is initiated.
-    // this.sendSMSCode();
+    this.sendSMSCode();
 
     this.enterCodeForm = this.formBuilder.group({
       code: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
+      email: ['eddielacrosse2@gmail.com', [Validators.required, Validators.email]],
     });
 
     this.enterCodeForm.valueChanges.subscribe(
@@ -64,7 +67,7 @@ export class EnterCodePage implements OnInit {
         if (data['code'] === this.code) {
           console.log('Codes matched!');
           this.codesMatch = true;
-          this.enterCodeButton.style.backgroundColor = 'green';
+          this.enterCodeButton.style.background = 'green';
           this.codesMatchToast();
         } else {
           this.codesMatch = false;
@@ -81,8 +84,7 @@ export class EnterCodePage implements OnInit {
 
   register() {
     console.log('Attempting to register..');
-    
-    this.registerService.registerDriver(this.name, this.email, this.phone, this.password).subscribe(
+    this.registerService.registerShipper('Eddie Taliaferro', this.email, this.phone, this.password).subscribe(
       registeredDriver => {
         console.log(registeredDriver);
         this.registered = true;
@@ -92,12 +94,18 @@ export class EnterCodePage implements OnInit {
       });
   }
 
+  next() {
+    console.log('Next');
+    // this.router.navigate(['/sign-up/enter-code-shipper/']);
+  }
+
 
   sendSMSCode() {
     console.log('Attempting to send code..');
     this.sentAnotherCodeToast();
     return this.registerService.sendSMSCode(this.phone).subscribe( data => {
       this.code = data['code'];
+      this.enterCodeForm.reset();
     });
   }
   sendEmailCode() {

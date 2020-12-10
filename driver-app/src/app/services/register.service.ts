@@ -8,31 +8,62 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class RegisterService {
+
   BACKEND_URL = environment.url;
+
+  newCarrier = {
+    name: '',
+    email: '',
+    phone: '',
+    description: '',
+    addressOne: '',
+    addressTwo: '',
+    city: '',
+    state: '',
+    zip: '',
+    insurance: '',
+    password: '',
+    profilePicture: '',
+    liscensePicture: '',
+    liscenseNumber: ''
+  };
+
+  newShipper = {
+    name: '',
+    email: '',
+    phone: '',
+    addressOne: '',
+    addressTwo: '',
+    password: '',
+    profilePicture: '',
+  };
 
   constructor(
     private http: HttpClient) { }
 
   checkEmailAndPhoneCarrier(email, phone) {
     // tslint:disable-next-line: max-line-length
-    return this.http.post(`${this.BACKEND_URL}/api/driver/register/check-email-and-phone`, {email, phone});
+    return this.http.post(`${this.BACKEND_URL}/api/carrier/register/check-email-and-phone`, {email, phone});
   }
   checkEmailAndPhoneShipper(email, phone) {
     // tslint:disable-next-line: max-line-length
-    return this.http.post(`${this.BACKEND_URL}/api/driver/shipper/check-email-and-phone`, {email, phone});
+    return this.http.post(`${this.BACKEND_URL}/api/shipper/register/check-email-and-phone`, {email, phone});
   }
   sendSMSCode(phone) {
     // tslint:disable-next-line: max-line-length
-    return this.http.post(`${this.BACKEND_URL}/api/driver/register/send-sms-code`, { phone});
+    return this.http.post(`${this.BACKEND_URL}/api/carrier/register/send-sms-code`, {phone});
   }
   sendEmailCode(email, code) {
     console.log(email, code);
-    
     // tslint:disable-next-line: max-line-length
-    return this.http.post(`${this.BACKEND_URL}/api/driver/register/send-email-code`, { email, code});
+    return this.http.post(`${this.BACKEND_URL}/api/carrier/register/send-email-code`, { email, code});
   }
-  registerDriver(name, email, phone, password) {
+  registerCarrier(name, email, phone, password) {
     // tslint:disable-next-line: max-line-length
-    return this.http.post(`${this.BACKEND_URL}/api/driver/register`, {name, email, phone, password});
+    return this.http.post(`${this.BACKEND_URL}/api/carrier/register`, {name, email, phone, password});
+  }
+  registerShipper(name, email, phone, password) {
+    // tslint:disable-next-line: max-line-length
+    return this.http.post(`${this.BACKEND_URL}/api/shipper/register`, {name, email, phone, password});
   }
 }

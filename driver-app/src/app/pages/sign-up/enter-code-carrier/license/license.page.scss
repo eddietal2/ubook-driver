@@ -1,0 +1,20 @@
+ion-item {
+  ion-input {
+    --background: #dde;
+    font-size: 1.2em;
+    margin: 25px auto;
+    --padding-start: 10px;
+    display: block;
+  }
+  ion-label {
+    opacity: 0.1;
+    font-size: 1.15em;
+    --color: #2d98da;
+    animation: slide-left 0.5s ease forwards;
+  }
+}
+
+#image-placeholder {
+  background: lightblue;
+  height: 300px;
+}

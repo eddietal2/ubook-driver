@@ -16,16 +16,36 @@ const routes: Routes = [
     loadChildren: () => import('./pages/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
   },
   {
-    path: 'profile',
-    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+    path: 'carrier-profile',
+    loadChildren: () => import('./pages/carrier/profile/profile.module').then( m => m.ProfilePageModule)
   },
   {
-    path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+    path: 'carrier-home',
+    loadChildren: () => import('./pages/carrier/home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: 'orders',
-    loadChildren: () => import('./pages/orders/orders.module').then( m => m.OrdersPageModule)
+    path: 'carrier-orders',
+    loadChildren: () => import('./pages/carrier/orders/orders.module').then( m => m.OrdersPageModule)
+  },
+  {
+    path: 'carrier-settings',
+    loadChildren: () => import('./pages/carrier/settings/settings.module').then( m => m.SettingsPageModule)
+  },
+  {
+    path: 'shipper-profile',
+    loadChildren: () => import('./pages/shipper/profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'shipper-home',
+    loadChildren: () => import('./pages/shipper/home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'shipper-settings',
+    loadChildren: () => import('./pages/shipper/settings/settings.module').then( m => m.SettingsPageModule)
+  },
+  {
+    path: 'shipper-orders',
+    loadChildren: () => import('./pages/shipper/orders/orders.module').then( m => m.OrdersPageModule)
   }
 ];
 

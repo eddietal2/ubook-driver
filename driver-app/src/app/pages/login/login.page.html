@@ -5,7 +5,9 @@
   <ion-grid>
     <ion-row class="ion-justify-content-center">
       <ion-col class="ion-text-center" size="10">
-        <h1 style="margin: 40px 0px">Driver</h1>
+        <h1 style="margin: 40px 0px">UBook Freight</h1>
+        <h3 id="carrier-header" *ngIf="isCarrier">Carrier</h3>
+        <h3 id="shipper-header" *ngIf="isShipper">Shipper</h3>
       </ion-col>
       <ion-col size="10">
         <form [formGroup]="loginForm"
@@ -68,5 +70,30 @@
         </ion-button>
       </ion-col>
     </ion-row>
+
+    <ion-row id="bottom-buttons" class="ion-justify-content-center">
+      <ion-col size="10">
+        <ion-button id="carrier-button-bottom"  expand="full" *ngIf="isCarrier" (click)="shipper()">
+          I am a Shipper
+        </ion-button>
+        <ion-button id="shipper-button-bottom"  expand="full" *ngIf="isShipper" (click)="carrier()">
+          I am a Carrier
+        </ion-button>
+      </ion-col>
+    </ion-row>
   </ion-grid>
 </ion-content>
+
+
+
+
+<div [@inOutAnimation] *ngIf="!usertypeSelected" class="usertype-select">
+  <h1>I am a:</h1>
+  <ion-button class="carrier-button" (click)="carrier()">
+  Carrier
+  </ion-button>
+  <ion-button class="shipper-button" (click)="shipper()">
+  Shipper
+  </ion-button>
+</div>
+

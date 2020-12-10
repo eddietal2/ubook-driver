@@ -4,9 +4,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { EnterCodePageRoutingModule } from './enter-code-routing.module';
+import { EnterCodeCarrierPageRoutingModule } from './enter-code-carrier-routing.module';
 
-import { EnterCodePage } from './enter-code.page';
+import { EnterCodeCarrierPage } from './enter-code-carrier.page';
 
 @NgModule({
   imports: [
@@ -14,8 +14,8 @@ import { EnterCodePage } from './enter-code.page';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    EnterCodePageRoutingModule
+    EnterCodeCarrierPageRoutingModule
   ],
-  declarations: [EnterCodePage]
+  declarations: [EnterCodeCarrierPage]
 })
-export class EnterCodePageModule {}
+export class EnterCodeCarrierPageModule {}

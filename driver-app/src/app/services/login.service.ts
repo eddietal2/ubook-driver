@@ -13,10 +13,10 @@ export class LoginService {
 
     sendCode(type, value) {
       // tslint:disable-next-line: max-line-length
-      return this.http.post(`${this.BACKEND_URL}/api/driver/login/forgot-password-send-code`, {type: type, value: value});
+      return this.http.post(`${this.BACKEND_URL}/api/carrier/login/forgot-password-send-code`, {type: type, value: value});
     }
     changePassword(phone, password) {
       // tslint:disable-next-line: max-line-length
-      return this.http.post(`${this.BACKEND_URL}/api/driver/login/change-password`, {phone,password});
+      return this.http.post(`${this.BACKEND_URL}/api/carrier/login/change-password`, {phone,password});
     }
 }

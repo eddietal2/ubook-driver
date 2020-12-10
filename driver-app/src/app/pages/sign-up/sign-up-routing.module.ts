@@ -9,8 +9,12 @@ const routes: Routes = [
     component: SignUpPage
   },
   {
-    path: 'enter-code/:name/:phone/:email/:password',
-    loadChildren: () => import('./enter-code/enter-code.module').then( m => m.EnterCodePageModule)
+    path: 'enter-code-carrier/:usertype/:phone/:email',
+    loadChildren: () => import('./enter-code-carrier/enter-code-carrier.module').then( m => m.EnterCodeCarrierPageModule)
+  },
+  {
+    path: 'enter-code-shipper/:usertype/:phone/:email',
+    loadChildren: () => import('./enter-code-shipper/enter-code-shipper.module').then( m => m.EnterCodeShipperPageModule)
   }
 ];
 
