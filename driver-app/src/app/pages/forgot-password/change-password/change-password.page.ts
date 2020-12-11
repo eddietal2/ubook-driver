@@ -12,14 +12,15 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./change-password.page.scss'],
 })
 export class ChangePasswordPage implements OnInit {
-  changePasswordForm: FormGroup;validationMessasges = {
+  changePasswordForm: FormGroup;
+  phone: string;
+  usertype: string;
+  validationMessasges = {
     password: [
       // tslint:disable-next-line: max-line-length
       { type: 'pattern', message: 'Password must be at least 8 characters with at least one uppercase character, and one number.'}
     ]
   };
-  passwordsMatch: boolean;
-  phone: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -32,7 +33,8 @@ export class ChangePasswordPage implements OnInit {
 
   ngOnInit() {
     this.phone = this.activatedRoute.snapshot.paramMap.get('phone');
-    console.log(this.phone);
+    this.usertype = this.activatedRoute.snapshot.paramMap.get('usertype');
+    console.log(this.usertype);
     
     this.changePasswordForm = this.formBuilder.group({
       password: ['', Validators.compose([
@@ -101,7 +103,7 @@ export class ChangePasswordPage implements OnInit {
   changePassword() {
     console.log('Attempting to change password...');
     // tslint:disable-next-line: max-line-length
-    this.loginService.changePassword(this.phone, this.changePasswordForm.controls.password.value)
+    this.loginService.changePassword(this.phone, this.changePasswordForm.controls.password.value, this.usertype)
       .pipe(
         tap( res => {
           if (!res) {
@@ -114,7 +116,6 @@ export class ChangePasswordPage implements OnInit {
           console.error(e.error.msg);
           if (e.error.msg === 'Please enter a password that you have not used before.') {
             console.log('This should work');
-            
             this.presentAlert('Use a new Password', 'Please enter a password that you have not used before.');
           }
           throw new Error(e);
@@ -147,6 +148,7 @@ export class ChangePasswordPage implements OnInit {
     const alert = await this.toastController.create({
       cssClass: 'success-toast',
       message: msg,
+      duration: 2000,
       buttons: [{
         text: 'OK'
       }]

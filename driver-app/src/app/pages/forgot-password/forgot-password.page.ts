@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { tap, catchError } from 'rxjs/operators';
 import { AlertController, ToastController } from '@ionic/angular';
 import { LoginService } from 'src/app/services/login.service';
+
 
 @Component({
   selector: 'app-forgot-password',
@@ -11,13 +12,23 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./forgot-password.page.scss'],
 })
 export class ForgotPasswordPage implements OnInit {
-  forgotPasswordForm: FormGroup;
-  phoneLabel;
-  phoneInput;
-  emailLabel;
-  emailInput;
-  orPhoneLink;
-  orEmailLink;
+  forgotCarrierPasswordForm: FormGroup;
+  forgotShipperPasswordForm: FormGroup;
+  usertype: string;
+  phoneLabelCarrier;
+  phoneLabelShipper;
+  phoneInputCarrier;
+  phoneInputShipper;
+  carrierButton;
+  shipperButton;
+  emailLabelCarrier;
+  emailLabelShipper;
+  emailInputCarrier;
+  emailInputShipper;
+  orPhoneLinkCarrier;
+  orEmailLinkCarrier;
+  orPhoneLinkShipper;
+  orEmailLinkShipper;
   useEmail = false;
 
   validationMessasges = {
@@ -30,80 +41,89 @@ export class ForgotPasswordPage implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private alertController: AlertController,
+    private activatedRoute: ActivatedRoute,
     private login: LoginService) { }
 
   ngOnInit() {
+    this.carrierButton = document.querySelector('.carrier-button');
+    this.shipperButton = document.querySelector('.shipper-button');
 
-    this.phoneLabel = document.getElementById('phone-label');
-    this.phoneInput = document.getElementById('phone-input');
-    this.emailLabel = document.getElementById('email-label');
-    this.emailInput = document.getElementById('email-input');
-    this.orPhoneLink = document.getElementById('or-phone');
-    this.orEmailLink = document.getElementById('or-email');
-
-    this.forgotPasswordForm = this.formBuilder.group({
+    this.forgotCarrierPasswordForm = this.formBuilder.group({
+      phone: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+    });
+    this.forgotShipperPasswordForm = this.formBuilder.group({
       phone: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
     });
   }
+
   sendCode() {
     if (!this.useEmail) {
-      console.log('Sending code to Phone');
-      this.login.sendCode('Phone', '1' + this.forgotPasswordForm.controls.phone.value)
-      .pipe(
-        tap(res => {
-          console.log(res);
-        }),
-        catchError(e => {
-          console.error(e);
-          if (e.error.msg === 'Driver with that phone number does not exist') {
-            this.invalidPhoneAlert('Invalid Phone Number', 'Could not find a Driver with that phone number');
-          }
-          throw new Error(e);
-        })
-      )
-      .subscribe();
-      console.log(this.forgotPasswordForm.controls.phone.value);
-      this.router.navigate(['/forgot-password/enter-code', '1' + this.forgotPasswordForm.controls.phone.value]);
+      if (this.usertype === 'Carrier') {
+        console.log('Sending code to Carrier via SMS');
+        this.login.sendCode('Phone', '1' + this.forgotCarrierPasswordForm.controls.phone.value, this.usertype)
+        .pipe(
+          tap(res => {
+            console.log(res);
+          }),
+          catchError(e => {
+            console.error(e);
+            if (e.error.msg === 'There was no Carrier with that Phone Number') {
+              this.invalidPhoneAlert('Invalid Phone Number', 'Could not find a Carrier with that phone number');
+            }
+            throw new Error(e.error);
+          })
+        )
+        .subscribe(
+          () => {
+            // tslint:disable-next-line: max-line-length
+            this.router.navigate(['/forgot-password/:usertype/enter-code',  '1' + this.forgotCarrierPasswordForm.controls.phone.value, this.usertype]); }
+        );
+      }
+      if (this.usertype === 'Shipper') {
+        console.log('Sending code to Shipper via Phone');
+        this.login.sendCode('Phone', '1' + this.forgotShipperPasswordForm.controls.phone.value, this.usertype)
+        .pipe(
+          tap(res => {
+            console.log(res);
+          }),
+          catchError(e => {
+            console.error(e);
+            if (e.error.msg === 'There was no Shipper with that Phone Number') {
+              this.invalidPhoneAlert('Invalid Phone Number', 'Could not find a Shipper with that phone number');
+            }
+            throw new Error(e);
+          })
+        )
+        .subscribe(
+          () => {
+            // tslint:disable-next-line: max-line-length
+            this.router.navigate(['/forgot-password/:usertype/enter-code',  '1' + this.forgotShipperPasswordForm.controls.phone.value, this.usertype]); }
+        );
+      }
     }
-    if (this.useEmail) {
-      console.log('Sending code to Email');
-      this.login.sendCode('Email', this.forgotPasswordForm.controls.email.value)
-      .pipe(
-        tap(res => {
-          console.log(res);
-        }),
-        catchError(e => {
-          console.error(e);
-          if (e.error.msg === 'Driver with that email does not exist') {
-            this.invalidPhoneAlert('Invalid Email', 'Could not find a Driver with that Email');
-          }
-          throw new Error(e);
-        })
-      )
-      .subscribe();
-      // this.router.navigate(['/forgot-password/enter-code', 'Email', this.forgotPasswordForm.controls.email.value]);
-    }
   }
-  orEmail() {
-    this.phoneLabel.style.opacity = 0.25;
-    this.phoneInput.style.opacity = 0.25;
-    this.emailLabel.style.display = 'block';
-    this.emailInput.style.display = 'block';
-    this.orEmailLink.style.display = 'none';
-    this.orPhoneLink.style.display = 'block';
-    this.useEmail = true;
+  carrier() {
+    this.usertype = 'Carrier';
+    console.log(this.usertype);
+    this.carrierButton.style.background = 'blue';
+    this.carrierButton.style.color = 'white';
+    this.shipperButton.style.background = 'none';
+    this.shipperButton.style.color = 'blue';
+    this.carrierButton.style.transform = 'scale(1.2)';
+    this.shipperButton.style.transform = 'scale(1)';
   }
-  orPhone() {
-    this.phoneLabel.style.opacity = 1;
-    this.phoneInput.style.opacity = 1;
-    this.emailLabel.style.display = 'none';
-    this.emailInput.style.display = 'none';
-    this.orEmailLink.style.display = 'block';
-    this.orPhoneLink.style.display = 'none';
-    this.useEmail = false;
+  shipper() {
+    this.usertype = 'Shipper';
+    console.log(this.usertype);
+    this.shipperButton.style.background = 'blue';
+    this.shipperButton.style.color = 'white';
+    this.carrierButton.style.background = 'none';
+    this.carrierButton.style.color = 'blue';
+    this.shipperButton.style.transform = 'scale(1.2)';
+    this.carrierButton.style.transform = 'scale(1)';
   }
-
   async invalidPhoneAlert(header: string, msg: string) {
     const alert = await this.alertController.create({
       cssClass: 'danger-alert',

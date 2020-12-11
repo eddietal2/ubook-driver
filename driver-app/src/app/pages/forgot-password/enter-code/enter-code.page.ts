@@ -10,11 +10,10 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./enter-code.page.scss'],
 })
 export class EnterCodePage implements OnInit {
-  name: string;
   phone: string;
-  email: string;
-  password: string;
+  usertype: string;
   code: string;
+  email;
   enterCodeForm: FormGroup;
   emailInput: HTMLElement;
   sendToEmailButton: HTMLElement;
@@ -40,10 +39,10 @@ export class EnterCodePage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.name = this.activatedRoute.snapshot.paramMap.get('name');
     this.phone = this.activatedRoute.snapshot.paramMap.get('phone');
-    this.email = this.activatedRoute.snapshot.paramMap.get('email');
-    this.password = this.activatedRoute.snapshot.paramMap.get('password');
+    this.usertype = this.activatedRoute.snapshot.paramMap.get('usertype');
+    console.log(this.usertype);
+    
 
     this.emailInput = document.getElementById('email');
     this.sendToEmailButton = document.getElementById('send-to-email');
@@ -79,9 +78,9 @@ export class EnterCodePage implements OnInit {
     this.useEmail = true;
   }
 
-  register() {
+  changePassword() {
     console.log('Attempting to register..');
-    this.router.navigate(['/forgot-password/change-password', this.phone]);
+    this.router.navigate(['/forgot-password/:usertype/change-password', this.phone, this.usertype]);
   }
 
 
@@ -95,7 +94,7 @@ export class EnterCodePage implements OnInit {
   sendEmailCode() {
     console.log('Attempting to send code..');
     this.sentToEmailToast();
-    return this.registerService.sendEmailCode(this.email, this.code).subscribe( data => {
+    return this.registerService.sendEmailCode(this.enterCodeForm.controls.email.value, this.code).subscribe( data => {
       console.log(data);
     });
   }
@@ -103,7 +102,7 @@ export class EnterCodePage implements OnInit {
 
   async sentToEmailToast() {
     const toast = await this.toastController.create({
-      message: `Sent another code to ${this.email}`,
+      message: `Sent code to ${this.enterCodeForm.controls.email.value}`,
       cssClass: 'success-toast',
       duration: 2000
     });

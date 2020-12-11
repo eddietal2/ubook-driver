@@ -74,7 +74,12 @@ export class LoginPage implements OnInit {
   }
 
   forgotPassowrd() {
-    this.router.navigate(['/forgot-password']);
+    if (this.isCarrier) {
+      this.router.navigate(['/forgot-password', 'Carrier']);
+    }
+    if (this.isShipper) {
+      this.router.navigate(['/forgot-password', 'Shipper']);
+    }
   }
 
   carrier() {

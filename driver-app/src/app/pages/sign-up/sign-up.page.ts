@@ -36,8 +36,8 @@ export class SignUpPage implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.carrierButton = document.getElementById('carrier-button');
-    this.shipperButton = document.getElementById('shipper-button');
+    this.carrierButton = document.getElementsByClassName('carrier-button');
+    this.shipperButton = document.getElementsByClassName('shipper-button');
     this.registerCarrierForm = this.formBuilder.group({
       first: ['Eddie', [Validators.required]],
       last: ['Taliaferro', [Validators.required]],
@@ -161,8 +161,8 @@ export class SignUpPage implements OnInit {
     this.carrierButton.style.color = 'white';
     this.shipperButton.style.background = 'none';
     this.shipperButton.style.color = 'blue';
-    this.carrierButton.style.transform = 'translateY(-10px)';
-    this.shipperButton.style.transform = 'translateY(0px)';
+    this.carrierButton.style.transform = 'scale(1.2)';
+    this.shipperButton.style.transform = 'scale(1)';
   }
   shipper() {
     this.usertype = 'Shipper';
@@ -171,8 +171,8 @@ export class SignUpPage implements OnInit {
     this.shipperButton.style.color = 'white';
     this.carrierButton.style.background = 'none';
     this.carrierButton.style.color = 'blue';
-    this.shipperButton.style.transform = 'translateY(-10px)';
-    this.carrierButton.style.transform = 'translateY(0px)';
+    this.shipperButton.style.transform = 'scale(1.2)';
+    this.carrierButton.style.transform = 'scale(1)';
   }
 
   async presentAlert(reason, msg) {
