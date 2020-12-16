@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule  } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RegisterService } from 'src/app/services/register.service';
 import { Plugins, CameraResultType } from '@capacitor/core';
+import { RegisterService } from '../../../../services/register.service';
 
 const { Camera } = Plugins;
 

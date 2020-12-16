@@ -2,8 +2,8 @@ import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild } from '@angular
 import { ToastController, LoadingController, IonInput } from '@ionic/angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { AuthService } from '../../services/auth.service';
 
 
 @Component({
@@ -75,10 +75,10 @@ export class LoginPage implements OnInit {
 
   forgotPassowrd() {
     if (this.isCarrier) {
-      this.router.navigate(['/forgot-password', 'Carrier']);
+      this.router.navigate(['/forgot-password']);
     }
     if (this.isShipper) {
-      this.router.navigate(['/forgot-password', 'Shipper']);
+      this.router.navigate(['/forgot-password']);
     }
   }
 

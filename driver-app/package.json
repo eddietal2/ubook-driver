@@ -5,7 +5,7 @@
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --ssl --ssl-key localhost-key.pem --ssl-cert localhost.pem",
+    "start": "ng serve",
     "ssl": "",
     "build": "ng build",
     "test": "ng test",

@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder, Validators,
 import { AlertController, ToastController, LoadingController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
 import { tap, catchError } from 'rxjs/operators';
-import { LoginService } from 'src/app/services/login.service';
+import { LoginService } from '../../../services/login.service';
 
 @Component({
   selector: 'app-change-password',
@@ -15,6 +15,8 @@ export class ChangePasswordPage implements OnInit {
   changePasswordForm: FormGroup;
   phone: string;
   usertype: string;
+  passwordsMatch: boolean;
+
   validationMessasges = {
     password: [
       // tslint:disable-next-line: max-line-length

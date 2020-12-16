@@ -3,8 +3,8 @@ import { FormGroup, FormBuilder, Validators,
   ReactiveFormsModule } from '@angular/forms';
 import { AlertController, IonButton, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { RegisterService } from 'src/app/services/register.service';
 import { tap, catchError } from 'rxjs/operators';
+import { RegisterService } from '../../services/register.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -36,8 +36,8 @@ export class SignUpPage implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.carrierButton = document.getElementsByClassName('carrier-button');
-    this.shipperButton = document.getElementsByClassName('shipper-button');
+    this.carrierButton = document.querySelector('carrier-button');
+    this.shipperButton = document.querySelector('shipper-button');
     this.registerCarrierForm = this.formBuilder.group({
       first: ['Eddie', [Validators.required]],
       last: ['Taliaferro', [Validators.required]],

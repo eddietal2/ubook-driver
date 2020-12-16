@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { tap, catchError } from 'rxjs/operators';
 import { AlertController, ToastController } from '@ionic/angular';
-import { LoginService } from 'src/app/services/login.service';
+import { LoginService } from '../../services/login.service';
 
 
 @Component({
