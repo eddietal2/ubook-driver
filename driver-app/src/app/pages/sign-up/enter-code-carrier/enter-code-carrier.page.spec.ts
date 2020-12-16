@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { EnterCodeCarrierPage } from './enter-code-carrier.page';
@@ -7,7 +7,7 @@ describe('EnterCodeCarrierPage', () => {
   let component: EnterCodeCarrierPage;
   let fixture: ComponentFixture<EnterCodeCarrierPage>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ EnterCodeCarrierPage ],
       imports: [IonicModule.forRoot()]
