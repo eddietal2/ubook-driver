@@ -78,7 +78,7 @@ export class ForgotPasswordPage implements OnInit {
         .subscribe(
           () => {
             // tslint:disable-next-line: max-line-length
-            this.router.navigate(['/forgot-password/:usertype/enter-code',  '1' + this.forgotCarrierPasswordForm.controls.phone.value, this.usertype]); }
+            this.router.navigate(['/forgot-password/enter-code',  '1' + this.forgotCarrierPasswordForm.controls.phone.value, this.usertype]); }
         );
       }
       if (this.usertype === 'Shipper') {
@@ -99,7 +99,7 @@ export class ForgotPasswordPage implements OnInit {
         .subscribe(
           () => {
             // tslint:disable-next-line: max-line-length
-            this.router.navigate(['/forgot-password/:usertype/enter-code',  '1' + this.forgotShipperPasswordForm.controls.phone.value, this.usertype]); }
+            this.router.navigate(['/forgot-password/enter-code',  '1' + this.forgotShipperPasswordForm.controls.phone.value, this.usertype]); }
         );
       }
     }

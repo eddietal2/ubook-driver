@@ -80,7 +80,7 @@ export class EnterCodePage implements OnInit {
 
   changePassword() {
     console.log('Attempting to register..');
-    this.router.navigate(['/forgot-password/:usertype/change-password', this.phone, this.usertype]);
+    this.router.navigate(['/forgot-password/change-password', this.phone, this.usertype]);
   }
 
 
