@@ -150,12 +150,14 @@ ion-col {
   --box-shadow: none;
   --color: #888;
   font-size: 1.3em;
+  margin-bottom: 50px;
 }
 
 #side-menu-user-info {
-  background: lightgrey;
+  background: linear-gradient(113.52657708203253deg, rgba(41, 41, 41,1) 13.731770833333334%,rgba(47, 53, 61,1) 83.83593749999999%);
   margin: 0;
   padding: 16px;
+  color: white;
 
   h1, h4, h5, h6 {
     margin: 0;

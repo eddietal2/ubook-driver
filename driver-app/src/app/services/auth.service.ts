@@ -77,6 +77,7 @@ export class AuthService {
     console.log(data, usertype);
 
     if (usertype === 'Carrier') {
+      console.log('Carrier is attempting to log in...');
       return this.loginSub = this.http.post(`${this.BACKEND_URL}/api/carrier/login/`,
     { email: data.email,
       password: data.password,

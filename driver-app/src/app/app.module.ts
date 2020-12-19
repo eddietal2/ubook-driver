@@ -12,6 +12,9 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { IonBottomDrawerModule } from 'ion-bottom-drawer';
 
 // For JWT
 export function jwtOptionsFactory(storage) {
@@ -30,16 +33,18 @@ export function jwtOptionsFactory(storage) {
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    IonicStorageModule,
+    IonBottomDrawerModule,
     IonicStorageModule.forRoot(),
-    IonicModule.forRoot(),JwtModule.forRoot({
+    IonicModule.forRoot(),
+    JwtModule.forRoot({
       jwtOptionsProvider: {
         provide: JWT_OPTIONS,
         useFactory: jwtOptionsFactory,
         deps: [Storage],
       }
     }),
-    AppRoutingModule
+    AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     StatusBar,

@@ -25,6 +25,14 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
+* {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+.page-hamburger-menu {
+  margin: 0 14px;
+}
+
 ion-input {
   --background: #dde;
   font-size: 1.2em;
@@ -56,13 +64,37 @@ ion-button {
 
 .carrier-button,
 .shipper-button  {
-  --background: none;
-  --border-width: 2px;
-  --border-color: blue;
+  --background: linear-gradient(113.52657708203253deg, rgba(41, 41, 41,1) 13.731770833333334%,rgba(47, 53, 61,1) 83.83593749999999%);;
+  // --border-width: 2px;
+  // --border-color: blue;
   --border-style: solid;
   --border-radius: 5px;
   --box-shadow: none;
-  --color: blue;
+  --color: white;
+  height: 50px;
+  font-weight: 500;
   transition: 0.5s;
+}
+
+ion-toolbar {
+  --background: linear-gradient(113.52657708203253deg, rgba(41, 41, 41,1) 13.731770833333334%,rgba(47, 53, 61,1) 83.83593749999999%);
+  --color: white;
+}
+
+.success-toast {
+  --border-color: green;
+  --border-style: solid;
+  --border-width: 2px;
+  font-weight: 600;
+  --background: green;
+  --color: white;
+  font-size: 1em;
+}
+
+.danger-toast {
+  font-weight: 600;
+  --background: #FF443B;
+  --color: white;
+  font-size: 1em;
 }
 

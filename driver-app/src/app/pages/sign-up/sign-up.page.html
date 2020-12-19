@@ -51,19 +51,19 @@
             <ion-item>
               <ion-input type="email"
               formControlName="email" placeholder="Email"></ion-input>
-              <!-- Email Validation-->
-              <div class="validation-errors">
-              <ng-container *ngFor="let validation of validationMessasges.email">
-                <div class="error-message"
-                *ngIf="registerCarrierForm
-                  .get('email')
-                  .hasError(validation.type) && (registerCarrierForm.get('email')
-                  .dirty || registerCarrierForm.get('email').touched)">
-                  {{ validation.message }}
-                </div>
-              </ng-container>
-              </div>
             </ion-item>
+            <!-- Email Validation-->
+            <div class="validation-errors">
+            <ng-container *ngFor="let validation of validationMessasges.email">
+              <div class="error-message"
+              *ngIf="registerCarrierForm
+                .get('email')
+                .hasError(validation.type) && (registerCarrierForm.get('email')
+                .dirty || registerCarrierForm.get('email').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+            </div>
             <ion-item>
               <ion-input id="password" type="password"
               formControlName="password" placeholder="Password"></ion-input>
@@ -118,6 +118,8 @@
           </ion-button>
         </form>
       </ion-col>
+
+      <!-- Shipper Form -->
       <ion-col *ngIf="this.usertype === 'Shipper'" size="11">
         <form [formGroup]='registerShipperForm' (submit)="checkEmailAndPhone()">
           <ion-list>
@@ -139,19 +141,19 @@
             <ion-item>
               <ion-input type="email"
               formControlName="email" placeholder="Email"></ion-input>
-              <!-- Email Validation-->
-              <div class="validation-errors">
-              <ng-container *ngFor="let validation of validationMessasges.email">
-                <div class="error-message"
-                *ngIf="registerShipperForm
-                  .get('email')
-                  .hasError(validation.type) && (registerShipperForm.get('email')
-                  .dirty || registerShipperForm.get('email').touched)">
-                  {{ validation.message }}
-                </div>
-              </ng-container>
-              </div>
             </ion-item>
+            <!-- Email Validation-->
+            <div class="validation-errors">
+            <ng-container *ngFor="let validation of validationMessasges.email">
+              <div class="error-message"
+              *ngIf="registerShipperForm
+                .get('email')
+                .hasError(validation.type) && (registerShipperForm.get('email')
+                .dirty || registerShipperForm.get('email').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+            </div>
             <ion-item>
               <ion-input id="password" type="password"
               formControlName="password" placeholder="Password"></ion-input>

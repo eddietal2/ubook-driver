@@ -1,9 +1,16 @@
 // This file can be replaced during build by using the `fileReplacements` array.
+
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
+
 // The list of file replacements can be found in `angular.json`.
 
+// const url is commented out depending on which you are testing with.
+
+
+import 'zone.js/dist/zone-error';
+
 const ip = '10.0.1.4';
-const baseUrl = `http://${ip}:4000`;
+const baseUrl = `https://${ip}:4040`;
 
 export const environment = {
   production: false,

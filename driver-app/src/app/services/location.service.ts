@@ -22,48 +22,4 @@ export class LocationService {
   constructor(
     private http: HttpClient,
     private loadingController: LoadingController) { }
-
-    getCurrentPosition() {
-      let lat;
-      let lng;
-      Geolocation.getCurrentPosition()
-        .then( result => {
-          lat = result.coords.latitude;
-          lng = result.coords.longitude;
-          const location = {
-            lat,
-            lng
-          };
-          console.log(location);
-          return location;
-        })
-        .catch(e => {
-          console.log(e);
-        });
-    }
-
-    watchPosition() {
-      const wait = Geolocation.watchPosition({}, (position, err) => {
-        if (err) {
-          throw Error(err);
-        }
-        console.log(position);
-        return position;
-      });
-      console.log(wait);
-    }
-
-    async loadingCoordinates() {
-      const loading = await this.loadingController.create({
-        cssClass: 'my-custom-class',
-        message: 'Loading Location ... ',
-        duration: 3000
-      });
-      await loading.present();
-
-      const { role, data } = await loading.onDidDismiss();
-      console.log('Loading dismissed!');
-
-      return this.getCurrentPosition();
-    }
 }

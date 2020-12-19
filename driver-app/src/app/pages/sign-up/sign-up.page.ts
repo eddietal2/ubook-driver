@@ -36,21 +36,21 @@ export class SignUpPage implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.carrierButton = document.querySelector('carrier-button');
-    this.shipperButton = document.querySelector('shipper-button');
+    this.carrierButton = document.querySelector('.carrier-button');
+    this.shipperButton = document.querySelector('.shipper-button');
     this.registerCarrierForm = this.formBuilder.group({
-      first: ['Eddie', [Validators.required]],
-      last: ['Taliaferro', [Validators.required]],
-      phone: ['7342237792', [Validators.required]],
-      insurance: ['Insurance', [Validators.required]],
-      email: ['eddielacrosse2@gmail.com', [Validators.required, Validators.email]],
-      password: ['Lacrosse2', Validators.compose([
+      first: ['', [Validators.required]],
+      last: ['', [Validators.required]],
+      phone: ['', [Validators.required]],
+      insurance: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.compose([
         Validators.minLength(8),
         Validators.required,
         // this is for the letters (both uppercase and lowercase) and numbers validation
         Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')
      ])],
-      reEnterPassword: ['Lacrosse2', Validators.compose([
+      reEnterPassword: ['', Validators.compose([
         Validators.minLength(6),
         Validators.required,
         // this is for the letters (both uppercase and lowercase) and numbers validation
@@ -59,11 +59,11 @@ export class SignUpPage implements OnInit {
     });
 
     this.registerShipperForm = this.formBuilder.group({
-      first: ['Eddie', [Validators.required]],
-      last: ['Taliaferro', [Validators.required]],
-      phone: ['7342237792', [Validators.required]],
-      email: ['eddielacrosse2@gmail.com', [Validators.required, Validators.email]],
-      password: ['Lacrosse2', Validators.compose([
+      first: ['', [Validators.required]],
+      last: ['', [Validators.required]],
+      phone: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.compose([
         Validators.minLength(8),
         Validators.required,
         // this is for the letters (both uppercase and lowercase) and numbers validation
