@@ -11,7 +11,7 @@
       </ion-col>
       <ion-col size="10">
         <form [formGroup]="loginForm"
-        (ngSubmit)="login(this.loginForm.value)">
+        (ngSubmit)="login()">
           <ion-list class="line-input">
             <ion-item lines="none">
           <!-- Email -->
@@ -20,8 +20,7 @@
               placeholder="Email"
               inputmode="email"
               formControlName="email"
-              type="email"
-              (keyup.enter)="login(this.loginForm.value)">
+              type="email">
             </ion-input>
             </ion-item>
             <!-- Email Validation-->
@@ -31,7 +30,8 @@
                 *ngIf="loginForm
                   .get('email')
                   .hasError(validation.type) && (loginForm.get('email')
-                  .dirty || loginForm.get('email').touched)">
+                  .dirty || loginForm.get('email').touched)"
+                (keyup.enter)="login()">
                   {{ validation.message }}
                 </div>
               </ng-container>
@@ -44,7 +44,7 @@
             inputmode="text"
             formControlName="password"
             type="password"
-            (keyup.enter)="login(this.loginForm.value)">
+            (keyup.enter)="login()">
           </ion-input>
             </ion-item>
             <!-- Password Validation-->
@@ -88,6 +88,7 @@
 
 
 <div [@inOutAnimation] *ngIf="!usertypeSelected" class="usertype-select">
+  <img class="landing-logo" src="../../../assets/ubook-logo.svg" alt="" srcset="">
   <h1>I am a:</h1>
   <ion-button class="carrier-button" (click)="carrier()">
   Carrier

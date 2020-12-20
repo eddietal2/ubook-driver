@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-
+  // Landing App Routes
   {
     path: '',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
@@ -15,6 +15,8 @@ const routes: Routes = [
     path: 'forgot-password',
     loadChildren: () => import('./pages/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
   },
+
+  // Carrier Routes
   {
     path: 'carrier-profile',
     loadChildren: () => import('./pages/carrier/profile/profile.module').then( m => m.ProfilePageModule)
@@ -32,6 +34,13 @@ const routes: Routes = [
     loadChildren: () => import('./pages/carrier/settings/settings.module').then( m => m.SettingsPageModule)
   },
   {
+    path: 'carrier-order-page',
+    loadChildren: () => import('./pages/carrier/order-page/order-page.module').then( m => m.OrderPagePageModule)
+  },
+
+
+  // Shipper Routes
+  {
     path: 'shipper-profile',
     loadChildren: () => import('./pages/shipper/profile/profile.module').then( m => m.ProfilePageModule)
   },
@@ -46,7 +55,7 @@ const routes: Routes = [
   {
     path: 'shipper-orders',
     loadChildren: () => import('./pages/shipper/orders/orders.module').then( m => m.OrdersPageModule)
-  }
+  },
 ];
 
 @NgModule({

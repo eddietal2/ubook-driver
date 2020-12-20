@@ -15,7 +15,7 @@
     <ion-row class="ion-justify-content-center">
       <ion-col size="10">
         <h4 class="availability-status" *ngIf="available" style="color: green;">
-          <img style="margin-right: 20px;     position: relative; top: 6px;" src="../../../../assets/3-dot-icon.svg" alt="Available Indicator" srcset="">
+          <!-- <img style="margin-right: 20px;     position: relative; top: 6px;" src="../../../../assets/3-dot-icon.svg" alt="Available Indicator" srcset=""> -->
           Available</h4>
           <p class="availability-status-message" *ngIf="available">You will be notified of open orders.</p>
         <h4 class="availability-status" *ngIf="!available" style="color: orangered;">
@@ -25,7 +25,6 @@
       </ion-col>
     </ion-row>
 
-    <!-- Illustration -->
     <ion-row class="ion-justify-content-center">
       <ion-col size="10">
         <ion-list>
@@ -33,7 +32,7 @@
             <ion-label>Current Order</ion-label>
           </ion-item>
           <ion-item (click)="allOrders()" detail id="all-orders" lines="none">
-            <ion-label>All Orders</ion-label>
+            <ion-label>My Orders</ion-label>
           </ion-item>
         </ion-list>
       </ion-col>
@@ -53,16 +52,142 @@
   </ion-grid>
 </ion-content>
 
-<ion-bottom-drawer id="drawer" [minimumHeight]="50" [dockedHeight]="300"
-[distanceTop]="200">
+<ion-bottom-drawer [(state)]="drawerState"
+(stateChange)="drawerStateEvent($event)" id="drawer" [minimumHeight]="250" [dockedHeight]="250"
+[distanceTop]="0">
   <ion-grid>
+    <!-- Drawer Up Chevron Icon -->
     <ion-row class="ion-justify-content-center">
       <ion-col size="12">
         <div class="drawer-icon-wrapper ion-text-center">
-          <ion-icon size="large" style="color: white;" name="chevron-up-outline"></ion-icon>
+          <ion-icon id="chevron-up-icon" size="large" style="color: white;" name="chevron-up-outline"></ion-icon>
+          <div style="margin-top: 30px">
+            <ion-spinner  id="3-dot-top" *ngIf="available" color="success" name="dots"></ion-spinner>
+          </div>
+          <h2 id="swipe-area-header">Open Orders</h2>
+          <p id="swipe-area-text">Swipe Up</p>
         </div>
-        <div></div>
       </ion-col>
     </ion-row>
+
+    <!-- Close Drawer Button -->
+    <ion-row style="margin: 65px 0px" class="ion-justify-content-center">
+      <ion-col size="10">
+        <ion-button style="--background: none; --box-shadow: none; --color: #2F353D" (click)="closeDrawer()">
+          <ion-icon id="drawer-close-button" size="large" style="color: 2F353D" name="close-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <!-- Drawer Content Header -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col style="margin-top: 50px" size="10">
+        <ion-spinner color="success" name="dots"></ion-spinner>
+        <h2 style="font-weight: 600;">Open Orders
+          <ion-button id="filter-button" (click)="filterOpenOrders()">
+            <ion-icon slot="start" name="filter"></ion-icon>
+          </ion-button></h2>
+        <p>Tap on an order to negotiate a rate.</p>
+        <div class="ion-float-right">
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <!-- Filter Options -->
+    <ion-row [@outAnimation] *ngIf="filter" class="filter-options ion-justify-content-center">
+      <hr style="border: 1px solid #222; width: 100%;">
+      <ion-col size="10">
+        <ion-list>
+          <ion-item (click)="closestLocation()" detail lines="none">
+            <ion-label>By Closest Location</ion-label>
+          </ion-item>
+          <ion-item (click)="highestRate()" detail lines="none">
+            <ion-label>By Highest Rate</ion-label>
+          </ion-item>
+          <ion-item (click)="lowestRate()" detail lines="none">
+            <ion-label>By Lowest Rate</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <!-- Filtering Progress -->
+    <ion-row *ngIf="filtering" class="ion-justify-content-center" style="margin: 100px 0;">
+      <ion-col class="ion-text-center" size="10">
+        <p>Filtering ...</p>
+        <ion-spinner></ion-spinner>
+      </ion-col>
+    </ion-row>
+
+    <!-- Open Order List -->
+    <ion-row *ngIf="!filtering" style="margin-top: 25px; margin-bottom: 40px;" class="ion-justify-content-center">
+      <ion-col size="10">
+        <ion-list id="open-order-list">
+          <ion-item (click)="orderPage()" detail class="order" lines="none">
+          <ion-label>
+            <h3 style="font-weight: 500;">To: Detroit, MI, 48202</h3>
+            <h4>Date: January 1st, 2021 by 5:00pm</h4>
+          </ion-label>
+          </ion-item>
+          <ion-item (click)="orderPage()" detail class="order" lines="none">
+          <ion-label>
+            <h3 style="font-weight: 500;">To: Detroit, MI, 48202</h3>
+            <h4>Date: January 1st, 2021 by 5:00pm</h4>
+          </ion-label>
+          </ion-item>
+          <ion-item (click)="orderPage()" detail class="order" lines="none">
+          <ion-label>
+            <h3 style="font-weight: 500;">To: Detroit, MI, 48202</h3>
+            <h4>Date: January 1st, 2021 by 5:00pm</h4>
+          </ion-label>
+          </ion-item>
+          <ion-item (click)="orderPage()" detail class="order" lines="none">
+          <ion-label>
+            <h3 style="font-weight: 500;">To: Detroit, MI, 48202</h3>
+            <h4>Date: January 1st, 2021 by 5:00pm</h4>
+          </ion-label>
+          </ion-item>
+          <ion-item (click)="orderPage()" detail class="order" lines="none">
+          <ion-label>
+            <h3 style="font-weight: 500;">To: Detroit, MI, 48202</h3>
+            <h4>Date: January 1st, 2021 by 5:00pm</h4>
+          </ion-label>
+          </ion-item>
+          <ion-item (click)="orderPage()" detail class="order" lines="none">
+          <ion-label>
+            <h3 style="font-weight: 500;">To: Detroit, MI, 48202</h3>
+            <h4>Date: January 1st, 2021 by 5:00pm</h4>
+          </ion-label>
+          </ion-item>
+          <ion-item (click)="orderPage()" detail class="order" lines="none">
+          <ion-label>
+            <h3 style="font-weight: 500;">To: Detroit, MI, 48202</h3>
+            <h4>Date: January 1st, 2021 by 5:00pm</h4>
+          </ion-label>
+          </ion-item>
+          <ion-item (click)="orderPage()" detail class="order" lines="none">
+          <ion-label>
+            <h3 style="font-weight: 500;">To: Detroit, MI, 48202</h3>
+            <h4>Date: January 1st, 2021 by 5:00pm</h4>
+          </ion-label>
+          </ion-item>
+          <ion-item (click)="orderPage()" detail class="order" lines="none">
+          <ion-label>
+            <h3 style="font-weight: 500;">To: Detroit, MI, 48202</h3>
+            <h4>Date: January 1st, 2021 by 5:00pm</h4>
+          </ion-label>
+          </ion-item>
+      </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <!-- Cancel Drawer Button -->
+    <!-- <ion-row style="margin-bottom: 100px;" class="ion-justify-content-center">
+      <ion-col class="cancel-button-wrapper ion-text-center" size="10">
+        <ion-button (click)="closeDrawer()">
+          Cancel
+        </ion-button>
+      </ion-col>
+    </ion-row> -->
   </ion-grid>
 </ion-bottom-drawer>
