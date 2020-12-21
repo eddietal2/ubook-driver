@@ -29,7 +29,7 @@
       <ion-col size="10">
         <ion-list>
           <ion-item (click)="currentOrder()" detail id="current-order" lines="none">
-            <ion-label>Current Order</ion-label>
+            <ion-label>Active Order</ion-label>
           </ion-item>
           <ion-item (click)="allOrders()" detail id="all-orders" lines="none">
             <ion-label>My Orders</ion-label>
@@ -64,7 +64,7 @@
           <div style="margin-top: 30px">
             <ion-spinner  id="3-dot-top" *ngIf="available" color="success" name="dots"></ion-spinner>
           </div>
-          <h2 id="swipe-area-header">Open Orders</h2>
+          <h2 id="swipe-area-header">Open Orders (9)</h2>
           <p id="swipe-area-text">Swipe Up</p>
         </div>
       </ion-col>
