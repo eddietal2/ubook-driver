@@ -23,6 +23,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginPage implements OnInit {
   loginForm: FormGroup;
+  downloadButton;
   usertypeSelected = false;
   isCarrier = false;
   isShipper = false;
@@ -35,6 +36,7 @@ export class LoginPage implements OnInit {
       { type: 'pattern', message: 'Password must be at least 6 characters with at least one lowercase character, one uppcase character, and one number.'}
     ]
   };
+  deferredPrompt: Event;
   constructor(
     private formBuilder: FormBuilder,
     private auth: AuthService,
@@ -43,6 +45,24 @@ export class LoginPage implements OnInit {
     private router: Router
   ) { }
   ngOnInit() {
+    this.downloadButton = document.getElementById('download-button');
+
+
+    window.addEventListener('beforeinstallprompt', (
+      e) => {
+      // Prevent Chrome 67 and earlier from automatically showing the prompt
+      e.preventDefault();
+      // Stash the event so it can be triggered later.
+      this.deferredPrompt = e;
+      // Update UI to notify the user they can add to home screen
+      console.log(this.deferredPrompt);
+      
+      this.downloadButton.addEventListener(
+        'click', (e) => {
+          // this.deferredPrompt
+        })
+
+    });
     // Testing out Notifications API
     Notification.requestPermission()
       .then((result) => {
@@ -61,7 +81,6 @@ export class LoginPage implements OnInit {
           });
         });
       });
-
 
     this.loginForm = this.formBuilder.group({
       email: ['eddielacrosse2@gmail.com', [Validators.required, Validators.email]],
@@ -113,5 +132,36 @@ export class LoginPage implements OnInit {
 
     var notif = new Notification('Wassup', options);
     setTimeout(this.randomNotification, 1000);
+  }
+  showInstallBanner() {
+
+    console.log('Trying to Show Install Banner ...');
+    console.log(this.deferredPrompt);
+    if (this.deferredPrompt === undefined) {
+      console.log('This page was already installed');
+      this.downloadButton.style.display = 'none';
+    }
+    if (this.deferredPrompt !== undefined && this.deferredPrompt !== null) {
+      // Hide Download Button
+      this.downloadButton.style.display = 'none';
+      // Show the prompt
+      // this.deferredPrompt.;
+      // Wait for the user to respond to the prompt
+      // this.deferredPrompt.userChoice
+      // .then((choiceResult) => {
+      //   if (choiceResult.outcome === 'accepted') {
+      //     console.log('User accepted the A2HS prompt');
+      //   } else {
+      //     this.downloadButton.style.display = 'block';
+      //     this.downloadButton.style.margin = '0 auto 90px auto';
+      //     console.log('User dismissed the A2HS prompt');
+      //   }
+      //   // We no longer need the prompt.  Clear it up.
+      //   this.deferredPrompt = null;
+      // });
+    }
+
+
+
   }
 }
