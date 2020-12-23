@@ -36,7 +36,7 @@ export class LoginPage implements OnInit {
       { type: 'pattern', message: 'Password must be at least 6 characters with at least one lowercase character, one uppcase character, and one number.'}
     ]
   };
-  deferredPrompt: Event;
+  deferredPrompt;
   constructor(
     private formBuilder: FormBuilder,
     private auth: AuthService,
@@ -49,17 +49,16 @@ export class LoginPage implements OnInit {
 
 
     window.addEventListener('beforeinstallprompt', (
-      e) => {
+      e ) => {
       // Prevent Chrome 67 and earlier from automatically showing the prompt
       e.preventDefault();
       // Stash the event so it can be triggered later.
       this.deferredPrompt = e;
       // Update UI to notify the user they can add to home screen
-      console.log(this.deferredPrompt);
-      
       this.downloadButton.addEventListener(
         'click', (e) => {
-          // this.deferredPrompt
+          console.log(e);
+          this.deferredPrompt.prompt();
         })
 
     });
