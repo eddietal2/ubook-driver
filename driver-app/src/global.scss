@@ -39,8 +39,16 @@ ion-input {
   margin: 25px auto;
 }
 
+.green-button {
+  --background: green;
+}
+.red-button {
+  --background: linear-gradient(128deg, #D72F37 0%, #AE000E 100%);
+  border-radius: 5px;
+}
+
 .line {
-  border-bottom: 6px solid #999;
+  border-bottom: 6px solid #9993;
   margin-top: 24px;
 }
 

@@ -3,10 +3,10 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   // Landing App Routes
-  {
-    path: '',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
-  },
+  // {
+  //   path: '',
+  //   loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  // },
   {
     path: 'sign-up',
     loadChildren: () => import('./pages/sign-up/sign-up.module').then( m => m.SignUpPageModule)
@@ -34,7 +34,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/carrier/settings/settings.module').then( m => m.SettingsPageModule)
   },
   {
-    path: 'carrier-order-page',
+    path: '',
     loadChildren: () => import('./pages/carrier/order-page/order-page.module').then( m => m.OrderPagePageModule)
   },
 
