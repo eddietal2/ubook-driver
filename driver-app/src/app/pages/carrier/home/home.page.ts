@@ -14,17 +14,19 @@ import { DrawerState } from 'ion-bottom-drawer';
       'outAnimation',
       [
         transition(':leave', [
-          animate('0.8s ease-out', style({ transform: 'translateX(-100%)' }))
+          animate('0.5s ease-out', style({ transform: 'translateX(-100%)' }))
         ])
       ]
     )
   ]
 })
 export class HomePage implements OnInit {
-  available = false;
-  filter = false;
-  filtering = false;
-  drawerState = DrawerState.Bottom;
+  available = true;
+  pendingfilter = false;
+  pendingfiltering = false;
+  openfilter = false;
+  openfiltering = false;
+  drawerState = DrawerState.Top;
   minimumHeight = '100px';
   dockedHeight = '100px';
   shouldBounce;
@@ -106,30 +108,37 @@ export class HomePage implements OnInit {
   orderPage() {
     this.router.navigate(['/carrier-order-page'])
   }
+  filterPendingOrders() {
+    if (this.pendingfilter === false) {
+      console.log('Filter options already closed');
+      this.pendingfilter = true;
+    }
+    else if (this.pendingfilter === true) {
+      console.log('Filter options already closed');
+      this.pendingfilter = false;
+    }
+  }
+  filteringPendingOrders() {
+    this.pendingfilter = false;
+  }
   filterOpenOrders() {
-    if (this.filter === false) {
+    if (this.openfilter === false) {
       console.log('Filter options already closed');
-      this.filter = true;
+      this.openfilter = true;
     }
-    else if (this.filter === true) {
+    else if (this.openfilter === true) {
       console.log('Filter options already closed');
-      this.filter = false;
+      this.openfilter = false;
     }
   }
-  closestLocation() {
-    this.filterOrders()
+  filteringOpenOrders() {
+    this.openfilter = false;
   }
-  highestRate() {
-    this.filterOrders()
+  closestLocationPending() {
+    this.filteringPendingOrders()
   }
-  lowestRate() {
-    this.filterOrders()
-  }
-  filterOrders() {
-    this.filtering = true;
-    setTimeout(() => {
-      this.filtering = false;
-    }, 2000);
+  closestLocationOpen() {
+    this.filteringOpenOrders()
   }
   drawerStateEvent(e) {
     console.log(e);

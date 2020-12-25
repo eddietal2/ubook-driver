@@ -40,11 +40,20 @@ ion-input {
 }
 
 .green-button {
-  --background: green;
+  --background: #63d730;
+  height: 47px;
+  --box-shadow: none;
+  --border-radius: 100px;
+  font-size: 1.2em;
+  font-weight: 600;
 }
 .red-button {
   --background: linear-gradient(128deg, #D72F37 0%, #AE000E 100%);
-  border-radius: 5px;
+  height: 47px;
+  --box-shadow: none;
+  border-radius: 31px;
+  font-size: 1.2em;
+  font-weight: 600;
 }
 
 .line {

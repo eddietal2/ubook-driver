@@ -22,7 +22,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/carrier/profile/profile.module').then( m => m.ProfilePageModule)
   },
   {
-    path: 'carrier-home',
+    path: '',
     loadChildren: () => import('./pages/carrier/home/home.module').then( m => m.HomePageModule)
   },
   {
@@ -38,8 +38,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/carrier/order-page/order-page.module').then( m => m.OrderPagePageModule)
   },
   {
-    // carrier-respond-with-rate
-    path: '',
+    path: 'carrier-respond-with-rate',
     loadChildren: () => import('./pages/carrier/respond-with-rate/respond-with-rate.module').then( m => m.RespondWithRatePageModule)
   },
 

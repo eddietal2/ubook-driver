@@ -53,9 +53,11 @@
 </ion-content>
 
 <ion-bottom-drawer [(state)]="drawerState"
-(stateChange)="drawerStateEvent($event)" id="drawer" [minimumHeight]="250" [dockedHeight]="250"
-[distanceTop]="0">
-  <ion-grid>
+(stateChange)="drawerStateEvent($event)" [minimumHeight]="250" [dockedHeight]="250"
+[distanceTop]="0" >
+
+  <ion-grid id="drawer">
+
     <!-- Drawer Up Chevron Icon -->
     <ion-row class="ion-justify-content-center">
       <ion-col size="12">
@@ -71,19 +73,77 @@
     </ion-row>
 
     <!-- Close Drawer Button -->
-    <ion-row style="margin: 65px 0px" class="ion-justify-content-center">
+    <ion-row style="margin: 20px 0px" class="ion-justify-content-center">
       <ion-col size="10">
-        <ion-button style="--background: none; --box-shadow: none; --color: #2F353D" (click)="closeDrawer()">
-          <ion-icon id="drawer-close-button" size="large" style="color: 2F353D" name="close-circle-outline"></ion-icon>
-        </ion-button>
+        <div id="close-drawer-button-wrapper">
+          <ion-button style="--background: none; --box-shadow: none; --color: #2F353D" (click)="closeDrawer()">
+            <ion-icon id="drawer-close-button" size="large" style="color: 2F353D" name="close-circle-outline"></ion-icon>
+          </ion-button>
+        </div>
       </ion-col>
     </ion-row>
 
-    <!-- Drawer Content Header -->
+    <!-- Pending Orders Content Header -->
     <ion-row class="ion-justify-content-center">
       <ion-col style="margin-top: 50px" size="10">
         <ion-spinner color="success" name="dots"></ion-spinner>
-        <h2 style="font-weight: 600;">Open Orders
+        <h2 style="font-weight: 600; color: orangered;">(1) Pending Orders
+          <ion-button id="filter-button" (click)="filterPendingOrders()">
+            <ion-icon slot="start" name="filter"></ion-icon>
+          </ion-button></h2>
+        <div class="ion-float-right">
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <!-- Pending Orders Filter Options -->
+    <ion-row [@outAnimation] *ngIf="pendingfilter" class="filter-options ion-justify-content-center">
+      <ion-col size="12">
+        <ion-list>
+          <ion-item (click)="closestLocationPending()" detail lines="none">
+            <ion-label>By Closest Location</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <!-- Pending Orders Filtering Progress -->
+    <ion-row *ngIf="pendingfiltering" class="ion-justify-content-center" style="margin: 100px 0;">
+      <ion-col class="ion-text-center" size="10">
+        <p>Filtering ...</p>
+        <ion-spinner></ion-spinner>
+      </ion-col>
+    </ion-row>
+
+    <!-- Pending Orders List -->
+    <ion-row *ngIf="!pendingfiltering" style="margin-top: 25px; margin-bottom: 40px;" class="ion-justify-content-center">
+     <ion-col size="12">
+       <ion-list id="pending-order-list">
+         <ion-item (click)="orderPage()" detail class="order" lines="none">
+         <ion-label>
+          <h3>Miami, FL - to - Detroit, MI (600 Miles)</h3>
+          <h4>PU: Jan 1 600 - 900</h4>
+          <h4>DL: Jan 5 600 -1330</h4>
+          <h4>Reefer - 42,000 lbs (Apples)</h4>
+         </ion-label>
+         </ion-item>
+     </ion-list>
+     </ion-col>
+   </ion-row>
+
+
+    <!-- Line -->
+    <ion-row>
+      <ion-col class="line" size="12">
+      </ion-col>
+    </ion-row>
+
+
+    <!-- Open Orders Content Header -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col style="margin-top: 50px" size="10">
+        <ion-spinner color="success" name="dots"></ion-spinner>
+        <h2 style="font-weight: 600;">(9) Open Orders
           <ion-button id="filter-button" (click)="filterOpenOrders()">
             <ion-icon slot="start" name="filter"></ion-icon>
           </ion-button></h2>
@@ -93,26 +153,20 @@
       </ion-col>
     </ion-row>
 
-    <!-- Filter Options -->
-    <ion-row [@outAnimation] *ngIf="filter" class="filter-options ion-justify-content-center">
-      <hr style="border: 1px solid #222; width: 100%;">
-      <ion-col size="10">
+    <!-- Open Orders Filter Options -->
+    <ion-row [@outAnimation] *ngIf="openfilter" class="filter-options ion-justify-content-center">
+      <hr>
+      <ion-col size="12">
         <ion-list>
-          <ion-item (click)="closestLocation()" detail lines="none">
+          <ion-item (click)="closestLocationOpen()" detail lines="none">
             <ion-label>By Closest Location</ion-label>
-          </ion-item>
-          <ion-item (click)="highestRate()" detail lines="none">
-            <ion-label>By Highest Rate</ion-label>
-          </ion-item>
-          <ion-item (click)="lowestRate()" detail lines="none">
-            <ion-label>By Lowest Rate</ion-label>
           </ion-item>
         </ion-list>
       </ion-col>
     </ion-row>
 
-    <!-- Filtering Progress -->
-    <ion-row *ngIf="filtering" class="ion-justify-content-center" style="margin: 100px 0;">
+    <!-- Open Orders Filtering Progress -->
+    <ion-row *ngIf="openfiltering" class="ion-justify-content-center" style="margin: 100px 0;">
       <ion-col class="ion-text-center" size="10">
         <p>Filtering ...</p>
         <ion-spinner></ion-spinner>
@@ -120,74 +174,23 @@
     </ion-row>
 
     <!-- Open Order List -->
-    <ion-row *ngIf="!filtering" style="margin-top: 25px; margin-bottom: 40px;" class="ion-justify-content-center">
-      <ion-col size="10">
+    <ion-row *ngIf="!openfiltering" style="margin-top: 25px; margin-bottom: 40px;" class="ion-justify-content-center">
+      <ion-col size="12">
         <ion-list id="open-order-list">
           <ion-item (click)="orderPage()" detail class="order" lines="none">
           <ion-label>
-            <h3 style="font-weight: 500;">To: Detroit, MI, 48202</h3>
-            <h4>Date: January 1st, 2021 by 5:00pm</h4>
-          </ion-label>
-          </ion-item>
-          <ion-item (click)="orderPage()" detail class="order" lines="none">
-          <ion-label>
-            <h3 style="font-weight: 500;">To: Detroit, MI, 48202</h3>
-            <h4>Date: January 1st, 2021 by 5:00pm</h4>
-          </ion-label>
-          </ion-item>
-          <ion-item (click)="orderPage()" detail class="order" lines="none">
-          <ion-label>
-            <h3 style="font-weight: 500;">To: Detroit, MI, 48202</h3>
-            <h4>Date: January 1st, 2021 by 5:00pm</h4>
-          </ion-label>
-          </ion-item>
-          <ion-item (click)="orderPage()" detail class="order" lines="none">
-          <ion-label>
-            <h3 style="font-weight: 500;">To: Detroit, MI, 48202</h3>
-            <h4>Date: January 1st, 2021 by 5:00pm</h4>
-          </ion-label>
-          </ion-item>
-          <ion-item (click)="orderPage()" detail class="order" lines="none">
-          <ion-label>
-            <h3 style="font-weight: 500;">To: Detroit, MI, 48202</h3>
-            <h4>Date: January 1st, 2021 by 5:00pm</h4>
-          </ion-label>
-          </ion-item>
-          <ion-item (click)="orderPage()" detail class="order" lines="none">
-          <ion-label>
-            <h3 style="font-weight: 500;">To: Detroit, MI, 48202</h3>
-            <h4>Date: January 1st, 2021 by 5:00pm</h4>
-          </ion-label>
-          </ion-item>
-          <ion-item (click)="orderPage()" detail class="order" lines="none">
-          <ion-label>
-            <h3 style="font-weight: 500;">To: Detroit, MI, 48202</h3>
-            <h4>Date: January 1st, 2021 by 5:00pm</h4>
-          </ion-label>
-          </ion-item>
-          <ion-item (click)="orderPage()" detail class="order" lines="none">
-          <ion-label>
-            <h3 style="font-weight: 500;">To: Detroit, MI, 48202</h3>
-            <h4>Date: January 1st, 2021 by 5:00pm</h4>
-          </ion-label>
-          </ion-item>
-          <ion-item (click)="orderPage()" detail class="order" lines="none">
-          <ion-label>
-            <h3 style="font-weight: 500;">To: Detroit, MI, 48202</h3>
-            <h4>Date: January 1st, 2021 by 5:00pm</h4>
+            <h3>Miami, FL - to - Detroit, MI (600 Miles)</h3>
+            <h4>PU: Jan 1 600 - 900</h4>
+            <h4>DL: Jan 5 600 -1330</h4>
+            <h4>Reefer - 42,000 lbs (Apples)</h4>
           </ion-label>
           </ion-item>
       </ion-list>
       </ion-col>
     </ion-row>
 
-    <!-- Cancel Drawer Button -->
-    <!-- <ion-row style="margin-bottom: 100px;" class="ion-justify-content-center">
-      <ion-col class="cancel-button-wrapper ion-text-center" size="10">
-        <ion-button (click)="closeDrawer()">
-          Cancel
-        </ion-button>
-      </ion-col>
-    </ion-row> -->
+
+
+
   </ion-grid>
 </ion-bottom-drawer>

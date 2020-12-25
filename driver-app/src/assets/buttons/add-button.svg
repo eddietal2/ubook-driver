@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
+    <title>Add-Button</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="37.1201604%" id="radialGradient-1">
+            <stop stop-color="#538D3B" offset="0%"></stop>
+            <stop stop-color="#6DD400" offset="100%"></stop>
+        </radialGradient>
+        <filter x="-238.6%" y="-238.6%" width="577.3%" height="577.3%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="11.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Add-Button" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-4">
+            <circle id="Oval" fill="url(#radialGradient-1)" cx="32" cy="32" r="32"></circle>
+            <g id="Group" filter="url(#filter-2)" transform="translate(21.000000, 21.000000)" stroke="#FFFFFF" stroke-linecap="square" stroke-width="7">
+                <path d="M0.234042553,11 L21.7659574,11" id="Line-Copy"></path>
+                <path d="M-7.14095449e-13,11 L22,11" id="Line-Copy-3" transform="translate(11.000000, 11.000000) rotate(90.000000) translate(-11.000000, -11.000000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>
