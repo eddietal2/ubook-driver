@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      <ion-title>Respond with Rate</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <!-- Timer -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="11">
+      <!-- Time -->
+      <ion-col class="ion-text-center" size="3">
+        <div *ngIf="timerLoading">
+          <ion-spinner name="lines"></ion-spinner>
+        </div>
+        <div *ngIf="!timerLoading" id="timer-wrapper">
+          <h1 id="timer"></h1>
+        </div>
+      </ion-col>
+      </ion-col>
+    </ion-row>
+    <!-- Description -->
+    <ion-row class="ion-justify-content-center">
+      <!-- Page Description -->
+      <ion-col class="ion-text-center" size="11">
+        <p>Please submit your proposed rate. Does the time start on this page? Or does the time start once the order has been submitted by the Shipper?</p>
+      </ion-col>
+    </ion-row>
+    <!-- Rate Adjuster -->
+    <ion-row class="rate-adjuster ion-justify-content-center">
+        <ion-col (click)="decrementRate()"  class="ion-text-center" size="3">
+          <ion-icon color="danger" name="remove-circle-outline"></ion-icon>
+        </ion-col>
+        <ion-col class="ion-text-center" size="6">
+          <ion-input (ionChange)="logRate($event)" id="rate" type="number" placeholder="{{shipperRate}}" value="{{shipperRate}}"><span id="dollar-sign">$</span></ion-input>
+        </ion-col>
+        <ion-col (click)="incrementRate()" class="ion-text-center" size="3">
+          <ion-icon color="success" name="add-circle-outline"></ion-icon>
+        </ion-col>
+    </ion-row>
+    <!-- Buttons -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="11">
+        <ion-button class="green-button" expand="full" (click)="submitLoading()">
+          Submit
+        </ion-button>
+        <ion-button class="red-button" expand="full" (click)="declineLoading()">
+          Decline
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

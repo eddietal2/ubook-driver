@@ -34,8 +34,13 @@ const routes: Routes = [
     loadChildren: () => import('./pages/carrier/settings/settings.module').then( m => m.SettingsPageModule)
   },
   {
-    path: '',
+    path: 'carrier-order-page',
     loadChildren: () => import('./pages/carrier/order-page/order-page.module').then( m => m.OrderPagePageModule)
+  },
+  {
+    // carrier-respond-with-rate
+    path: '',
+    loadChildren: () => import('./pages/carrier/respond-with-rate/respond-with-rate.module').then( m => m.RespondWithRatePageModule)
   },
 
 

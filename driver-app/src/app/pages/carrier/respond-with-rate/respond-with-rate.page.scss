@@ -1,0 +1,57 @@
+*{
+  transition: 0.5s;
+}
+#timer-wrapper {
+  border: 2px solid #2F353D;
+  background: #eec;
+  height: 60px;
+  font-size: 1em;
+  border-radius: 5px;
+  margin: 20px auto;
+  width: 170px;
+  transition: 0.5s;
+  box-shadow: 1px 1px 6px #3338;
+  animation: timer-wrapper-slide-down 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+@keyframes timer-wrapper-slide-down {
+  0%{
+    transform: translateY(-100px);
+  }
+  100%{
+    transform: translateY(0px);
+  }
+}
+#timer {
+  color: #2F353D;
+  position: relative;
+  top: 15px;
+  font-weight: 600;
+  display: inline;
+  letter-spacing: 0.12em;
+}
+.rate-adjuster {
+  background: #9991;
+  margin: 40px auto;
+  padding: 45px 0px;
+
+  #rate{
+    font-size: 3em;
+    color: #2F353D;
+    font-weight: 600;
+    position: relative;
+    top: -17px;
+    margin: 0;
+  }
+  ion-icon {
+    font-size: 3em;
+    position: relative;
+    top: 0px;
+  }
+}
+ion-button {
+  margin: 20px auto;
+}
+#dollar-sign{
+  position: relative;
+  left: 18px;
+}
