@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoadingController, ToastController, AlertController } from '@ionic/angular';
-import { parse } from 'path';
-
 
 @Component({
   selector: 'app-respond-with-rate',
@@ -44,16 +42,26 @@ export class RespondWithRatePage implements OnInit {
       let distance = now - countDownDate;
       console.log(distance);
       // Time calculations minutes and seconds
-      let minutes = 10 + Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("timer").innerHTML = '0' + minutes.toString() + ' : ' + ' ' + seconds.toString();
 
       // If there is more than 10 minutes, add a 0 to the minutes timer
       if (minutes <= 10) {
+        document.getElementById("timer").innerHTML = '0' + minutes.toString() + ' : ' + ' ' + '0' + seconds.toString();
+      }
+      if (minutes <= 10 && seconds > 9) {
+        document.getElementById("timer").innerHTML = '0' + minutes.toString() + ' : ' + ' ' + seconds.toString();
+      }
+      if (minutes >= 10 ) {
         document.getElementById("timer").innerHTML = minutes.toString() + ' : ' + ' ' + seconds.toString();
       }
-
+      if (minutes >= 10 && seconds <= 9) {
+        document.getElementById("timer").innerHTML = minutes.toString() + ' : ' + ' ' + '0'  + seconds.toString();
+      }
       // When timer expires after 15 minutes
-      if (minutes === 15) {
+      if (minutes >= 15) {
         clearInterval(x);
         document.getElementById("timer").innerHTML = "Expired.";
         document.getElementById("timer-wrapper").style.background = "white";
