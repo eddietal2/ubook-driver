@@ -5,7 +5,7 @@
   <ion-grid>
     <ion-row class="ion-justify-content-center">
       <ion-col class="ion-text-center" size="10">
-        <h1 style="margin: 40px 0px">UBook Freight</h1>
+        <h1 style="margin: 0px 0px; color: white">UBook Freight</h1>
         <h3 id="carrier-header" *ngIf="isCarrier">Carrier</h3>
         <h3 id="shipper-header" *ngIf="isShipper">Shipper</h3>
       </ion-col>
@@ -72,13 +72,15 @@
     </ion-row>
 
     <ion-row id="bottom-buttons" class="ion-justify-content-center">
-      <ion-col size="10">
-        <ion-button id="carrier-button-bottom"  expand="full" *ngIf="isCarrier" (click)="shipper()">
+      <ion-col size="6">
+        <button id="shipper-button" (click)="carrier()">
           I am a Shipper
-        </ion-button>
-        <ion-button id="shipper-button-bottom"  expand="full" *ngIf="isShipper" (click)="carrier()">
+        </button>
+      </ion-col>
+      <ion-col size="6">
+        <button id="carrier-button" (click)="carrier()">
           I am a Carrier
-        </ion-button>
+        </button>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -86,20 +88,28 @@
 
 <!-- Footer without a border -->
 <ion-footer>
-  <button id="download-button" style=" border-radius: 0">Install App</button>
+  <button (click)="downloadModal()" id="download-button">Download App</button>
 </ion-footer>
 
 
 
 
-<div [@inOutAnimation] *ngIf="!usertypeSelected" class="usertype-select">
-  <img class="landing-logo" src="../../../assets/ubook-logo.svg" alt="" srcset="">
-  <h1>I am a:</h1>
-  <ion-button class="carrier-button" (click)="carrier()">
-  Carrier
-  </ion-button>
-  <ion-button class="shipper-button" (click)="shipper()">
-  Shipper
-  </ion-button>
+<div [@inOutAnimation] *ngIf="!usertypeSelected" class="usertype-select-wrapper">
+  <div style="text-align: center; margin: 0 auto;">
+    <img class="landing-logo" src="../../../assets/ubook-logo.svg" alt="" srcset="">
+  </div>
+  <div class="spacer"></div>
+  <div class="usertype-buttons">
+    <h1>I am a:</h1>
+    <ion-button class="usertype-button" (click)="carrier()">
+      Carrier
+      </ion-button>
+      <ion-button class="usertype-button" (click)="shipper()">
+      Shipper
+      </ion-button>
+      <ion-button class="usertype-button" (click)="shipper()">
+      Reciever
+      </ion-button>
+  </div>
 </div>
 

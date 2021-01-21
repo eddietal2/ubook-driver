@@ -193,7 +193,8 @@
    */
 
   .md body {
-    --ion-background-color: white;
+    --ion-background-color: #fff;
+    // --ion-background-color: linear-gradient(-52deg, #2F353D 0%, #292929 82%);
     --ion-background-color-rgb: 18,18,18;
 
     --ion-text-color: #222;

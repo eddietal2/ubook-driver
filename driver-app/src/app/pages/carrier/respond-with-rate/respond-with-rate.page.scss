@@ -3,11 +3,13 @@
 }
 #timer-wrapper {
   border: 2px solid #2F353D;
-  height: 60px;
-  font-size: 1em;
+  height: 200px;
+  font-size: 4em;
   border-radius: 5px;
   margin: 20px auto;
-  width: 170px;
+  width: 100%;
+  padding-top: 50px;
+  font-size: 2em;
   transition: 0.5s;
   box-shadow: 1px 1px 6px #3338;
   animation: timer-wrapper-slide-down 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
@@ -25,6 +27,7 @@
   position: relative;
   top: 15px;
   font-weight: 600;
+  font-size: 2em;
   display: inline;
   letter-spacing: 0.12em;
 }

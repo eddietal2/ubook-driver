@@ -87,6 +87,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    window.navigator.vibrate(2000);
 
    // Get Geolocation
    Geolocation.getCurrentPosition()

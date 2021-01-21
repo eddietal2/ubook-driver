@@ -51,7 +51,7 @@ export class RespondWithRatePage implements OnInit {
       let distance = now - countDownDate;
       // console.log(distance);
       // Time calculations minutes and seconds
-      let minutes = 10 + Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      let minutes = 14 + Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
       // Minutes 10 - 15, add a 0 to the minutes timer
@@ -67,9 +67,26 @@ export class RespondWithRatePage implements OnInit {
       if (minutes >= 10 && seconds <= 9) {
         document.getElementById("timer").innerHTML = minutes.toString() + ' : ' + ' ' + '0'  + seconds.toString();
       }
+
+      // TODO:
+      // Change timer to yellow? after 5 minutes
+      if (minutes >= 5 && minutes <= 10) {
+        document.getElementById("timer-wrapper").style.background = "rgb(255 243 239)";
+        document.getElementById("timer-wrapper").style.border = "5px solid F7B500";
+        document.getElementById("timer").style.color = "F7B500";
+        document.getElementById("timer").style.top = "10px";
+      }
+
+      // 14 Minutes left
+      if (minutes >= 14) {
+        
+      }
+
+
+      // Change timer to orangered after 10 minutes
       if (minutes >= 10 && minutes <= 15) {
         document.getElementById("timer-wrapper").style.background = "rgb(255 243 239)";
-        document.getElementById("timer-wrapper").style.border = "5px solid orangered";
+        document.getElementById("timer-wrapper").style.border = "10px solid orangered";
         document.getElementById("timer").style.color = "orangered";
         document.getElementById("timer").style.top = "10px";
       }
@@ -79,7 +96,7 @@ export class RespondWithRatePage implements OnInit {
         // Animation for expired Timer.
         document.getElementById("timer").innerHTML = "Expired.";
         document.getElementById("timer-wrapper").style.background = "white";
-        document.getElementById("timer-wrapper").style.border = "3px solid #D72F37";
+        document.getElementById("timer-wrapper").style.border = "10px solid #D72F37";
         document.getElementById("timer").style.color = "#D72F37";
         document.getElementById("timer-wrapper").style.transform = "translateY(-20px) scale(1.2)";
         document.getElementById("timer-wrapper").style.animationTimingFunction = "cubic-bezier(0.075, 0.82, 0.165, 1)"

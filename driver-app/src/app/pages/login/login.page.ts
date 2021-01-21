@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ToastController, LoadingController } from '@ionic/angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import { trigger, style, animate, transition } from '@angular/animations';
 import { AuthService } from '../../services/auth.service';
+import { ModalController } from '@ionic/angular';
+import { DownloadAppPage } from '../../modals/download-app/download-app.page';
 
 
 @Component({
@@ -15,7 +17,7 @@ import { AuthService } from '../../services/auth.service';
       'inOutAnimation',
       [
         transition(':leave', [
-          animate('0.8s ease-out', style({ transform: 'translateX(100%)' }))
+          animate('0.8s ease-out', style({ transform: 'translateY(100%)' }))
         ])
       ]
     )
@@ -24,6 +26,8 @@ import { AuthService } from '../../services/auth.service';
 export class LoginPage implements OnInit {
   loginForm: FormGroup;
   downloadButton;
+  carrierButton;
+  shipperButton;
   usertypeSelected = false;
   isCarrier = false;
   isShipper = false;
@@ -42,10 +46,13 @@ export class LoginPage implements OnInit {
     private auth: AuthService,
     private loading: LoadingController,
     private toast: ToastController,
-    private router: Router
+    private router: Router,
+    private modalController: ModalController
   ) { }
   ngOnInit() {
     this.downloadButton = document.getElementById('download-button');
+    this.carrierButton = document.getElementById('carrier-button');
+    this.shipperButton = document.getElementById('shipper-button');
 
 
     window.addEventListener('beforeinstallprompt', (
@@ -117,11 +124,14 @@ export class LoginPage implements OnInit {
     this.usertypeSelected = true;
     this.isCarrier = true;
     this.isShipper = false;
+    this.downloadButton.style.transform = 'translateY(70px)';
+    this.carrierButton.style.background = 'lightgrey';
   }
   shipper() {
     this.usertypeSelected = true;
     this.isShipper = true;
     this.isCarrier = false;
+    this.downloadButton.style.transform = 'translateY(70px)'
   }
   randomNotification() {
     var options = {
@@ -162,5 +172,12 @@ export class LoginPage implements OnInit {
 
 
 
+  }
+  async downloadModal() {
+    const modal = await this.modalController.create({
+      component: DownloadAppPage,
+      cssClass: 'my-custom-class'
+    });
+    return await modal.present();
   }
 }
