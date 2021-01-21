@@ -1,20 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { EditPage } from './edit.page';
+import { CancelPage } from './cancel.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: EditPage
+    component: CancelPage
   },
   {
     path: 'confirm',
     loadChildren: () => import('./confirm/confirm.module').then( m => m.ConfirmPageModule)
-  },
-  {
-    path: 'input',
-    loadChildren: () => import('./input/input.module').then( m => m.InputPageModule)
   },
   {
     path: 'success',
@@ -26,4 +22,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class EditPageRoutingModule {}
+export class CancelPageRoutingModule {}

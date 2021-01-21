@@ -19,6 +19,10 @@ const routes: Routes = [
   {
     path: 'cancel',
     loadChildren: () => import('./cancel/cancel.module').then( m => m.CancelPageModule)
+  },
+  {
+    path: 'confirm',
+    loadChildren: () => import('./confirm/confirm.module').then( m => m.ConfirmPageModule)
   }
 ];
 

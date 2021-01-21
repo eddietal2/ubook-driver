@@ -9,16 +9,16 @@ const routes: Routes = [
     component: EditPage
   },
   {
-    path: 'confirm',
-    loadChildren: () => import('./confirm/confirm.module').then( m => m.ConfirmPageModule)
-  },
-  {
     path: 'input',
     loadChildren: () => import('./input/input.module').then( m => m.InputPageModule)
   },
   {
     path: 'success',
     loadChildren: () => import('./success/success.module').then( m => m.SuccessPageModule)
+  },
+  {
+    path: 'confirm',
+    loadChildren: () => import('./confirm/confirm.module').then( m => m.ConfirmPageModule)
   }
 ];
 

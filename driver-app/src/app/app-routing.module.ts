@@ -234,6 +234,10 @@ const routes: Routes = [
   {
     path: 'pending',
     loadChildren: () => import('./pages/shipper/orders/pending/pending.module').then( m => m.PendingPageModule)
+  },
+  {
+    path: 'confirm',
+    loadChildren: () => import('./pages/receiver/orders/pending/edit/confirm/confirm.module').then( m => m.ConfirmPageModule)
   }
 ];
 
