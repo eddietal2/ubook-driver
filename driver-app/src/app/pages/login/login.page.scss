@@ -1,7 +1,31 @@
+ion-content{
+  --background: linear-gradient(-52deg, #2F353D 0%, #292929 82%);;
+}
+
 #logo {
   background: lightblue;
   width: 100px; height: 100px;
   margin: 70px auto 40px auto;
+}
+
+#download-button {
+  background: linear-gradient(90deg, #1fcc6d 19.625%,rgba(30, 203, 108,1) 19.625%,rgba(23, 191, 40,1) 79.625%)
+  ;
+  -webkit-background: linear-gradient(90deg, rgba(31, 204, 109,1) 19.625%,#1ecb6c 19.625%,rgba(23, 191, 40,1) 79.625%)
+  ;
+  color: white;
+  width: 100%;
+  height: 60px;
+  font-size: 1.4em;
+  font-weight: 600;
+  margin: 0;
+  border-radius: 0 !important;
+  transition: 0.5s;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  // animation: slide-up 0.5s ease 1s forwards;
+  // transform: translateY(100%);
 }
 
 ion-item {
@@ -34,41 +58,78 @@ ion-item {
   --box-shadow: none;
 }
 
-.usertype-select {
+.usertype-select-wrapper {
   height: 100vh;
   width: 100%;
-  background: #eef;
+  background: linear-gradient(-52deg, #2F353D 0%, #292929 82%);;
   color: #222;
-  text-align: center;
-  padding-top: 50%;
-  position: absolute;
+  // text-align: center;
+  padding-top: 15%;
+  position: relative;
   top: 0;
   left: 0;
   transition: 0.5s;
 
   h1 {
     margin-bottom: 40px;
-    position: relative;
-    left: -85px;
+    color: white;
+    font-weight: 600;
   }
 }
 
-#bottom-buttons {
-  position: absolute;
-  bottom: 50px;
-  width: 100%;
+.spacer {
+  height: 25vh;
 }
 
-#shipper-button-bottom,
-#carrier-button-bottom{
-  animation: usertype-button-slide-in 0.5s ease-in forwards;
-  opacity: 0;
+.usertype-select {
+  // background: #ffffff0a;
+  // padding: 15px;
+  margin: auto 10%;
+}
+
+.usertype-buttons{
+  margin: auto 20px;
+}
+
+#bottom-buttons {
+  text-align: center;
+  position: absolute;
+  bottom: 6px;
+  right: 25px;
+  left: -4px;
+  height: 100px;
+  width: 100%;
+
+  button {
+    height: 100px;
+    margin: 0;
+  }
+}
+
+#shipper-button{
+  // animation: usertype-button-slide-in 0.5s ease-in forwards;
+  // opacity: 0;
+  width: 100%;
+  height: 100px;
+  width: 95%;
+}
+#carrier-button{
+  // animation: usertype-button-slide-in 0.5s ease-in forwards;
+  // opacity: 0;
+  width: 100%;
+  height: 100px;
+  width: 95%;
 }
 #shipper-header,
 #carrier-header{
   animation: usertype-header-slide-in 0.5s ease-in forwards;
   opacity: 0;
   color: orangered;
+}
+
+.landing-logo {
+  height: 200px;
+  
 }
 
 @keyframes usertype-header-slide-in {

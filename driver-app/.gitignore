@@ -30,7 +30,4 @@ npm-debug.log*
 /plugins
 /www
 
-localhost-key.pem
-localhost.pem
-10.0.1.5-key.pem
-10.0.1.5.pem
+src/app/app-routing.module.ts

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
+    <title>minus-button</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="50%" x2="47.3390884%" y2="87.2991331%" id="linearGradient-1">
+            <stop stop-color="#AE000E" offset="0%"></stop>
+            <stop stop-color="#D72F37" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="minus-button" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-4">
+            <circle id="Oval" fill="url(#linearGradient-1)" cx="32" cy="32" r="32"></circle>
+            <path d="M21.2340426,32 L42.7659574,32" id="Line-Copy" stroke="#FFFFFF" stroke-width="7" stroke-linecap="square"></path>
+        </g>
+    </g>
+</svg>
