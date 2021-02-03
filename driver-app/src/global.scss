@@ -64,14 +64,6 @@ ion-select {
   font-size: 1.2em;
 }
 
-// .line-input {
-//   background: none;
-
-//   ion-item{
-//     --background: none;
-//   }
-// }
-
 .red-asterisk {
   margin: 10px 0px 0px 0px;
   color: red;
@@ -206,7 +198,7 @@ ion-toolbar {
   --border-style: solid;
   --border-width: 2px;
   font-weight: 600;
-  --background: green;
+  --background: linear-gradient(90deg, #1fcc6d 19.625%,rgba(30, 203, 108,1) 19.625%,rgba(23, 191, 40,1) 79.625%);;
   --color: white;
   font-size: 1em;
 }
@@ -216,7 +208,7 @@ ion-toolbar {
   --border-style: solid;
   --border-width: 2px;
   font-weight: 600;
-  --background: green;
+  --background: linear-gradient(90deg, #1fcc6d 19.625%,rgba(30, 203, 108,1) 19.625%,rgba(23, 191, 40,1) 79.625%);;
   --color: white;
   font-size: 1.2em;
 }

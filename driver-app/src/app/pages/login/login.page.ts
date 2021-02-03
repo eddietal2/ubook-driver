@@ -6,6 +6,7 @@ import { trigger, style, animate, transition } from '@angular/animations';
 import { AuthService } from '../../services/auth.service';
 import { ModalController } from '@ionic/angular';
 import { DownloadAppPage } from '../../modals/download-app/download-app.page';
+import { TextAttribute } from '@angular/compiler/src/render3/r3_ast';
 
 
 @Component({
@@ -28,9 +29,11 @@ export class LoginPage implements OnInit {
   downloadButton;
   carrierButton;
   shipperButton;
+  recieverButton;
   usertypeSelected = false;
-  isCarrier = false;
-  isShipper = false;
+  isCarrier: boolean;
+  isShipper: boolean;
+  isReciever: boolean;
   validationMessasges = {
     email: [
       { type: 'email', message: 'Must be a valid email address'}
@@ -41,6 +44,7 @@ export class LoginPage implements OnInit {
     ]
   };
   deferredPrompt;
+
   constructor(
     private formBuilder: FormBuilder,
     private auth: AuthService,
@@ -53,6 +57,7 @@ export class LoginPage implements OnInit {
     this.downloadButton = document.getElementById('download-button');
     this.carrierButton = document.getElementById('carrier-button');
     this.shipperButton = document.getElementById('shipper-button');
+    this.recieverButton = document.getElementById('reciever-button');
 
 
     window.addEventListener('beforeinstallprompt', (
@@ -124,14 +129,34 @@ export class LoginPage implements OnInit {
     this.usertypeSelected = true;
     this.isCarrier = true;
     this.isShipper = false;
+    this.isReciever = false;
     this.downloadButton.style.transform = 'translateY(70px)';
-    this.carrierButton.style.background = 'lightgrey';
+    this.carrierButton.style.background = 'linear-gradient(90deg, #1fcc6d 19.625%,rgba(30, 203, 108,1) 19.625%,rgba(23, 191, 40,1) 79.625%)';
+    this.shipperButton.style.background = '#eee2';
+    this.recieverButton.style.background = '#eee2';
   }
   shipper() {
     this.usertypeSelected = true;
     this.isShipper = true;
     this.isCarrier = false;
-    this.downloadButton.style.transform = 'translateY(70px)'
+    this.isReciever = false;
+    this.downloadButton.style.transform = 'translateY(70px)';
+    
+    this.shipperButton.style.background = 'linear-gradient(90deg, #1fcc6d 19.625%,rgba(30, 203, 108,1) 19.625%,rgba(23, 191, 40,1) 79.625%)';
+    this.shipperButton.style.border = '4px solid #6DD400;';
+    this.carrierButton.style.background = '#eee2';
+    this.recieverButton.style.background = '#eee2';
+    //box-shadow: 3px 3px 15px 0 rgba(0,0,0,0.50); border-radius: 10px 10px 0 0;
+  }
+  reciever() {
+    this.usertypeSelected = true;
+    this.isShipper = false;
+    this.isCarrier = false;
+    this.isReciever = true;
+    this.downloadButton.style.transform = 'translateY(70px)';
+    this.carrierButton.style.background = '#eee2';
+    this.shipperButton.style.background = '#eee2';
+    this.recieverButton.style.background = 'linear-gradient(90deg, #1fcc6d 19.625%,rgba(30, 203, 108,1) 19.625%,rgba(23, 191, 40,1) 79.625%)';
   }
   randomNotification() {
     var options = {

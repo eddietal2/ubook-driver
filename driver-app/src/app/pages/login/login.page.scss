@@ -28,33 +28,22 @@ ion-content{
   // transform: translateY(100%);
 }
 
-ion-item {
-  ion-input {
-    --background: #dde;
-    font-size: 1.2em;
-    margin: 8px auto;
-    --padding-start: 10px;
-  }
-  ion-label {
-    opacity: 0.1;
-    font-size: 1.15em;
-    --color: #2d98da;
-    animation: slide-left 0.5s ease forwards;
-  }
-}
-
 #login-button,
 #sign-up-button,
 #forgot-button {
-  width: 140px;
   display: block;
   margin: 20px auto;
+  height: 47px;
+}
+
+#sign-up-button {
+  --border-radius: 5px;
+  --background: #eee1;
 }
 
 #forgot-button {
-  font-size: 0.7em;
-  color: #222;
-  --background: #eef;
+  color: #eee;
+  --background: none;
   --box-shadow: none;
 }
 
@@ -96,34 +85,36 @@ ion-item {
   text-align: center;
   position: absolute;
   bottom: 6px;
-  height: 100px;
+  height: 70px;
   width: 100%;
+  --ion-grid-column-padding: 0px;
 
   button {
-    height: 100px;
+    height: 70px;
+    width: 100%;
+    font-size: 1.2em;
     margin: 0;
   }
 }
 
-#shipper-button{
-  // animation: usertype-button-slide-in 0.5s ease-in forwards;
-  // opacity: 0;
-  width: 100%;
-  height: 100px;
-  width: 95%;
-}
+#shipper-button,
+#reciever-button,
 #carrier-button{
   // animation: usertype-button-slide-in 0.5s ease-in forwards;
   // opacity: 0;
   width: 100%;
-  height: 100px;
+  height: 60px;
   width: 95%;
+  font-weight: 600;
 }
 #shipper-header,
+#reciever-header,
 #carrier-header{
   animation: usertype-header-slide-in 0.5s ease-in forwards;
   opacity: 0;
-  color: orangered;
+  color: #1fcc6d;
+  font-size: 1.7em;
+  font-weight: 600;
 }
 
 .landing-logo {

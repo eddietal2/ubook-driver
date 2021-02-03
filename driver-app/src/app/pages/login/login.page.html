@@ -5,24 +5,28 @@
   <ion-grid>
     <ion-row class="ion-justify-content-center">
       <ion-col class="ion-text-center" size="10">
-        <h1 style="margin: 0px 0px; color: white">UBook Freight</h1>
+        <h1 style="margin: 50px 0px 0px 0px; color: white">UBook Freight</h1>
+        <div style="text-align: center; margin: 0 auto;">
+          <img class="landing-logo" src="../../../assets/ubook-logo.svg" alt="" srcset="">
+        </div>
+      </ion-col>
+      <ion-col size="10">
         <h3 id="carrier-header" *ngIf="isCarrier">Carrier</h3>
         <h3 id="shipper-header" *ngIf="isShipper">Shipper</h3>
+        <h3 id="shipper-header" *ngIf="isReciever">Reciever</h3>
       </ion-col>
       <ion-col size="10">
         <form [formGroup]="loginForm"
         (ngSubmit)="login()">
-          <ion-list class="line-input">
-            <ion-item lines="none">
           <!-- Email -->
             <ion-input
+              class="sign-up-input"
               required
               placeholder="Email"
               inputmode="email"
               formControlName="email"
               type="email">
             </ion-input>
-            </ion-item>
             <!-- Email Validation-->
             <div class="validation-errors">
               <ng-container *ngFor="let validation of validationMessasges.email">
@@ -37,16 +41,15 @@
               </ng-container>
             </div>
             <!-- Password -->
-            <ion-item lines="none">
           <ion-input
             required
+            class="sign-up-input"
             placeholder="Password"
             inputmode="text"
             formControlName="password"
             type="password"
             (keyup.enter)="login()">
           </ion-input>
-            </ion-item>
             <!-- Password Validation-->
             <div class="validation-errors">
             <ng-container *ngFor="let validation of validationMessasges.password">
@@ -55,17 +58,16 @@
           </div>
             </ng-container>
             </div>
-          </ion-list>
         </form>
       </ion-col>
       <ion-col size="10">
-        <ion-button id="login-button" (click)="login()">
+        <ion-button id="login-button" expand="full" class="red-button" (click)="login()">
           Login
         </ion-button>
-        <ion-button id="sign-up-button" (click)="signUp()">
+        <ion-button id="sign-up-button" expand="full"  (click)="signUp()">
           Sign-Up
         </ion-button>
-        <ion-button id="forgot-button" (click)="forgotPassowrd()">
+        <ion-button id="forgot-button" expand="full" (click)="forgotPassowrd()">
           Forgot Password
         </ion-button>
       </ion-col>
@@ -73,17 +75,17 @@
 
     <ion-row id="bottom-buttons" class="ion-justify-content-center">
       <ion-col size="4">
-        <button id="shipper-button" (click)="carrier()">
+        <button id="carrier-button" (click)="carrier()">
           Carrier
         </button>
       </ion-col>
       <ion-col size="4">
-        <button id="carrier-button" (click)="carrier()">
+        <button id="shipper-button" (click)="shipper()">
           Shipper
         </button>
       </ion-col>
       <ion-col size="4">
-        <button id="carrier-button" (click)="carrier()">
+        <button id="reciever-button" (click)="reciever()">
           Reciever
         </button>
       </ion-col>
@@ -95,9 +97,6 @@
 <ion-footer>
   <button (click)="downloadModal()" id="download-button">Download App</button>
 </ion-footer>
-
-
-
 
 <div [@inOutAnimation] *ngIf="!usertypeSelected" class="usertype-select-wrapper">
   <div style="text-align: center; margin: 0 auto;">
