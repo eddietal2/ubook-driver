@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonInput } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reciever',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecieverPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router) { }
 
   ngOnInit() {
+  }
+  logo() {
+    // add /sign-up/carrier
+    this.router.navigate(['/sign-up/reciever/logo']);
+  }
+  cancel() {
+    this.router.navigate(['/sign-up']);
   }
 
 }

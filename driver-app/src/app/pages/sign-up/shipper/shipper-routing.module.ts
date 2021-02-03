@@ -21,7 +21,7 @@ const routes: Routes = [
     loadChildren: () => import('./picture/picture.module').then( m => m.PicturePageModule)
   },
   {
-    path: 'payment',
+    path: 'payment-info',
     loadChildren: () => import('./payment/payment.module').then( m => m.PaymentPageModule)
   },
   {

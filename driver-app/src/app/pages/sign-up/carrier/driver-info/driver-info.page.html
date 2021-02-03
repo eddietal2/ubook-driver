@@ -1,9 +1,56 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>driver-info</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Carrier Sign Up</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="10">
+        <h1>Carrier Driver Info</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="10">
+        <form>
+          <p class="red-asterisk">*</p>
+          <ion-input class="sign-up-input" type="text" placeholder="MC #"></ion-input>
 
+          <p class="red-asterisk">*</p>
+          <ion-input class="sign-up-input" type="text" placeholder="Driver License #"></ion-input>
+        </form>
+
+
+        <p class="red-asterisk">*</p>
+        <ion-select placeholder="Driver License State">
+          <!-- TODO -->
+          <!-- Make array for states with loop. -->
+          <ion-select-option value="f">Female</ion-select-option>
+          <ion-select-option value="m">Male</ion-select-option>
+        </ion-select>
+      </ion-col>
+      <ion-col class="get-picture-button ion-text-center" size="10">
+        <img src="../../../../../assets/icons/user-shape.svg" alt="" srcset="">
+        <h3>Tap to get License Photo (Front)</h3>
+      </ion-col>
+      <ion-col class="get-picture-button ion-text-center" size="10">
+        <img src="../../../../../assets/icons/user-shape.svg" alt="" srcset="">
+        <h3>Tap to get License Photo (Back)</h3>
+      </ion-col>
+    </ion-row>
+    <ion-row class="bottom-buttons ion-justify-content-center">
+      <ion-col size="10">
+        <ion-button class="red-button" expand="full" (click)="paymentInfo()">
+          Next
+        </ion-button>
+        <ion-button class="cancel-button" expand="full" (click)="cancel()">
+          Cancel
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignUpPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
+  }
+
+  carrier() {
+    this.router.navigate(['/sign-up/carrier']);
+  }
+  shipper() {
+    this.router.navigate(['/sign-up/shipper']);
+  }
+  reciever() {
+    this.router.navigate(['/sign-up/reciever']);
+  }
+  cancel() {
+    this.router.navigate(['/']);
   }
 
 }

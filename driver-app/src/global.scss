@@ -33,10 +33,35 @@
   margin: 0 14px;
 }
 
+hr {
+  border-top: #eee solid 1px;
+}
+.spacer {
+  margin-top: 50px;
+}
+p, h1, h2, h3, h4, h4, h6 {
+  color: white;
+}
+h1 {
+  font-weight: 800;
+  margin: 32px 0px 20px 0px;
+}
+.success-background {
+  --background: #6DD400;
+}
 ion-input {
   --background: white;
   font-size: 1.2em;
-  margin: 25px auto;
+  margin: 10px auto;
+}
+
+.bottom-buttons {
+  margin: 100px auto;
+}
+
+ion-select {
+  background: white;
+  font-size: 1.2em;
 }
 
 // .line-input {
@@ -46,6 +71,58 @@ ion-input {
 //     --background: none;
 //   }
 // }
+
+.red-asterisk {
+  margin: 10px 0px 0px 0px;
+  color: red;
+  font-size: 3em;
+  height: 30px;
+}
+
+.sign-up-input {
+  --background: none;
+  color: white;
+  margin: 32px auto;
+  height: 50px;
+  font-size: 1.2em;
+  --placeholder-color: white;
+  border: 2px solid white;
+}
+
+.sign-up-input:hover {
+  border: 2px solid #D72F37;
+  --color: #D72F37;
+}
+
+.checkbox-text {
+  font-size: 2em;
+  margin: 0 10px;
+  color: white;
+}
+
+ion-checkbox {
+  height: 40px;
+  width: 40px;
+  --background-checked: #D72F37;
+  --border-color: white;
+  --border-color-checked: none;
+  --border-radius: 5px;
+  --border-style: solid;
+  --border-width: 2px;
+}
+
+.section-description {
+  color: #00C5FF;
+  margin: 50px auto;
+  font-size: 1.2em;
+}
+
+.get-picture-button {
+  height: 200px;
+  border: 2px dotted white;
+  margin-top: 60px;
+  padding-top: 30px;
+}
 
 .green-button {
   --background: #63d730;
@@ -82,9 +159,6 @@ ion-button {
 
 .usertype-button {
   --background: linear-gradient(128deg, #D72F37 0%, #AE000E 100%);
-    --border-radius: 5px;
-    --border-style: solid;
-    --border-radius: 5px;
     --box-shadow: none;
     --color: white;
     height: 50px;
@@ -92,6 +166,34 @@ ion-button {
     transition: 0.5s;
     display: block;
     margin: 21px auto;
+}
+
+.cancel-button {
+  height: 50px;
+  font-weight: 600;
+  transition: 0.5s;
+  --border-radius: 5px;
+  --border-radius: 5px;
+  --background: rgba(255,255,255,0.2);
+  margin-top: 32px;
+}
+
+.dark-button {
+  height: 50px;
+  font-weight: 600;
+  transition: 0.5s;
+  --border-radius: 5px;
+  --border-radius: 5px;
+  --background: #2F353D;
+  margin-top: 32px;
+}
+
+.skip-button {
+  height: 50px;
+  font-weight: 600;
+  transition: 0.5s;
+  --background: #005191;
+  margin-top: 32px;
 }
 
 ion-toolbar {
@@ -107,6 +209,16 @@ ion-toolbar {
   --background: green;
   --color: white;
   font-size: 1em;
+}
+
+.success-login-toast {
+  --border-color: green;
+  --border-style: solid;
+  --border-width: 2px;
+  font-weight: 600;
+  --background: green;
+  --color: white;
+  font-size: 1.2em;
 }
 
 .danger-toast {

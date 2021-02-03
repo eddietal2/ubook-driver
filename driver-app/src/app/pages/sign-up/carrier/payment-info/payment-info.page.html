@@ -1,9 +1,40 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>payment-info</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Carrier Sign Up</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="10">
+        <p style="font-size: 1.2em;">You can finish your profile without setting up a payment option, but you will not be able to accept a payment until you have at least one valid payment option.</p>
+      </ion-col>
+      <ion-col size="10">
+        <form>
+          <p class="red-asterisk">*</p>
+          <ion-input class="sign-up-input" type="text" placeholder="Bank"></ion-input>
 
+          <p class="red-asterisk">*</p>
+          <ion-input class="sign-up-input" type="text" placeholder="Routing #"></ion-input>
+
+          <p class="red-asterisk">*</p>
+          <ion-input class="sign-up-input" type="text" placeholder="Account #"></ion-input>
+        </form>
+      </ion-col>
+    </ion-row>
+    <ion-row class="bottom-buttons ion-justify-content-center">
+      <ion-col size="10">
+        <ion-button class="green-button" expand="full" (click)="finalizeSignUp()">
+          Done
+        </ion-button>
+        <ion-button class="cancel-button" expand="full" (click)="cancel()">
+          Cancel
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

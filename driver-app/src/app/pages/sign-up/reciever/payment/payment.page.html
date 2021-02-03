@@ -1,9 +1,45 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>payment</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Reciever Sign Up</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="10">
+        <h1>Reciever Payment Info</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="10">
+        <p style="font-size: 1.2em;">You can finish your profile without setting up a payment option, but you will not be able to accept a payment until you have at least one valid payment option.</p>
+      </ion-col>
+      <ion-col size="10">
+        <form>
+          <ion-input class="sign-up-input" type="text" placeholder="Bank"></ion-input>
 
+          <ion-input class="sign-up-input" type="text" placeholder="Routing #"></ion-input>
+
+          <ion-input class="sign-up-input" type="text" placeholder="Account #"></ion-input>
+        </form>
+      </ion-col>
+    </ion-row>
+    <ion-row class="bottom-buttons ion-justify-content-center">
+      <ion-col size="10">
+        <ion-button class="skip-button" expand="full" (click)="skipPaymentInfo()">
+          Skip
+        </ion-button>
+        <ion-button style="margin-top: 32px;" class="green-button" expand="full" (click)="finalizeSignUp()">
+          Done
+        </ion-button>
+        <ion-button class="cancel-button" expand="full" (click)="cancel()">
+          Cancel
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -1,9 +1,50 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>reciever</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Reciever Sign Up</ion-title>
   </ion-toolbar>
 </ion-header>
+<!-- <ion-row class="ion-justify-content-center">
+  <ion-col size="10">
+    <h4>Pagination Here</h4>
+  </ion-col>
+</ion-row> -->
 
 <ion-content>
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="10">
+      <h1>Reciever Business Profile</h1>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="10" style="position: relative; top: -2px;">
+      <form>
+        <ion-input #firstInput class="sign-up-input" type="text" placeholder="Company Name"></ion-input>
 
+        <ion-input class="sign-up-input" type="text" placeholder="Address 1"></ion-input>
+
+        <ion-input class="sign-up-input" type="text" placeholder="Address 2"></ion-input>
+
+        <ion-input class="sign-up-input" type="text" placeholder="City"></ion-input>
+
+        <ion-input class="sign-up-input" type="text" placeholder="State"></ion-input>
+
+        <ion-input class="sign-up-input" type="text" placeholder="Zip"></ion-input>
+
+        <ion-input class="sign-up-input" type="phone" placeholder="Phone"></ion-input>
+      </form>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-justify-content-center bottom-buttons">
+    <ion-col size="10">
+      <div class="spacer"></div>
+      <ion-button class="red-button" expand="full" (click)="logo()">
+        Next
+      </ion-button>
+      <ion-button class="cancel-button" expand="full" (click)="cancel()">
+        Cancel
+      </ion-button></ion-col>
+  </ion-row>
 </ion-content>

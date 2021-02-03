@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-payment',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaymentPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router) { }
 
   ngOnInit() {
+  }
+  skipPaymentInfo() {
+    
+  }
+  finalizeSignUp() {
+    // /sign-up/carrier/
+  this.router.navigate(['/success']);
+  }
+  cancel() {
+  this.router.navigate(['/']);
   }
 
 }

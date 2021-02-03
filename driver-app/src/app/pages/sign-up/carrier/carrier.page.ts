@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonInput } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-carrier',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./carrier.page.scss'],
 })
 export class CarrierPage implements OnInit {
+  @ViewChild(IonInput) firstInput;
 
-  constructor() { }
+  constructor(
+    private router: Router
+    ) { }
 
   ngOnInit() {
+    
+  }
+  profilePicture() {
+    // add /sign-up/carrier
+    this.router.navigate(['/picture']);
+  }
+  cancel() {
+    this.router.navigate(['/']);
   }
 
 }

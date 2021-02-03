@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: 'forgot-password',
-    loadChildren: () => import('./pages/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
+    loadChildren: () => import('./pages/carrier/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
   },
 
   // Carrier Routes
@@ -48,6 +48,7 @@ const routes: Routes = [
     loadChildren: () => import('./modals/download-app/download-app.module').then( m => m.DownloadAppPageModule)
   },
   {
+    // sign up
     path: 'sign-up',
     loadChildren: () => import('./pages/sign-up/sign-up.module').then( m => m.SignUpPageModule)
   },
@@ -234,10 +235,6 @@ const routes: Routes = [
   {
     path: 'pending',
     loadChildren: () => import('./pages/shipper/orders/pending/pending.module').then( m => m.PendingPageModule)
-  },
-  {
-    path: 'confirm',
-    loadChildren: () => import('./pages/receiver/orders/pending/edit/confirm/confirm.module').then( m => m.ConfirmPageModule)
   }
 ];
 

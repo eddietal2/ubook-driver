@@ -1,9 +1,42 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>logo</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Reciever Sign Up</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="10">
+        <h1>Reciever Business Logo</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col class="get-picture-button ion-text-center" size="10">
+        <img src="../../../../../assets/icons/user-shape.svg" alt="" srcset="">
+        <h3>Tap to get Logo?</h3>
+      </ion-col>
+      <ion-col class="ion-text-center" size="10">
+        <ion-button class="skip-button" expand="full" (click)="skipAlert()">
+          Skip
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+
+<ion-footer class="bottom-buttons">
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="10">
+      <ion-button class="red-button" expand="full" (click)="recieverInfo()">
+        Next
+      </ion-button>
+      <ion-button class="cancel-button" expand="full" (click)="cancel()">
+        Cancel
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

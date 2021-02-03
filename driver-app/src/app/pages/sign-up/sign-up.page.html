@@ -1,9 +1,34 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>sign-up</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+  <ion-row>
+    <ion-col size="10" push="1" class="ion-justify-content-center">
+      <img class="logo" src="../../../assets/ubook-logo.svg" alt="" srcset="">
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="10">
+      <p>Please select which type of user you are trying to sign up as:</p>
+      <hr>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="10">
+      <ion-button class="usertype-button" (click)="carrier()">
+        Carrier
+      </ion-button>
+      <ion-button class="usertype-button" (click)="shipper()">
+        Shipper
+      </ion-button>
+      <ion-button class="usertype-button" (click)="reciever()">
+        Reciever
+      </ion-button>
+    </ion-col>
+  </ion-row>
 
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="10" style="position: relative; bottom: 20px">
+      <ion-button class="cancel-button" (click)="cancel()">
+        Cancel
+      </ion-button>
+    </ion-col>
+  </ion-row>
 </ion-content>

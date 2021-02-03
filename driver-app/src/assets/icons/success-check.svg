@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="36px" viewBox="0 0 40 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Check</title>
+    <defs>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#2D6029" offset="0%"></stop>
+            <stop stop-color="#589953" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Wireframe" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home---Carrier-2-Active-Order-Bottom-Drawer-Copy-19" transform="translate(-36.000000, -46.000000)">
+            <g id="Check" transform="translate(36.000000, 46.000000)">
+                <circle id="Oval" fill="#FFFFFF" cx="18" cy="18" r="18"></circle>
+                <path d="M39.3856019,3.45506207 L36.5688407,0.61867826 C36.1591821,0.206256188 35.6723987,0 35.1089389,0 C34.5461964,0 34.0590543,0.206256188 33.6497545,0.61867826 L17.0835146,17.3002345 L10.3499765,10.5193365 C9.94022824,10.1066435 9.4536242,9.90065826 8.89052306,9.90065826 C8.32733224,9.90065826 7.84090756,10.1066435 7.43106966,10.5193365 L4.61466717,13.3553591 C4.20500863,13.7678715 4,14.2578654 4,14.8252505 C4,15.3923647 4.20500863,15.882178 4.61466717,16.294871 L15.6244199,27.3813217 C16.0341681,27.794105 16.5207721,28 17.0838733,28 C17.6469744,28 18.1334888,27.7941953 18.5433267,27.3813217 L39.3853328,6.39421275 C39.7947223,5.98179068 40,5.49170647 40,4.92459226 C40,4.35747804 39.7952604,3.86748414 39.3856019,3.45506207 Z" id="Path" fill="url(#linearGradient-1)" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -78,7 +78,7 @@ ion-item {
 }
 
 .spacer {
-  height: 25vh;
+  height: 20px;
 }
 
 .usertype-select {
@@ -88,15 +88,14 @@ ion-item {
 }
 
 .usertype-buttons{
-  margin: auto 20px;
+  margin: 0px auto;
+  width: 300px;
 }
 
 #bottom-buttons {
   text-align: center;
   position: absolute;
   bottom: 6px;
-  right: 25px;
-  left: -4px;
   height: 100px;
   width: 100%;
 

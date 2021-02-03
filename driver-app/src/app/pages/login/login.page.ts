@@ -109,7 +109,7 @@ export class LoginPage implements OnInit {
       this.auth.login(this.loginForm.value, 'Shipper');
     }
   }
-  register() {
+  signUp() {
     this.router.navigate(['/sign-up']);
   }
   forgotPassowrd() {

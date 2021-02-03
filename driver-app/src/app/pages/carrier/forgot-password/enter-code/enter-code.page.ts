@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ToastController } from '@ionic/angular';
-import { RegisterService } from '../../../services/register.service';
+import { RegisterService } from '../../../../services/register.service';
 
 @Component({
   selector: 'app-enter-code',

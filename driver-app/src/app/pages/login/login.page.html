@@ -62,7 +62,7 @@
         <ion-button id="login-button" (click)="login()">
           Login
         </ion-button>
-        <ion-button id="sign-up-button" (click)="register()">
+        <ion-button id="sign-up-button" (click)="signUp()">
           Sign-Up
         </ion-button>
         <ion-button id="forgot-button" (click)="forgotPassowrd()">
@@ -72,14 +72,19 @@
     </ion-row>
 
     <ion-row id="bottom-buttons" class="ion-justify-content-center">
-      <ion-col size="6">
+      <ion-col size="4">
         <button id="shipper-button" (click)="carrier()">
-          I am a Shipper
+          Carrier
         </button>
       </ion-col>
-      <ion-col size="6">
+      <ion-col size="4">
         <button id="carrier-button" (click)="carrier()">
-          I am a Carrier
+          Shipper
+        </button>
+      </ion-col>
+      <ion-col size="4">
+        <button id="carrier-button" (click)="carrier()">
+          Reciever
         </button>
       </ion-col>
     </ion-row>

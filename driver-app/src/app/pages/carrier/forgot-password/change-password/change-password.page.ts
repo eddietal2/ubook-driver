@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder, Validators,
 import { AlertController, ToastController, LoadingController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
 import { tap, catchError } from 'rxjs/operators';
-import { LoginService } from '../../../services/login.service';
+import { LoginService } from '../../../../services/login.service';
 
 @Component({
   selector: 'app-change-password',
