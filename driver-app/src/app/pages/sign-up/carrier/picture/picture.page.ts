@@ -19,10 +19,10 @@ export class PicturePage implements OnInit {
   }
   paymentInfo() {
     // /sign-up/carrier
-    this.router.navigate(['/payment-info']);
+    this.router.navigate(['/sign-up/carrier/payment-info']);
   }
   cancel() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/sign-up']);
   }
   async skipAlert() {
     const alert = await this.alertController.create({

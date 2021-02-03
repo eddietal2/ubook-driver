@@ -19,10 +19,10 @@ export class CarrierPage implements OnInit {
   }
   profilePicture() {
     // add /sign-up/carrier
-    this.router.navigate(['/picture']);
+    this.router.navigate(['/sign-up/carrier/picture']);
   }
   cancel() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/sign-up']);
   }
 
 }

@@ -15,19 +15,19 @@
       </ion-col>
       <ion-col size="10">
         <form>
-          <p class="red-asterisk">*</p>
           <ion-input class="sign-up-input" type="text" placeholder="Bank"></ion-input>
 
-          <p class="red-asterisk">*</p>
           <ion-input class="sign-up-input" type="text" placeholder="Routing #"></ion-input>
 
-          <p class="red-asterisk">*</p>
           <ion-input class="sign-up-input" type="text" placeholder="Account #"></ion-input>
         </form>
       </ion-col>
     </ion-row>
     <ion-row class="bottom-buttons ion-justify-content-center">
       <ion-col size="10">
+        <ion-button class="skip-button" expand="full" (click)="skipPaymentInfo()">
+          Skip
+        </ion-button>
         <ion-button class="green-button" expand="full" (click)="finalizeSignUp()">
           Done
         </ion-button>
