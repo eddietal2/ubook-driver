@@ -5,7 +5,7 @@ import { OrdersPage } from './orders.page';
 const routes: Routes = [
   {
     path: '/shipper-orders',
-    redirectTo: '',
+    redirectTo: 'orders-page',
     pathMatch: 'full'
   },
   {
@@ -13,7 +13,7 @@ const routes: Routes = [
     component: OrdersPage,
     children: [
       {
-        path: '/orders',
+        path: 'orders-page',
         children: [
           {
             path: '',

@@ -1,9 +1,57 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>new</ion-title>
+    <ion-title>New Order</ion-title>
+    <p style="margin-right: 16px; font-weight: 600;
+" slot="end">1/4</p>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="11">
+        <h1 class="orders-header">Create New Order </h1>
+      </ion-col>
+      <ion-col (click)="presets()" class="order-preset-button ion-text-center" size="11">
+        <p>Use Order Preset</p>
+      </ion-col>
+      <ion-col size="11">
+        <p class="section-description">
+          Order Details
+        </p>
 
+        <form>
+          <ion-input class="sign-up-input" type="text" placeholder="Rate - $"></ion-input>
+          <ion-select placeholder="Truck Type">
+            <ion-select-option value="r">Reefer</ion-select-option>
+            <ion-select-option value="f">Flatbed</ion-select-option>
+            <ion-select-option value="d">Dry Van</ion-select-option>
+          </ion-select>
+          <ion-input class="sign-up-input" type="text" placeholder="Weight - Lbs"></ion-input>
+          <ion-input class="sign-up-input" type="text" placeholder="Description - 100 Characters"></ion-input>
+        </form>
+
+
+        <p class="section-description">
+          Special Request
+        </p>
+        <p style="position: relative; top: -20px;">Add any additional details or requests to the order. (Example: Call office if no one is at gate) Optional.</p>
+        <ion-textarea
+          style="color: white;"
+          rows="20"
+          spellcheck="true"
+          autoGrow="true"
+
+          placeholder="Enter text here:"></ion-textarea>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center bottom-buttons">
+      <ion-col size="10">
+        <div class="spacer"></div>
+        <ion-button class="red-button" expand="full" (click)="locations()">
+          Next
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

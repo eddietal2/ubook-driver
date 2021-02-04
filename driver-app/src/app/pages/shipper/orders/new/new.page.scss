@@ -1,0 +1,33 @@
+ion-toolbar {
+  --background: radial-gradient(50% 150%, #1FCC6D 50%, #1ECB6C 100%);
+  box-shadow: 0 2px 31px 0 rgba(0,0,0,0.12);;
+}
+
+ion-title {
+  font-weight: 600;
+}
+
+h1 {
+  margin-top: 100px;
+}
+
+.order-preset-button {
+  background: rgba(109,212,0,0.13);
+  border: 3px solid #6DD400;
+  border-radius: 3px;
+  box-shadow: 1px 1px 11px #0006;
+
+  p {
+    font-weight: 600;
+  }
+}
+
+ion-textarea {
+  color: white;
+  border: 2px solid white;
+  padding: 8px;
+}
+ion-textarea:hover {
+  color: white;
+  border: 2px solid red;
+}

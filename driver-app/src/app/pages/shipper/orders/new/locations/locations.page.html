@@ -1,9 +1,64 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>locations</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>New Order - Locations</ion-title>
+    <p style="margin-right: 16px; font-weight: 600;
+" slot="end">2/4</p>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="11">
+        <h1>Pick-Up & Delivery</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="11">
+        <p class="section-description">Pick-Up Details</p>
+        <form>
+          <ion-input class="sign-up-input" type="date" placeholder="Date"></ion-input>
 
+          <ion-input class="sign-up-input" type="text" placeholder="Address 1"></ion-input>
+
+          <ion-input class="sign-up-input" type="text" placeholder="Address 2"></ion-input>
+
+          <ion-input class="sign-up-input" type="text" placeholder="City"></ion-input>
+
+          <ion-input class="sign-up-input" type="text" placeholder="State"></ion-input>
+
+          <ion-input class="sign-up-input" type="text" placeholder="Zip"></ion-input>
+        </form>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="11">
+        <p class="section-description">Delivery Details</p>
+        <form>
+          <ion-input class="sign-up-input" type="date" placeholder="Date"></ion-input>
+
+          <ion-input class="sign-up-input" type="text" placeholder="Address 1"></ion-input>
+
+          <ion-input class="sign-up-input" type="text" placeholder="Address 2"></ion-input>
+
+          <ion-input class="sign-up-input" type="text" placeholder="City"></ion-input>
+
+          <ion-input class="sign-up-input" type="text" placeholder="State"></ion-input>
+
+          <ion-input class="sign-up-input" type="text" placeholder="Zip"></ion-input>
+        </form>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center bottom-buttons">
+      <ion-col size="10">
+        <div class="spacer"></div>
+        <ion-button class="red-button" expand="full" (click)="photos()">
+          Next
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

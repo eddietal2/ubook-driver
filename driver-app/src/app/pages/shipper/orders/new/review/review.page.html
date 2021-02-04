@@ -1,9 +1,58 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>review</ion-title>
+    <ion-title>New Order - Review</ion-title>
+    <p style="margin-right: 16px; font-weight: 600;
+" slot="end">4/4</p>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="11">
+        <h1 class="orders-header">Review </h1>
+        <p>Please go over your order details and make any changes necissary before you post the order.</p>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center review-section">
+      <ion-col size="11">
+        <p class="section-description">Order Details</p>
+        <ion-button expand="full" class="red-button" (click)="editOrderDetails()">
+          Edit
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center review-section">
+      <ion-col size="11">
+        <p class="section-description">Location Details</p>
+        <ion-button expand="full" class="red-button" (click)="editLocation()">
+          Edit
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center review-section">
+      <ion-col size="11">
+        <p class="section-description">Photos</p>
+        <ion-button expand="full" class="red-button" (click)="editPhotos()">
+          Edit
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center review-section">
+      <ion-col size="11">
+        <p class="section-description">Broadcast Radius</p>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center bottom-buttons">
+      <ion-col size="10">
+        <div class="spacer"></div>
+        <ion-button class="green-button" expand="full" (click)="success()">
+          Submit
+        </ion-button>
+        <ion-button class="cancel-button" expand="full" (click)="cancelOrder()">
+          Cancel Order
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

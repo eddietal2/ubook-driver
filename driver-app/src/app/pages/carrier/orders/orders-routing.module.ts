@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { OrdersPagePage } from './orders-page/orders-page.page';
 import { OrdersPage } from './orders.page';
 
 

@@ -61,7 +61,7 @@ export class AppComponent implements OnInit, OnDestroy {
     },
     {
       title: 'Shipper Orders',
-      url: '/shipper-orders',
+      url: '/shipper-orders/orders-page',
       icon: 'list',
       usertype: 'Shipper'
     },

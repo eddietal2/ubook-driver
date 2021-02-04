@@ -1,9 +1,9 @@
 // Tab-Bar
 ion-tab-bar  {
-  height: 70px;
+  z-index: 9999;
+  height: 50px;
   // box-shadow: 2px 1px 5px #555;
   transition: 0.5s;
-  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 ion-label {
@@ -15,7 +15,9 @@ ion-label {
 }
 
 ion-tab-button{
-  font-size: 0.8em;
+  font-size: 0.6em;
+  position: relative;
+  bottom: 5px;
   --color: #D0D4D8;
   --color-selected: #D72F37;
   --padding-end: 0px;
@@ -23,14 +25,8 @@ ion-tab-button{
   --padding-bottom: 0px;
   --margin-left:0px;
   --margin-right:0px;
-  max-width:115px;
-  ion-icon{
-      font-size: 1.7em;
-      --font-size-selected: 4em;
-      --fill-selected: red;
-      --background-color: white;
-      transition: 0.5s;
-  }}
+  // max-width:115px;
+  }
 
 
   // Toolbar

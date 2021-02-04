@@ -1,9 +1,53 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>photos</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>New Order - Photos</ion-title>
+    <p style="margin-right: 16px; font-weight: 600;
+" slot="end">3/4</p>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
 
+<ion-content>
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="11">
+      <h1 class="orders-header">Photos </h1>
+      <p>Please upload at least 2 photos of the load. You can upload as many as 5. </p>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-justify-content-center">
+    <ion-col class="get-photo ion-text-center ion-align-self-center" size="11">
+      <p>Tap to get Photo</p>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-justify-content-center">
+    <ion-col class="get-photo ion-text-center ion-align-self-center" size="11">
+      <p>Tap to get Photo</p>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-justify-content-center">
+    <ion-col class="get-photo ion-text-center ion-align-self-center" size="11">
+      <p>Tap to get Photo</p>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-justify-content-center">
+    <ion-col class="get-photo ion-text-center ion-align-self-center" size="11">
+      <p>Tap to get Photo</p>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-justify-content-center">
+    <ion-col class="get-photo ion-text-center ion-align-self-center" size="11">
+      <p>Tap to get Photo</p>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-justify-content-center bottom-buttons">
+    <ion-col size="10">
+      <div class="spacer"></div>
+      <ion-button class="red-button" expand="full" (click)="review()">
+        Next
+      </ion-button>
+    </ion-col>
+  </ion-row>
 </ion-content>

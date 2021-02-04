@@ -1,0 +1,68 @@
+h1{
+  margin-top: 100px;
+}
+
+.pending-order {
+  background: #EF06E42b;
+  border-right: 8px solid #EF06E4;
+  padding: 24px 14px;
+  border-radius: 6px;
+  box-shadow: 1px 1px 11px #0006;
+
+  h5 {
+    color: white;
+    margin-left: 10px;
+    font-weight: 600;
+  }
+
+  .order-dollar-amount {
+    display: inline;
+    float: right;
+    border: 2px solid #EF06E4;
+    padding: 8px;
+    position: relative;
+    top: -17px;
+    font-size: 1em;
+    font-weight: 600;
+  }
+
+  .order-card-details {
+    p {
+      line-height: 1.3em;
+      margin: 0;
+      font-size: 0.85em;
+    }
+  }
+}
+.accepted-order {
+  background: #eee2;
+  border-right: 8px solid #6DD400;
+  padding: 24px 14px;
+  border-radius: 6px;
+  box-shadow: 1px 1px 11px #0006;
+
+  h5 {
+    color: white;
+    margin-left: 10px;
+    font-weight: 600;
+  }
+
+  .order-dollar-amount {
+    display: inline;
+    float: right;
+    border: 2px solid #6DD400;
+    padding: 8px;
+    position: relative;
+    top: -17px;
+    font-size: 1em;
+    font-weight: 600;
+  }
+
+  .order-card-details {
+    p {
+      line-height: 1.3em;
+      margin: 0;
+      font-size: 0.85em;
+    }
+  }
+}
