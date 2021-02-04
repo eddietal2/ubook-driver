@@ -1,9 +1,103 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>profile</ion-title>
-  </ion-toolbar>
-</ion-header>
+<!-- Carrier --><!-- fab placed to the bottom end -->
+<ion-fab vertical="bottom" horizontal="start" slot="fixed">
+  <ion-fab-button>
+    <ion-menu-button></ion-menu-button>
+  </ion-fab-button>
+</ion-fab>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="10">
+        <h1>Reciever Profile</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="stars-container" push="1" size="4">
+        <p>stars goes here</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col push="1" size="10">
+        <ion-button class="ratings" (click)="ratingModal()">
+          View Ratings
+        </ion-button>
+        <h4 class="section-description">Tap any section to edit information.</h4>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="10">
+        <ion-list class="profile-list">
+          <ion-item lines="none" (click)="profilePictureModal()">
+            <ion-avatar slot="start">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAAAAAAALAAAAAABAAEAAAICTAEAOw==">
+            </ion-avatar>
+            <ion-label>Profile Picture</ion-label>
+          </ion-item>
+          <ion-item lines="none"(click)="nameModal()">
+            <ion-label>
+              <h2>Name</h2>
+              <p>{{name}}</p>
+            </ion-label>
+          </ion-item>
+          <ion-item lines="none"(click)="emailModal()">
+            <ion-label>
+              <h2>Email</h2>
+              <p>{{email}}</p>
+            </ion-label>
+          </ion-item>
+          <ion-item lines="none" (click)="phoneModal()">
+            <ion-label>
+              <h2>Phone</h2>
+              <p>{{phone}}</p>
+            </ion-label>
+          </ion-item>
+          <ion-item lines="none" (click)="preferredContactModal()">
+            <ion-label>
+              <h2>Preferred Contact</h2>
+              <p>None</p>
+            </ion-label>
+          </ion-item>
+          <ion-item lines="none" (click)="driverLicenseModal()">
+            <ion-label>
+              <h2>Driver's License</h2>
+              <p>T416181888108</p>
+              <p>MI</p>
+            </ion-label>
+          </ion-item>
+          <ion-item style="margin-top: 24px;" lines="none" (click)="mcModal()">
+            <ion-label>
+              <h2>MC #</h2>
+              <p>None</p>
+            </ion-label>
+          </ion-item>
+          <ion-item lines="none" (click)="einModal()">
+            <ion-label>
+              <h2>EIN #</h2>
+              <p>None</p>
+            </ion-label>
+          </ion-item>
+          <ion-item lines="none" (click)="dotModal()">
+            <ion-label>
+              <h2>DOT #</h2>
+              <p>None</p>
+            </ion-label>
+          </ion-item>
+          <ion-item lines="none" (click)="insuranceModal()" >
+            <ion-label>
+              <h2>Insurance</h2>
+              <p>Insurer: - </p>
+              <p>Policy #: -</p>
+            </ion-label>
+          </ion-item>
+          <ion-item style="margin-top: 24px;" lines="none" (click)="passwordModal()">
+            <ion-label>
+              <h2>Password</h2>
+              <p>*******</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

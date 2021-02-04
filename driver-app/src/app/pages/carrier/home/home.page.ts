@@ -26,7 +26,7 @@ export class HomePage implements OnInit {
   pendingfiltering = false;
   openfilter = false;
   openfiltering = false;
-  drawerState = DrawerState.Top;
+  drawerState = DrawerState.Bottom;
   minimumHeight = '100px';
   dockedHeight = '100px';
   shouldBounce;

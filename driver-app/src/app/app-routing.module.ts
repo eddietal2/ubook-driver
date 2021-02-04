@@ -32,6 +32,10 @@ const routes: Routes = [
     path: 'carrier-respond-with-rate',
     loadChildren: () => import('./pages/carrier/respond-with-rate/respond-with-rate.module').then( m => m.RespondWithRatePageModule)
   },
+  {
+    path: 'carrier-orders',
+    loadChildren: () => import('./pages/carrier/orders/orders.module').then( m => m.OrdersPageModule)
+  },
 
 
   // Shipper Routes
@@ -43,6 +47,12 @@ const routes: Routes = [
     path: 'shipper-home',
     loadChildren: () => import('./pages/shipper/home/home.module').then( m => m.HomePageModule)
   },
+  {
+    path: 'shipper-orders',
+    loadChildren: () => import('./pages/shipper/orders/orders.module').then( m => m.OrdersPageModule)
+  },
+
+
   {
     path: 'download-app',
     loadChildren: () => import('./modals/download-app/download-app.module').then( m => m.DownloadAppPageModule)
@@ -226,7 +236,7 @@ const routes: Routes = [
   },
   {
     path: 'future',
-    loadChildren: () => import('./pages/shipper/orders/future/future.module').then( m => m.FuturePageModule)
+    loadChildren: () => import('./pages/shipper/orders/orders-page/future/future.module').then( m => m.FuturePageModule)
   },
   {
     path: 'history',
@@ -235,6 +245,18 @@ const routes: Routes = [
   {
     path: 'pending',
     loadChildren: () => import('./pages/shipper/orders/pending/pending.module').then( m => m.PendingPageModule)
+  },
+  {
+    path: 'ein',
+    loadChildren: () => import('./modals/carrier-profile/ein/ein.module').then( m => m.EinPageModule)
+  },
+  {
+    path: 'dot',
+    loadChildren: () => import('./modals/carrier-profile/dot/dot.module').then( m => m.DotPageModule)
+  },
+  {
+    path: 'orders-page',
+    loadChildren: () => import('./pages/shipper/orders/orders-page/orders-page.module').then( m => m.OrdersPagePageModule)
   }
 ];
 

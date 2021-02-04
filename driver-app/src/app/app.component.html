@@ -47,6 +47,16 @@
           </ion-item>
         </ion-list>
       </ion-content>
+      <ion-footer (click)="closeMenu()">
+        <ion-toolbar>
+          <ion-buttons slot="end">
+            <ion-button>
+              <ion-icon slot="icon-only" name="close" size="large"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+          <ion-title>Close</ion-title>
+        </ion-toolbar>
+      </ion-footer>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-split-pane>

@@ -59,6 +59,20 @@ ion-input {
   margin: 100px auto;
 }
 
+ion-fab {
+  margin-bottom: 50px;
+}
+
+ion-fab-button{
+  --background: linear-gradient(-52deg, #2F353D 0%, #292929 82%);
+  position: relative;
+  left: 16px;
+  bottom: 50px;
+  --border-color: #1fcc6d;
+  --border-style: solid;
+  --border-width: 2px;
+}
+
 ion-select {
   background: white;
   font-size: 1.2em;
@@ -132,10 +146,28 @@ ion-checkbox {
   font-size: 1.2em;
   font-weight: 600;
 }
+.ratings {
+  margin: 40px auto;
+  --background: #eee1;
+  height: 50px;
+  width: 220px;
+  font-weight: 600;
+  font-size: 1.3em;
+}
 
 .line {
   border-bottom: 6px solid #9993;
   margin-top: 24px;
+}
+.profile-list {
+  background: none;
+
+  ion-item {
+    --background: #eee1;
+    --color: white;
+    margin-bottom: 16px;
+    border-radius: 8px;
+  }
 }
 
 ion-button {
@@ -231,5 +263,10 @@ ion-toolbar {
   border-radius: 5px;
   font-weight: 600;
   font-size: 1em;
+}
+
+// Orders
+.order-card{
+
 }
 

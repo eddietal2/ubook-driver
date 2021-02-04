@@ -34,7 +34,7 @@ export class AppComponent implements OnInit, OnDestroy {
     },
     {
       title: 'Orders',
-      url: '/carrier-orders',
+      url: '/carrier-orders/orders-page',
       icon: 'list',
       usertype: 'Carrier'
     },
@@ -157,16 +157,19 @@ export class AppComponent implements OnInit, OnDestroy {
     this.auth.authenticationState.subscribe(async state => {
       if (state) {
         if (this.auth.usertype === 'Carrier') {
-          this.router.navigate(['carrier-home']);
+          this.router.navigate(['carrier-profile']);
           return this.isCarrier === true;
         }
         if (this.auth.usertype === 'Shipper') {
-          this.router.navigate(['shipper-home']);
+          this.router.navigate(['shipper-profile']);
           return this.isShipper === true;
         }
+        if (this.auth.usertype === 'Reciever') {
+          this.router.navigate(['reciever-profile']);
+          return this.isShipper === true;
       } else {
         this.router.navigate(['']);
-      }
+      }}
     });
   }
 

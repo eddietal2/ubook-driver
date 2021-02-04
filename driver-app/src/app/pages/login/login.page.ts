@@ -113,6 +113,9 @@ export class LoginPage implements OnInit {
     if (this.isShipper) {
       this.auth.login(this.loginForm.value, 'Shipper');
     }
+    if (this.isReciever) {
+      this.auth.login(this.loginForm.value, 'Reciever');
+    }
   }
   signUp() {
     this.router.navigate(['/sign-up']);
@@ -141,7 +144,7 @@ export class LoginPage implements OnInit {
     this.isCarrier = false;
     this.isReciever = false;
     this.downloadButton.style.transform = 'translateY(70px)';
-    
+
     this.shipperButton.style.background = 'linear-gradient(90deg, #1fcc6d 19.625%,rgba(30, 203, 108,1) 19.625%,rgba(23, 191, 40,1) 79.625%)';
     this.shipperButton.style.border = '4px solid #6DD400;';
     this.carrierButton.style.background = '#eee2';

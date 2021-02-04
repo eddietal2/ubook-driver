@@ -15,7 +15,6 @@ export class DownloadAppPage implements OnInit {
 
   ngOnInit() {
   }
-
   dismiss() {
     // using the injected ModalController this page
     // can "dismiss" itself and optionally pass back data

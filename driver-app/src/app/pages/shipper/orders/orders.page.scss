@@ -1,0 +1,72 @@
+// Tab-Bar
+ion-tab-bar  {
+  height: 70px;
+  // box-shadow: 2px 1px 5px #555;
+  transition: 0.5s;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+ion-label {
+  position: relative;
+  top: 6px;
+  font-size: 1.5em;
+  transition: 0.5s;
+  font-weight: 700;
+}
+
+ion-tab-button{
+  font-size: 0.8em;
+  --color: #D0D4D8;
+  --color-selected: #D72F37;
+  --padding-end: 0px;
+  --padding-start: 10px;
+  --padding-bottom: 0px;
+  --margin-left:0px;
+  --margin-right:0px;
+  max-width:115px;
+  ion-icon{
+      font-size: 1.7em;
+      --font-size-selected: 4em;
+      --fill-selected: red;
+      --background-color: white;
+      transition: 0.5s;
+  }}
+
+
+  // Toolbar
+
+  #logo {
+    height: 40px;
+  }
+
+  ion-toolbar {
+    --min-height: 10vh;
+    --background: white;
+    font-size: 0.9em;
+    box-shadow: 1px 1px 15px rgba(0,0,0,0.08);
+
+    a {
+      margin: 0 10px 0 10px;
+      text-decoration: none;
+      color: #777;
+      letter-spacing: 1px;
+      opacity: 0.5;
+      float: right;
+    }
+
+    .active-link {
+      color: #faa71b;
+      font-weight: 800;
+      transition: 0.5s;
+    }
+
+    ion-button {
+      --color: #D0D4D8;
+      opacity: 0.6;
+      font-weight: 700;
+    }
+  }
+
+  ion-grid {
+    height: 50px;
+  }

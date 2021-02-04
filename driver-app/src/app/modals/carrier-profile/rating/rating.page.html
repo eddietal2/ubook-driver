@@ -1,9 +1,54 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>rating</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="icon-only" name="close" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Carrier Ratings</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row class="rating-wrapper">
+      <ion-col push="1" size="4">
+        <div class="rater-picture"></div>
+      </ion-col>
+      <ion-col size="6">
+        <p class="stars-container">stars go here</p>
+        <p>(shipper/reciever)</p>
+        <p>date</p>
+      </ion-col>
+      <ion-col push="1" size="10">
+        <p class="ratings-text">"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit quia minus suscipit, unde repellat, consectetur ea esse totam iste dolor ullam voluptatem quas distinctio fuga voluptates nihil laborum ex sint."</p>
+      </ion-col>
+    </ion-row>
+    <ion-row class="rating-wrapper">
+      <ion-col push="1" size="4">
+        <div class="rater-picture"></div>
+      </ion-col>
+      <ion-col size="6">
+        <p class="stars-container">stars go here</p>
+        <p>(shipper/reciever)</p>
+        <p>date</p>
+      </ion-col>
+      <ion-col push="1" size="10">
+        <p class="ratings-text">"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit quia minus suscipit, unde repellat, consectetur ea esse totam iste dolor ullam voluptatem quas distinctio fuga voluptates nihil laborum ex sint."</p>
+      </ion-col>
+    </ion-row>
+    <ion-row class="rating-wrapper">
+      <ion-col push="1" size="4">
+        <div class="rater-picture"></div>
+      </ion-col>
+      <ion-col size="6">
+        <p class="stars-container">stars go here</p>
+        <p>(shipper/reciever)</p>
+        <p>date</p>
+      </ion-col>
+      <ion-col push="1" size="10">
+        <p class="ratings-text">"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit quia minus suscipit, unde repellat, consectetur ea esse totam iste dolor ullam voluptatem quas distinctio fuga voluptates nihil laborum ex sint."</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
