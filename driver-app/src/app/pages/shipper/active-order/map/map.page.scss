@@ -1,0 +1,71 @@
+ion-toolbar {
+  --background: radial-gradient(50% 150%, #1FCC6D 50%, #1ECB6C 100%);
+  box-shadow: 0 2px 31px 0 rgba(0,0,0,0.12);;
+}
+ion-title {
+  font-weight: 600;
+}
+.profile-picture  {
+  height: 45px;
+  width: 45px;
+  position: relative;
+  top: 12px;
+}
+#map{
+  position: relative;
+  top: 0;
+  right: 0;
+  height: 60vh;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.mapboxgl-control-container {
+  display: none;
+}
+.mapboxgl-ctrl-attrib-inner {
+  display: none;
+}
+.carrier-picture {
+  height: 50px;
+  width: 50px;
+  background-color: lightcyan;
+  border-radius: 50px;
+}
+.carrier-card{
+  // background-color: #ffffff0d;
+}
+.active-order-buttons {
+  width: 100px;
+  height: 48px;
+}
+.call-button {
+  --background: #6DD400;
+  width: 100px;
+  height: 48px;
+  position: relative;
+  right: 10px;
+}
+.message-button {
+  --background: #00C5FF;
+  width: 100px;
+  height: 48px;
+  position: relative;
+  left: 10px;
+}
+.cancel{
+  --background: linear-gradient(128deg, #D72F37 0%, #AE000E 100%);
+  border-radius: 5px;
+}
+ion-slides {
+  height: 300px;
+  background: lightgray;
+  --bullet-background: white;
+  --bullet-background-active: #D72F37;
+
+  ion-slide {
+    box-shadow: inset -120px 1px 100px #2223;
+    background-image: url('../../../../../assets/placeholder-images/logistic-warehouse-courier-shipment-transportation-260nw-1207119298.webp');
+    background-size: cover;
+    background-position: center;
+  }
+}

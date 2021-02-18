@@ -1,9 +1,119 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>map</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Active Order</ion-title>
   </ion-toolbar>
 </ion-header>
 
+<!-- ScrollY is set to false so that the user cannot scroll the pages and see the contens of the Bottom Drawer -->
 <ion-content>
 
+  <!-- Desktop -->
+  <ion-grid class="ion-hide-md-down">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="6">
+        <h3>Desktop Version Coming Soon!</h3>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Mobile -->
+  <div class="ion-hide-md-up" id="map"></div>
+  <ion-grid class="ion-hide-md-up">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="11">
+        <h2 style="font-weight: 600;
+        margin-bottom: 50px;">Active Order Details</h2>
+      </ion-col>
+      <ion-col size="11">
+        <ion-row class="carrier-card">
+          <ion-col size="2">
+            <div class="carrier-picture">
+              <img src="../../../../../assets/placeholders/carrier.png" alt="" srcset="">
+            </div>
+          </ion-col>
+          <ion-col push="0.5" size="8">
+            <h4>Eddie Taliaferro</h4>
+            <p style="display: inline; color: #F7B500; font-weight: 600;">4/5</p><img style="display: inline; position: relative; left: 10px;" src="../../../../../assets/icons/star-icon.svg" alt="" srcset="">
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col size="11">
+        <h2 style="display: inline-block;">Loaded:</h2>
+        <span style="float: right; position: relative; top: 20px; color: #6DD400; font-weight: 600;">
+          <img style="position: relative; right: 20px;" src="../../../../../assets/icons/active-order-loaded-icon.svg" alt="" srcset="">
+          @ 10:00am, Jan 1st
+        </span>
+        <br>
+        <h2 style="display: inline-block;">Unloaded:</h2>
+        <span style="float: right; position: relative; top: 20px; color: white;">
+          <img style="position: relative; right: 20px;" src="../../../../../assets/icons/active-order-unloaded-icon.svg" alt="" srcset="">
+        </span>
+      </ion-col>
+
+      <ion-col style="margin: 100px auto;" class="ion-text-center" size="12">
+        <ion-button style="margin-right: 20px;" class="active-order-buttons white-outline-button" (click)="edit()">
+          Edit
+        </ion-button>
+        <ion-button class="active-order-buttons cancel" (click)="cancel()">
+          Cancel
+        </ion-button>
+      </ion-col>
+
+      <ion-col size="11">
+        <h3 class="detail-header">Order Details</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque eaque culpa, optio, illo ullam error maiores dicta laudantium eum assumenda aliquam quaerat odio pariatur nostrum eveniet fuga sapiente, autem aperiam.</p>
+      </ion-col>
+
+      <ion-col size="11">
+        <h3 class="detail-header">Special Instructions</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque eaque culpa, optio, illo ullam error maiores dicta laudantium eum assumenda aliquam quaerat odio pariatur nostrum eveniet fuga sapiente, autem aperiam.</p>
+      </ion-col>
+
+      <ion-col size="11">
+        <h3 class="detail-header">Pickup</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque eaque culpa, optio, illo ullam error maiores dicta laudantium eum assumenda aliquam quaerat odio pariatur nostrum eveniet fuga sapiente, autem aperiam.</p>
+      </ion-col>
+
+      <ion-col size="11">
+        <h3 class="detail-header">Delivery</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque eaque culpa, optio, illo ullam error maiores dicta laudantium eum assumenda aliquam quaerat odio pariatur nostrum eveniet fuga sapiente, autem aperiam.</p>
+      </ion-col>
+
+      <ion-col size="11">
+        <h3 class="detail-header">Payment</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque eaque culpa, optio, illo ullam error maiores dicta laudantium eum assumenda aliquam quaerat odio pariatur nostrum eveniet fuga sapiente, autem aperiam.</p>
+      </ion-col>
+
+      <ion-col size="11">
+        <h3 class="detail-header">Photos</h3>
+        <ion-slides scrollbar="true" pager="true" [options]="slideOpts">
+          <!-- Each Photo needs to be -->
+          <ion-slide>
+          </ion-slide>
+          <ion-slide>
+          </ion-slide>
+          <ion-slide>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+
+<ion-footer>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col class="ion-text-center" size="12">
+        <ion-button class="call-button" (click)="call()">
+          <img src="../../../../../assets/icons/phone-icon.svg" alt="" srcset="">
+        </ion-button>
+        <ion-button class="message-button" (click)="messages()">
+          <img src="../../../../../assets/icons/message-icon.svg" alt="" srcset="">
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

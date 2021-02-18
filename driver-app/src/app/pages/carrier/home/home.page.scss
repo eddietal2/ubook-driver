@@ -1,11 +1,28 @@
 ion-header {
-  margin-bottom: 100px;
+  margin-bottom: 54px;
+}
+ion-list {
+  background: none;
+}
+ion-item{
+  --background: none;
+  color: white;
+}
+.logo{
+  height: 30px;
+  width: 30px;
 }
 
 .availability-status {
   animation: slide-in-status 500ms ease forwards;
   font-weight: 600;
   opacity: 0;
+  color: white;
+  font-size: 2em;
+}
+
+.section-description{
+  margin: 10px auto;
 }
 
 .availability-status-message {
@@ -25,15 +42,21 @@ ion-header {
 }
 
 #current-order {
-  --background: linear-gradient(113.52657708203253deg, rgba(41, 41, 41,1) 13.731770833333334%,rgba(47, 53, 61,1) 83.83593749999999%);
-  color: white;
+  --background: #eee1;
+  border: 2px solid white;
   border-radius: 7px;
-
+  color: #1FCC6D;
+  margin-bottom: 20px;
+  font-size: 1.1em;
 }
 
 #all-orders {
-  border: 2px solid #2F353D;
+  border: 2px solid white;
   border-radius: 7px;
+  --background: #eee1;
+  color: white;
+  margin-bottom: 20px;
+  font-size: 1.1em;
 }
 .filter-options{
   animation: filter-options-slide-in 200ms ease-in forwards;
@@ -88,31 +111,27 @@ ion-header {
   margin: 100px 0;
   display: block;
 }
-ion-toggle {
-  // padding: 17px 30px 0px 10px;
-  // position: relative;
-  // // left: -10px;
-  // width: 100%;
-  // height: 100px;
-  // margin: 0 auto;
-  // // --background: rgba(0, 0, 0, 0.1);
-  // --handle-background: #999;
-  // --handle-background-checked: green;
-  // overflow: visible;
-.toggle-icon {
-  background: #444;
-}
 
+ion-toggle {
+  width: 40%;
+  height: 30px;
+  --background: #D72F37;
+  --background-checked: linear-gradient(260deg, #1ECB6C 0%, #1FCC6D 99%);
+  --handle-background: no-repeat center/80% url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"%3E%3Ctitle%3Eionicons-v5-m%3C/title%3E%3Cpath d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"/%3E%3C/svg%3E');
+  --handle-background-checked: no-repeat center/80% url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"%3E%3Cpolyline points="416 128 192 384 96 288" style="fill:none;stroke:%23fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px;"/%3E%3C/svg%3E');
 }
 ion-toggle::part(track) {
-  // height: 10px;
+  height: 20px;
 }
-ion-toggle::part(handle) {
-  // --handle-height: 60px;
-  // --handle-width: 60px;
-  // border: 9px solid #2F353D;
-  // box-shadow: inset 1px 1px 35px #5598;
-}
+// ion-toggle::part(handle) {
+  
+//   --handle-height: 100px;
+//   height: 400px;
+//   --handle-width: 100px;
+//   position: relative;
+//   top: -40px;
+//   left: -26px;
+// }
 
 .toggle-wrapper {
   // position: absolute;
@@ -130,32 +149,6 @@ ion-toggle::part(handle) {
   padding: 0;;
 }
 
-#drawer {
-  // animation: drawer-slide-up 500ms ease forwards;
-  transition: 500ms;
-  // background: linear-gradient(113.52657708203253deg, rgba(41, 41, 41,1) 13.731770833333334%,rgba(47, 53, 61,1) 83.83593749999999%);
-}
-#drawer-close-button{
-  opacity: 0;
-  position: relative;
-  left: -20px;
-  animation: drawer-close-button-slide-in 500ms ease-in forwards;
-}
-#close-drawer-button-wrapper {
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
-  top: 0;
-}
-@keyframes drawer-close-button-slide-in {
-  0%{
-    transform: translateX(-20px);
-  }
-  100%{
-    transform: translateX(0px);
-    opacity: 1;
-  }
-}
-
   ion-grid {
     --ion-grid-padding: 0;
     background: none;
@@ -165,40 +158,3 @@ ion-toggle::part(handle) {
     padding: 0;
   }
 
-#background-content {
-  --background: none;
-}
-
-  ion-content {
-    --padding-start: 0;
-    --padding-end: 0;
-    --background: none;
-  }
-
-.drawer-icon-wrapper {
-  background: linear-gradient(113.52657708203253deg, rgba(41, 41, 41,1) 13.731770833333334%,rgba(47, 53, 61,1) 83.83593749999999%);
-  color: white;
-  height: 250px;
-  padding-top: 10px;
-}
-
-#swipe-area-header {
-  font-weight: 600;
-}
-
-#swipe-area-text {
-
-}
-
-svg {
-  color: white;
-}
-
-@keyframes drawer-slide-up {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}

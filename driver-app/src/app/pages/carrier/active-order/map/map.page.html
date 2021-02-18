@@ -1,9 +1,140 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>map</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Active Order</ion-title>
   </ion-toolbar>
 </ion-header>
 
+<!-- ScrollY is set to false so that the user cannot scroll the pages and see the contens of the Bottom Drawer -->
 <ion-content>
 
+  <!-- Desktop -->
+  <ion-grid class="ion-hide-md-down">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="6">
+        <h3>Desktop Version Coming Soon!</h3>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Mobile -->
+  <div class="ion-hide-md-up" id="map"></div>
+  <ion-grid class="ion-hide-md-up">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="11">
+        <h2 style="font-weight: 600;
+        margin-bottom: 50px;">Active Order Details</h2>
+      </ion-col>
+      <ion-col size="11">
+        <ion-row class="carrier-card">
+          <ion-col size="2">
+            <div class="carrier-picture">
+              <img src="../../../../../assets/placeholders/shipper.png" alt="" srcset="">
+            </div>
+          </ion-col>
+          <ion-col push="0.5" size="8">
+            <h6>Shipper</h6>
+            <h4>Sarah Johnson</h4>
+            <p style="display: inline; color: #F7B500; font-weight: 600;">4/5</p><img style="display: inline; position: relative; left: 10px;" src="../../../../../assets/icons/star-icon.svg" alt="" srcset="">
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col class="loaded" size="11">
+        <ion-row style="padding: 1.2em">
+          <ion-col size="6">
+            <h1 style="margin: 0;">Load</h1>
+          </ion-col>
+          <ion-col class="ion-float-right" size="6">
+            <ion-toggle (ionChange)="loadedPage($event)"></ion-toggle>
+          </ion-col>
+          <ion-col style="border-top: 2px solid white;" size="12">
+            <p>Activate this button once the load has successfully been <b>loaded</b> from your truck.</p>
+            <br>
+            <p style="color: #D72F37; font-weight: 600;">Scale Ticket Required.</p>
+            <p style="color: #D72F37; font-weight: 600;">E-Signature Required</p>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col class="unloaded" size="11">
+        <ion-row style="padding: 1.2em">
+          <ion-col size="6">
+            <h1 style="margin: 0;">Unload</h1>
+          </ion-col>
+          <ion-col class="ion-float-right" size="6">
+            <ion-toggle></ion-toggle>
+          </ion-col>
+          <ion-col style="border-top: 2px solid white;" size="12">
+            <p>Activate this button once the load has successfully been <b>unloaded</b> onto your truck.</p>
+            <br>
+            <p style="color: #D72F37; font-weight: 600;">Scale Ticket Required.</p>
+            <p style="color: #D72F37; font-weight: 600;">E-Signature Required</p>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+
+      <ion-col style="margin: 100px auto;" class="ion-text-center" size="12">
+        <ion-button style="margin-right: 20px;" class="active-order-buttons white-outline-button" (click)="edit()">
+          Edit
+        </ion-button>
+        <ion-button class="active-order-buttons cancel" (click)="cancel()">
+          Cancel
+        </ion-button>
+      </ion-col>
+
+      <ion-col size="11">
+        <h3 class="detail-header">Order Details</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque eaque culpa, optio, illo ullam error maiores dicta laudantium eum assumenda aliquam quaerat odio pariatur nostrum eveniet fuga sapiente, autem aperiam.</p>
+      </ion-col>
+
+      <ion-col size="11">
+        <h3 class="detail-header">Special Instructions</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque eaque culpa, optio, illo ullam error maiores dicta laudantium eum assumenda aliquam quaerat odio pariatur nostrum eveniet fuga sapiente, autem aperiam.</p>
+      </ion-col>
+
+      <ion-col size="11">
+        <h3 class="detail-header">Pickup</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque eaque culpa, optio, illo ullam error maiores dicta laudantium eum assumenda aliquam quaerat odio pariatur nostrum eveniet fuga sapiente, autem aperiam.</p>
+      </ion-col>
+
+      <ion-col size="11">
+        <h3 class="detail-header">Delivery</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque eaque culpa, optio, illo ullam error maiores dicta laudantium eum assumenda aliquam quaerat odio pariatur nostrum eveniet fuga sapiente, autem aperiam.</p>
+      </ion-col>
+
+      <ion-col size="11">
+        <h3 class="detail-header">Payment</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque eaque culpa, optio, illo ullam error maiores dicta laudantium eum assumenda aliquam quaerat odio pariatur nostrum eveniet fuga sapiente, autem aperiam.</p>
+      </ion-col>
+
+      <ion-col size="11">
+        <h3 class="detail-header">Photos</h3>
+        <ion-slides scrollbar="true" pager="true" [options]="slideOpts">
+          <!-- Each Photo needs to be -->
+          <ion-slide>
+          </ion-slide>
+          <ion-slide>
+          </ion-slide>
+          <ion-slide>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+
+<ion-footer>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col class="ion-text-center" size="12">
+        <ion-button class="call-button" (click)="call()">
+          <img src="../../../../../assets/icons/phone-icon.svg" alt="" srcset="">
+        </ion-button>
+        <ion-button class="message-button" (click)="messages()">
+          <img src="../../../../../assets/icons/message-icon.svg" alt="" srcset="">
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

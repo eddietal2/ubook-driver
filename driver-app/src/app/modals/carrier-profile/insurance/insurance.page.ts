@@ -20,5 +20,8 @@ export class InsurancePage implements OnInit {
       'dismissed': true
     });
   }
+  editInsurance() {
+    
+  }
 
 }

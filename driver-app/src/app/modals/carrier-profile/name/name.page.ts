@@ -21,5 +21,9 @@ export class NamePage implements OnInit {
       'dismissed': true
     });
   }
+  editName() {
+    console.log('Attemtping to Edit Name');
+    
+  }
 
 }

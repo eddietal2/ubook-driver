@@ -10,5 +10,26 @@
 </ion-header>
 
 <ion-content>
+  <ion-row style="margin-top: 50px;" class="ion-justify-content-center">
+    <ion-col class="logo-wrapper" size="10">
+      <h3 class="section-header">Edit your Insurance</h3>
+      <p class="detail-header">Insurance Info</p>
+      <p>Insurance Company A</p>
+      <p>#0055533434</p>
+      <p class="detail-header">New Insurance Info</p>
+      <ion-input class="sign-up-input" type="text" placeholder="Company"></ion-input>
+      <ion-input class="sign-up-input" type="text" placeholder="Policy #"></ion-input>
+    </ion-col>
+  </ion-row>
 
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="10">
+      <ion-button class="red-button" expand="full" (click)="editInsurance()">
+        Edit
+      </ion-button>
+      <ion-button class="cancel-button" expand="full" (click)="dismiss()">
+        Cancel
+      </ion-button>
+    </ion-col>
+  </ion-row>
 </ion-content>

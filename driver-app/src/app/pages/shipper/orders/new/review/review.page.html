@@ -17,6 +17,32 @@
     <ion-row class="ion-justify-content-center review-section">
       <ion-col size="11">
         <p class="section-description">Order Details</p>
+      </ion-col>
+      <ion-col class="order-details" size="11">
+        <div style="margin-bottom: 20px;">
+          <h3 class="order-dollar-amount">$1,500</h3>
+          <div>
+            <img style="display: inline;" src="../../../../../assets/icons/map-marker.svg" alt="" srcset="">
+            <h5 style="display: inline;">Detroit, MI </h5>
+          </div>
+
+          <div style="margin: 10px auto;">
+            <img src="../../../../../assets/icons/order-card-line.svg" alt="">
+          </div>
+
+          <div>
+            <img style="display: inline;" src="../../../../../assets/icons/delivery-truck.svg" alt="" srcset="">
+            <h5 style="display: inline;">Miami, FL</h5>
+          </div>
+        </div>
+        <div class="order-card-details">
+          <p>PU: Jan 1 06:00 - 09:00</p>
+          <p>DL: Jan 2 06:00 - 09:00</p>
+          <p>42,000 lbs - Reefer</p>
+          <p>Apples, Oranges, and Bananas.</p>
+        </div>
+      </ion-col>
+      <ion-col size="11">
         <ion-button expand="full" class="red-button" (click)="editOrderDetails()">
           Edit
         </ion-button>

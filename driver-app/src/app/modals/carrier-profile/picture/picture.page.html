@@ -9,6 +9,24 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
 
+
+<ion-content>
+  <ion-row style="margin-top: 50px;" class="ion-justify-content-center">
+    <ion-col class="ion-text-center logo-wrapper" size="10">
+      <h3 class="detail-header">Edit your profile picture.</h3>
+      <img class="logo" src="../../../../assets/placeholders/carrier.png" alt="">
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="10">
+      <ion-button class="red-button" expand="full" (click)="editPicture()">
+        Edit
+      </ion-button>
+      <ion-button class="cancel-button" expand="full" (click)="dismiss()">
+        Cancel
+      </ion-button>
+    </ion-col>
+  </ion-row>
 </ion-content>

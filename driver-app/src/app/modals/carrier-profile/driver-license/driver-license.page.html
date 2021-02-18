@@ -10,5 +10,42 @@
 </ion-header>
 
 <ion-content>
+  <ion-row style="margin-top: 50px;" class="ion-justify-content-center">
+    <ion-col class="logo-wrapper" size="10">
+      <h3 class="section-header">Edit your Driver License Info</h3>
+      <p class="detail-header">License Information</p>
+      <p>Michigan</p>
+      <p>T 423 232 232 234</p>
+    </ion-col>
+  </ion-row>
 
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="10">
+      <p class="detail-header">New License Information</p>
+      <ion-input class="sign-up-input" type="text" placeholder="License #"></ion-input>
+        <ion-label>State</ion-label>
+      <ion-select placeholder="State">
+        <ion-select-option value="ark">Arkansas</ion-select-option>
+        </ion-select>
+    </ion-col>
+    <ion-col class="get-picture-button ion-text-center" size="10">
+      <img src="../../../../../assets/icons/user-shape.svg" alt="" srcset="">
+      <h3>Tap to get License Photo (Front)</h3>
+    </ion-col>
+    <ion-col class="get-picture-button ion-text-center" size="10">
+      <img src="../../../../../assets/icons/user-shape.svg" alt="" srcset="">
+      <h3>Tap to get License Photo (Back)</h3>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="10">
+      <ion-button class="red-button" expand="full" (click)="editInsurance()">
+        Edit
+      </ion-button>
+      <ion-button class="cancel-button" expand="full" (click)="dismiss()">
+        Cancel
+      </ion-button>
+    </ion-col>
+  </ion-row>
 </ion-content>

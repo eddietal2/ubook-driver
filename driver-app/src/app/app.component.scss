@@ -180,3 +180,16 @@ ion-col {
     margin-bottom: 24px;
   }
 }
+
+.star {
+  display: inline;
+  position: relative;
+  left: 16px;
+  top: 3px;
+  height: 20px;
+}
+.rating {
+  display: inline;
+  color: #F7B500;
+  font-weight: 600;
+}

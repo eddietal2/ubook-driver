@@ -21,5 +21,9 @@ export class EmailPage implements OnInit {
       'dismissed': true
     });
   }
+  editEmail() {
+    console.log('Attempting to edit email...');
+    
+  }
 
 }

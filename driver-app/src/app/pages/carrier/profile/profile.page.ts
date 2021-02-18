@@ -25,7 +25,7 @@ import { ProfileService } from '../../../services/profile.service';
 export class ProfilePage implements OnInit {
   usertype: any;
   name: string;
-  email: string;
+  email;
   phone: string;
   rating: string;
 
@@ -35,8 +35,12 @@ export class ProfilePage implements OnInit {
     private toastController: ToastController,
     private profileService: ProfileService
   ) {
-    this.email = this.auth.email;
-    this.usertype = this.auth.usertype;
+    // For Quick Carrier Logins on Refresh. Delete during production
+      // this.email = this.auth.email;
+      // this.usertype = this.auth.usertype;
+
+      this.email = 'eddielacrosse2@gmail.com';
+      this.usertype = 'Carrier';
   }
 
   ngOnInit() {

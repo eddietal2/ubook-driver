@@ -16,6 +16,7 @@ const { Geolocation, Network } = Plugins;
 export class AppComponent implements OnInit, OnDestroy {
   isCarrier = false;
   isShipper = false;
+  isReciever = false;
   networkStatus: boolean;
   public selectedIndex = 0;
   public appPages = [
@@ -38,12 +39,12 @@ export class AppComponent implements OnInit, OnDestroy {
       icon: 'list',
       usertype: 'Carrier'
     },
-    {
-      title: 'Settings',
-      url: '/carrier-settings',
-      icon: 'list',
-      usertype: 'Carrier'
-    },
+    // {
+    //   title: 'Settings',
+    //   url: '/carrier-settings',
+    //   icon: 'list',
+    //   usertype: 'Carrier'
+    // },
 
 
     // Shipper Pages
@@ -87,7 +88,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    window.navigator.vibrate(2000);
+    // window.navigator.vibrate(2000);
 
    // Get Geolocation
    Geolocation.getCurrentPosition()
@@ -157,20 +158,27 @@ export class AppComponent implements OnInit, OnDestroy {
     this.auth.authenticationState.subscribe(async state => {
       if (state) {
         if (this.auth.usertype === 'Carrier') {
-          this.router.navigate(['carrier-profile']);
+          this.router.navigate(['carrier-home']);
           return this.isCarrier === true;
         }
         if (this.auth.usertype === 'Shipper') {
-          this.router.navigate(['shipper-profile']);
+          this.router.navigate(['shipper-home']);
           return this.isShipper === true;
         }
         if (this.auth.usertype === 'Reciever') {
-          this.router.navigate(['reciever-profile']);
-          return this.isShipper === true;
-      } else {
+          this.router.navigate(['reciever-home']);
+          return this.isReciever === true;
+        } else {
+          this.router.navigate(['']);
+        }
+      }
+      if(!state) {
+        this.isCarrier = false;
+        this.isShipper = false;
+        this.isReciever = false;
         this.router.navigate(['']);
-      }}
-    });
+      }
+    })
   }
 
   closeMenu() {

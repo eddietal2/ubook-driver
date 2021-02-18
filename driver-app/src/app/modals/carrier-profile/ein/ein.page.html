@@ -10,5 +10,22 @@
 </ion-header>
 
 <ion-content>
+  <ion-row style="margin-top: 50px;" class="ion-justify-content-center">
+    <ion-col class="logo-wrapper" size="10">
+      <h3 class="section-header">Edit your EIN #</h3>
+      <p class="detail-header">EIN: #0043424</p>
+      <ion-input class="sign-up-input" type="text" placeholder="#"></ion-input>
+    </ion-col>
+  </ion-row>
 
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="10">
+      <ion-button class="red-button" expand="full" (click)="editEIN()">
+        Edit
+      </ion-button>
+      <ion-button class="cancel-button" expand="full" (click)="dismiss()">
+        Cancel
+      </ion-button>
+    </ion-col>
+  </ion-row>
 </ion-content>

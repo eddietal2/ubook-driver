@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { IonToggle, ModalController } from '@ionic/angular';
+
 
 
 @Component({
@@ -8,6 +9,7 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./preferred-contact.page.scss'],
 })
 export class PreferredContactPage implements OnInit {
+  contactToggle: boolean;
 
   constructor(
     private modalController: ModalController) { }
@@ -20,6 +22,20 @@ export class PreferredContactPage implements OnInit {
     this.modalController.dismiss({
       'dismissed': true
     });
+  }
+  toggle(event) {
+    console.log(event);
+    if(event.detail.checked) {
+      console.log('CHECKED!');
+      this.contactToggle = true;
+    }
+    if(!event.detail.checked) {
+      console.log('UNCHECKED!');
+      this.contactToggle = false;
+    }
+  }
+  editPreferredContact() {
+    console.log('Attempting to edit preferred contact ...');
   }
 
 }

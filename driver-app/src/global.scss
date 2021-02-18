@@ -32,6 +32,9 @@
 .page-hamburger-menu {
   margin: 0 14px;
 }
+.profile-list {
+  background: none;
+}
 
 hr {
   border-top: #eee solid 1px;
@@ -58,7 +61,11 @@ ion-input {
 .bottom-buttons {
   margin: 100px auto;
 }
-
+.detail-header {
+  color: #00C5FF;
+  margin-top: 54px;
+  font-weight: 600;
+}
 ion-fab {
   margin-bottom: 50px;
 }
@@ -134,10 +141,10 @@ ion-checkbox {
 }
 
 .green-button {
-  --background: #63d730;
+  --background: #1FCC6D;
   height: 47px;
   --box-shadow: none;
-  --border-radius: 100px;
+  --border-radius: 5px;
   font-size: 1.2em;
   font-weight: 600;
 }
@@ -162,7 +169,7 @@ ion-checkbox {
   border-bottom: 6px solid #9993;
   margin-top: 24px;
 }
-.profile-list {
+.list {
   background: none;
 
   ion-item {
@@ -171,6 +178,13 @@ ion-checkbox {
     margin-bottom: 16px;
     border-radius: 8px;
   }
+}
+.white-outline-button{
+  --background: none;
+  --border-width: 2px;
+  --border-style: solid;
+  --border-color: white;
+  --border-radius: 5px;
 }
 
 ion-button {
@@ -188,8 +202,7 @@ ion-button {
   --background: linear-gradient(128deg, #D72F37 0%, #AE000E 100%);
     --box-shadow: none;
     --color: white;
-    height: 50px;
-    font-weight: 600;
+    height: 44px;
     transition: 0.5s;
     display: block;
     margin: 21px auto;
@@ -237,7 +250,6 @@ ion-toolbar {
   --color: white;
   font-size: 1em;
 }
-
 .success-login-toast {
   --border-color: green;
   --border-style: solid;
@@ -247,14 +259,12 @@ ion-toolbar {
   --color: white;
   font-size: 1.2em;
 }
-
 .danger-toast {
   font-weight: 600;
   --background: #FF443B;
   --color: white;
   font-size: 1em;
 }
-
 .loading-danger {
   --background: linear-gradient(128deg, #D72F37 0%, #AE000E 100%);
   border-radius: 5px;
@@ -267,9 +277,20 @@ ion-toolbar {
   font-weight: 600;
   font-size: 1em;
 }
-
-// Orders
-.order-card{
-
+ion-footer {
+  background: linear-gradient(-52deg, #2F353D 0%, #292929 82%);
+}
+.order-footer {
+  ion-button {
+    height: 54px;
+    --padding-start: 32px;
+    --padding-end: 32px;
+  }
+  .call-button {
+    --background: linear-gradient(180deg, #1FCC6D 50%, #1ECB6C 100%);
+  }
+  .message-button {
+    --background: #00C5FF;
+  }
 }
 

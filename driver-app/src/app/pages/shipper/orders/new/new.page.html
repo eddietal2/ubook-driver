@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>New Order</ion-title>
     <p style="margin-right: 16px; font-weight: 600;
 " slot="end">1/4</p>
@@ -23,9 +26,9 @@
         <form>
           <ion-input class="sign-up-input" type="text" placeholder="Rate - $"></ion-input>
           <ion-select placeholder="Truck Type">
-            <ion-select-option value="r">Reefer</ion-select-option>
-            <ion-select-option value="f">Flatbed</ion-select-option>
-            <ion-select-option value="d">Dry Van</ion-select-option>
+            <ion-select-option value="dryvan">Dry Van</ion-select-option>
+            <ion-select-option value="reefer">Reefer</ion-select-option>
+            <ion-select-option value="flatbed">Flatbed</ion-select-option>
           </ion-select>
           <ion-input class="sign-up-input" type="text" placeholder="Weight - Lbs"></ion-input>
           <ion-input class="sign-up-input" type="text" placeholder="Description - 100 Characters"></ion-input>
@@ -41,7 +44,6 @@
           rows="20"
           spellcheck="true"
           autoGrow="true"
-
           placeholder="Enter text here:"></ion-textarea>
       </ion-col>
     </ion-row>

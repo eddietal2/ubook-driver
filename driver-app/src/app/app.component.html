@@ -6,14 +6,16 @@
           <ion-row>
             <ion-col size="12">
               <div id="side-menu-user-info" *ngIf="this.auth.usertype === 'Carrier'">
-                <ion-button id="close-menu-button" (click)="closeMenu()">
+                <!-- <ion-button id="close-menu-button" (click)="closeMenu()">
                   <img src="../assets/Hamburger-menu.svg" alt="" srcset="">
-                </ion-button>
+                </ion-button> -->
                 <div id="profile-picture">
+                  <img src="../assets/placeholders/carrier.png" alt="" srcset="">
                 </div>
                 <h1>{{this.auth.name}}</h1><br>
                 <h5>Carrier</h5><br>
-                <h6>Rating: {{this.auth.rating}}</h6>
+                <p class="rating">Rating - 4/5</p>
+                <img class="star" src="../../../../../assets/icons/star-icon.svg" alt="" srcset="">
               </div>
             </ion-col>
           </ion-row>

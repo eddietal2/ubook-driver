@@ -21,5 +21,8 @@ export class McPage implements OnInit {
       'dismissed': true
     });
   }
+  editMC() {
+
+  }
 
 }

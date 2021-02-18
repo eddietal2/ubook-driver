@@ -21,5 +21,8 @@ export class EinPage implements OnInit {
       'dismissed': true
     });
   }
+  editEIN() {
+    
+  }
 
 }

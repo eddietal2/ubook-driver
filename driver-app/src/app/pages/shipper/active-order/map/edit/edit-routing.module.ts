@@ -9,7 +9,7 @@ const routes: Routes = [
     component: EditPage
   },
   {
-    path: 'input',
+    path: 'input/:type',
     loadChildren: () => import('./input/input.module').then( m => m.InputPageModule)
   },
   {

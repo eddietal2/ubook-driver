@@ -21,5 +21,8 @@ export class DotPage implements OnInit {
       'dismissed': true
     });
   }
+  editDOT() {
+    
+  }
 
 }

@@ -17,5 +17,9 @@ export class PresetsPage implements OnInit {
   createPreset() {
     this.router.navigate(['/shipper-orders/new/new-presets'])
   }
+  usePreset() {
+    console.log('Using Preset ..');
+    
+  }
 
 }

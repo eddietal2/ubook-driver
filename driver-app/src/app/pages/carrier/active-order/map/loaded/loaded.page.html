@@ -1,9 +1,37 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>loaded</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Loaded</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col style="border-bottom: 2px solid white" size="11">
+        <p>After the load has successfully been put on your truck, please take a photo of the scale ticket, and get an E-Signature.
+        </p>
+      </ion-col>
+      <ion-col size="11">
+        <h3 class="detail-header">Scale Ticket</h3>
+        <div (click)="scaleTicketModal()" class="tap-area ion-text-center">
+          <p>Tap to get Scale Ticket</p>
+        </div>
+      </ion-col>
+      <ion-col size="11">
+        <h3 class="detail-header">E-Signature</h3>
+        <div (click)="eSignModal()" class="tap-area ion-text-center">
+          <p>Tap to get E-Signature</p>
+        </div>
+      </ion-col>
+      <ion-col style="margin: 54px auto;" class="ion-text-center" size="11">
+        <!-- [disabled]="!this.loaded"  -->
+        <ion-button class="green-button" (click)="submit()">
+          Submit
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

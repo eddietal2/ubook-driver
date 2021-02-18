@@ -10,5 +10,22 @@
 </ion-header>
 
 <ion-content>
+  <ion-row style="margin-top: 50px;" class="ion-justify-content-center">
+    <ion-col class="logo-wrapper" size="10">
+      <h3 class="section-header">Edit your Name.</h3>
+      <p class="detail-header">Name: Eddie Taliaferro</p>
+      <ion-input class="sign-up-input" type="text" placeholder="First & Last Name"></ion-input>
+    </ion-col>
+  </ion-row>
 
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="10">
+      <ion-button class="red-button" expand="full" (click)="editName()">
+        Edit
+      </ion-button>
+      <ion-button class="cancel-button" expand="full" (click)="dismiss()">
+        Cancel
+      </ion-button>
+    </ion-col>
+  </ion-row>
 </ion-content>

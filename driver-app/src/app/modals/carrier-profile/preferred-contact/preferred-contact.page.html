@@ -10,5 +10,35 @@
 </ion-header>
 
 <ion-content>
+  <ion-row style="margin-top: 50px;" class="ion-justify-content-center">
+    <ion-col size="10">
+      <h3 class="section-header">Edit your Preferred Contact</h3>
+      <p>Would you like to use a Preferred contact? When on your route, your preferred contact number is the number a Shipper or Receiver will contact via the UBook Freight App if they have any questions or concerns. <br><br>If you <span style="font-weight: 600; color: #D72F37">do not</span> use a preferred contact, all phone calls will be directed to the phone number associated with your Account (734-223-2332).</p>
+      <br>
+      <p style="font-weight: 600">Use Preferred Contact?</p>
+      <ion-toggle (ionChange)="toggle($event)"></ion-toggle>
+    </ion-col>
+    <ion-col size="10" *ngIf="this.contactToggle">
+      <p class="detail-header">Preferred Contact:</p>
+      <p>Kamala Harris</p>
+      <p>(313) 123-2322</p>
+      <p>Representative</p>
 
+      <br style="margin-top: 54px;">
+      <ion-input class="sign-up-input" type="text" placeholder="First & Last Name"></ion-input>
+      <ion-input class="sign-up-input" type="phone" placeholder="Phone"></ion-input>
+      <ion-input class="sign-up-input" type="rtext" placeholder="Role - Example: Representative"></ion-input>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="10">
+      <ion-button class="red-button" expand="full" (click)="editPreferredContact()">
+        Edit
+      </ion-button>
+      <ion-button class="cancel-button" expand="full" (click)="dismiss()">
+        Cancel
+      </ion-button>
+    </ion-col>
+  </ion-row>
 </ion-content>

@@ -1,12 +1,88 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Home</ion-title>
+    <ion-title>Thursday - Febuary 4th, 2021</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-grid style="margin-bottom: 200px;">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="11">
+        <ion-button class="pending-button" (click)="pendingOrders()">
+          Pending Orders (2)
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="11">
+        <h1 class="orders-header">Active Order</h1>
+      </ion-col>
+      <ion-col (click)="activeOrder()" class="active-order" size="11">
+        <div style="margin-bottom: 20px;">
+          <h3 class="order-dollar-amount">$1,500</h3>
+          <div>
+            <img style="display: inline;" src="../../../../../assets/icons/map-marker.svg" alt="" srcset="">
+            <h5 style="display: inline;">Detroit, MI </h5>
+          </div>
 
+          <div style="margin: 10px auto;">
+            <img src="../../../../../assets/icons/order-card-line.svg" alt="">
+          </div>
+
+          <div>
+            <img style="display: inline;" src="../../../../../assets/icons/delivery-truck.svg" alt="" srcset="">
+            <h5 style="display: inline;">Miami, FL</h5>
+          </div>
+        </div>
+        <div class="order-card-details">
+          <p>PU: Jan 1 06:00 - 09:00</p>
+          <p>DL: Jan 2 06:00 - 09:00</p>
+          <p>42,000 lbs - Reefer</p>
+          <p>Apples, Oranges, and Bananas.</p>
+        </div>
+      </ion-col>
+      <ion-col size="11">
+        <h1>Future Orders</h1>
+      </ion-col>
+      <ion-col (click)="futureOrder()" class="future-order" size="11">
+        <div style="margin-bottom: 20px;">
+          <h3 class="order-dollar-amount">$1,500</h3>
+          <div>
+            <img style="display: inline;" src="../../../../../assets/icons/map-marker.svg" alt="" srcset="">
+            <h5 style="display: inline;">Detroit, MI </h5>
+          </div>
+
+          <div style="margin: 10px auto;">
+            <img src="../../../../../assets/icons/order-card-line.svg" alt="">
+          </div>
+
+          <div>
+            <img style="display: inline;" src="../../../../../assets/icons/delivery-truck.svg" alt="" srcset="">
+            <h5 style="display: inline;">Miami, FL</h5>
+          </div>
+        </div>
+        <div class="order-card-details">
+          <p>PU: Jan 1 06:00 - 09:00</p>
+          <p>DL: Jan 2 06:00 - 09:00</p>
+          <p>42,000 lbs - Reefer</p>
+          <p>Apples, Oranges, and Bananas.</p>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+
+<ion-footer>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col class="ion-text-center" size="4">
+        <ion-menu-button></ion-menu-button></ion-col>
+      <ion-col (click)="newOrder()" class="ion-text-center" size="4">
+        <img src="../../../../assets/icons/add-order-button.svg" alt="">
+      </ion-col>
+      <ion-col (click)="shipperProfile()" class="ion-text-center" size="4"><img class="profile-picture" src="../../../../assets/placeholders/shipper.png"> </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

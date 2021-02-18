@@ -6,11 +6,21 @@ ion-col {
 }
 h1 {
   margin-top: 100px;
+  font-size: 2em;
 }
 h6 {
   font-size: 0.7em;
   color: #555;
 }
-.stars-container {
-  background: #eee1
+.star {
+  display: inline;
+  position: relative;
+  left: 16px;
+  top: 3px;
+  height: 20px;
+}
+.rating {
+  display: inline;
+  color: #F7B500;
+  font-weight: 600;
 }

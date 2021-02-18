@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router) { }
 
   ngOnInit() {
+  }
+  back() {
+    this.router.navigate(['/shipper-map']);
+  }
+  inputPage(type) {
+    this.router.navigate(['/edit/input', type]);
   }
 
 }

@@ -1,9 +1,43 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>edit</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit Active Order</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="11">
+        <h3 class="detail-header">What do you need to edit?</h3>
+        <ion-list class="list">
+          <ion-item (click)="inputPage('puaddress')">
+            <ion-label>Pick Up Address</ion-label>
+          </ion-item>
+          <ion-item (click)="inputPage('pickuptime')">
+            <ion-label>Pick Up Time</ion-label>
+          </ion-item>
+          <ion-item (click)="inputPage('daddress')">
+            <ion-label>Delivery Address</ion-label>
+          </ion-item>
+          <ion-item (click)="inputPage('dtime')">
+            <ion-label>Delivery Time</ion-label>
+          </ion-item>
+          <ion-item (click)="inputPage('request')">
+            <ion-label>Special Request</ion-label>
+          </ion-item>
+          <ion-item (click)="inputPage('description')">
+            <ion-label>Load Description</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col class="ion-text-center" size="11">
+        <ion-button class="white-outline-button" (click)="back()">
+          Back
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -1,0 +1,16 @@
+#close-menu-button{
+  --background: none;
+  --box-shadow: none;
+}
+.tap-area {
+  border-radius: 5px;
+  background: #eee;
+  height: 200px;
+
+  p {
+    color: #222;
+    font-weight: 600;
+    position: relative;
+    top: 45%;
+  }
+}

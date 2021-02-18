@@ -1,9 +1,34 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>cancel</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Cancel Active Order</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="11">
+        <h3 class="detail-header">Why are you cancelling this order?</h3>
+        <ion-list class="list">
+          <ion-item (click)="confirmCancelPage('reason')">
+            <ion-label>Emergency</ion-label>
+          </ion-item>
+          <ion-item (click)="confirmCancelPage('reason')">
+            <ion-label>Reason 2</ion-label>
+          </ion-item>
+          <ion-item (click)="confirmCancelPage('reason')">
+            <ion-label>Reason 3</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col class="ion-text-center" size="11">
+        <ion-button class="white-outline-button" (click)="back()">
+          Back
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

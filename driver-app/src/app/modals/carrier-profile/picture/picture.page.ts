@@ -21,5 +21,8 @@ export class PicturePage implements OnInit {
       'dismissed': true
     });
   }
+  editPicture() {
+    console.log('Attempting to edit picture');
+  }
 
 }

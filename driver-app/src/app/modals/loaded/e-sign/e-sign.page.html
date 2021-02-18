@@ -1,9 +1,26 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>e-sign</ion-title>
+    <ion-button id="close-menu-button" (click)="dismiss()">
+      <img src="../../../../assets/icons/x-close white.svg" alt="" srcset="">
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="11">
+        <h3 class="detail-header">E Signature</h3>
+        <div (click)="getSig()" class="tap-area ion-text-center">
+          <p>Tap to get Photo</p>
+        </div>
+        <ion-input class="sign-up-input" type="text" placeholder="Weight Lbs"></ion-input>
+      </ion-col>
+      <ion-col class="ion-text-center" size="11">
+        <ion-button class="red-button" (click)="submit()">
+          Submit
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

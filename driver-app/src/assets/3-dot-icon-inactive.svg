@@ -6,9 +6,9 @@
     <g id="3-dot-icon-inactive" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <rect x="0" y="0" width="25" height="6"></rect>
         <g id="Dot-Group" fill="#000000">
-            <circle fill="orangered" id="Oval" cx="2.5" cy="2.74390244" r="2.5"></circle>
-            <circle fill="orangered" id="Oval-Copy" cx="12.5" cy="2.74390244" r="2.5"></circle>
-            <circle fill="orangered" id="Oval-Copy-2" cx="22.5" cy="2.74390244" r="2.5"></circle>
+            <circle fill="#D72F37" id="Oval" cx="2.5" cy="2.74390244" r="2.5"></circle>
+            <circle fill="#D72F37" id="Oval-Copy" cx="12.5" cy="2.74390244" r="2.5"></circle>
+            <circle fill="#D72F37" id="Oval-Copy-2" cx="22.5" cy="2.74390244" r="2.5"></circle>
         </g>
     </g>
 </svg>

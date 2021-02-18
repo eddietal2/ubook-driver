@@ -1,9 +1,89 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>input</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit Input</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
 
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+
+      <!-- Pick Up Address -->
+      <ion-col *ngIf="type === 'puaddress'" size="11">
+        <h3 class="detail-header">Pick Up Address</h3>
+        <form (ngSubmit)="changePUAddress()">
+          <ion-input class="sign-up-input" type="text" placeholder="Address 1"></ion-input>
+          <ion-input class="sign-up-input" type="text" placeholder="Address 2"></ion-input>
+          <ion-input class="sign-up-input" type="text" placeholder="City"></ion-input>
+          <ion-input class="sign-up-input" type="text" placeholder="St"></ion-input>
+          <ion-input class="sign-up-input" type="text" placeholder="Zip"></ion-input>
+        </form>
+      </ion-col>
+
+      <!-- Pick Up Time -->
+      <ion-col *ngIf="type === 'pickuptime'" size="11">
+        <h3 class="detail-header">Pick Up Time</h3>
+        <form (ngSubmit)="changePUTime()">
+          <ion-input class="sign-up-input" type="time" placeholder="Time"></ion-input>
+        </form>
+      </ion-col>
+
+      <!-- Delivery Address -->
+      <ion-col *ngIf="type === 'daddress'" size="11">
+        <h3 class="detail-header">Delivery Address</h3>
+        <form (ngSubmit)="changeDeliveryAddress()">
+          <ion-input class="sign-up-input" type="text" placeholder="Address 1"></ion-input>
+          <ion-input class="sign-up-input" type="text" placeholder="Address 2"></ion-input>
+          <ion-input class="sign-up-input" type="text" placeholder="City"></ion-input>
+          <ion-input class="sign-up-input" type="text" placeholder="St"></ion-input>
+          <ion-input class="sign-up-input" type="text" placeholder="Zip"></ion-input>
+        </form>
+      </ion-col>
+
+      <!-- Delivery Time -->
+      <ion-col *ngIf="type === 'dtime'" size="11">
+        <h3 class="detail-header">Deilvery Time</h3>
+        <form (ngSubmit)="changeDeliveryTime()">
+          <ion-input class="sign-up-input" type="time" placeholder="Time"></ion-input>
+        </form>
+      </ion-col>
+
+      <!-- Special Request -->
+      <ion-col *ngIf="type === 'request'" size="11">
+        <h3 class="detail-header">Special Request</h3>
+        <form (ngSubmit)="changeSpecialRequest()">
+          <ion-textarea
+          rows="10"
+          autoGrow="true"
+          inputmode="text"
+          placeholder="Enter text"
+          ></ion-textarea>
+        </form>
+      </ion-col>
+
+      <!-- Load Description -->
+      <ion-col *ngIf="type === 'description'" size="11">
+        <h3 class="detail-header">Load Description</h3>
+        <form (ngSubmit)="changeLoadDescription()">
+          <ion-textarea
+          rows="6" cols="20"
+          autoGrow="true"
+          inputmode="text"
+          placeholder="Enter text"
+          ></ion-textarea>
+        </form>
+      </ion-col>
+
+      <!-- Submit Button -->
+      <ion-col class="ion-text-center" size="11">
+        <ion-button class="green-button" (click)="submit()">
+          Submit
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

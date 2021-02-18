@@ -8,6 +8,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
 import { IonBottomDrawerModule } from 'ion-bottom-drawer';
+import { SharedComponentsModule } from '../../../components/shared-components.module';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { IonBottomDrawerModule } from 'ion-bottom-drawer';
     FormsModule,
     IonBottomDrawerModule,
     IonicModule,
+    SharedComponentsModule,
     HomePageRoutingModule
   ],
   declarations: [HomePage]

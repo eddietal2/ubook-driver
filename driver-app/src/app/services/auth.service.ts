@@ -243,8 +243,8 @@ export class AuthService {
   logout() {
     this.storage.remove(this.TOKEN_KEY).then((token) => {
       console.log('Logging out...');
-      this.authenticationState.next(false);
-      // window.location.reload();
+      return this.authenticationState.next(false);
+      window.location.reload();
     });
   }
 

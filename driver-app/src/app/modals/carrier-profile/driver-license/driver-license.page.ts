@@ -21,5 +21,9 @@ export class DriverLicensePage implements OnInit {
       'dismissed': true
     });
   }
+  editInsurance() {
+    ;
+    
+  }
 
 }

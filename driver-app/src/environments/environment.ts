@@ -14,8 +14,12 @@ const baseUrl = `http://${ip}:4000`;
 
 export const environment = {
   production: false,
-  url: baseUrl
+  url: baseUrl,
+  mapbox: {
+    accessToken: 'pk.eyJ1IjoiZWRkaWV0YWwyIiwiYSI6ImNrZWRzbDd3cTA2NnkzMm5qazZqeDRqeXQifQ.cSA7bCR0Z2FSxm1Ipcxgjw'}
 };
+
+
 
 /*
  * For easier debugging in development mode, you can import the following file

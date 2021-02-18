@@ -9,7 +9,7 @@ const routes: Routes = [
     component: CancelPage
   },
   {
-    path: 'confirm',
+    path: 'confirm/:type',
     loadChildren: () => import('./confirm/confirm.module').then( m => m.ConfirmPageModule)
   },
   {

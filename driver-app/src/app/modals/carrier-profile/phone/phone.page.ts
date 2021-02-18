@@ -20,5 +20,9 @@ export class PhonePage implements OnInit {
       'dismissed': true
     });
   }
+  editPhone() {
+    console.log('Attempting to edit Phone # ...');
+    
+  }
 
 }
