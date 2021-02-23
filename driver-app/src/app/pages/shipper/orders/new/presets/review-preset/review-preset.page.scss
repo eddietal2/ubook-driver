@@ -1,0 +1,83 @@
+ion-toolbar {
+  --background: radial-gradient(50% 150%, #1FCC6D 50%, #1ECB6C 100%);
+  box-shadow: 0 2px 31px 0 rgba(0,0,0,0.12);;
+}
+
+ion-title {
+  font-weight: 600;
+}
+ion-item{
+  --background: none;
+}
+ion-range{
+  --bar-background: white;
+  --bar-background-active: #1FCC6D;
+  --bar-borderradius: 5px;
+  --bar-height: 5px;
+  --knob-background: url('../../../../../../../assets/icons/range-knob.svg');
+  --knob-size: 45px;
+
+  p{
+    margin: 5px;
+  }
+}
+.range-value{
+  font-size: 2em;
+  transition: 500ms;
+}
+ion-slides {
+  height: 300px;
+  background: lightgray;
+  --bullet-background: white;
+  --bullet-background-active: #D72F37;
+
+  ion-slide {
+    box-shadow: inset -120px 1px 100px #2223;
+    background-image: url('../../../../../../../assets/placeholder-images/logistic-warehouse-courier-shipment-transportation-260nw-1207119298.webp');
+    background-size: cover;
+    background-position: center;
+  }
+}
+.red-button{
+  margin-top: 24px;
+}
+
+h1 {
+  margin-top: 100px;
+}
+.review-section{
+  border-bottom: 2px solid #eee;
+  padding-bottom: 100px;
+}
+.order-details {
+  background: #eee2;
+  border-right: 8px solid #eee;
+  padding: 24px 14px;
+  border-radius: 6px;
+  box-shadow: 1px 1px 11px #0006;
+
+  h5 {
+    color: white;
+    margin-left: 10px;
+    font-weight: 600;
+  }
+
+  .order-dollar-amount {
+    display: inline;
+    float: right;
+    border: 2px solid #eee;
+    padding: 8px;
+    position: relative;
+    top: -17px;
+    font-size: 1em;
+    font-weight: 600;
+  }
+
+  .order-card-details {
+    p {
+      line-height: 1.3em;
+      margin: 0;
+      font-size: 0.85em;
+    }
+  }
+}

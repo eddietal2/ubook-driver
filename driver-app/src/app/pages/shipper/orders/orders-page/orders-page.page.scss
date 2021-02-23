@@ -3,8 +3,8 @@ h1{
 }
 
 .active-order {
-  background: #6dd4002b;
-  border-right: 8px solid #6dd400;
+  background: #1FCC6D2b;
+  border-right: 8px solid #1FCC6D;
   padding: 24px 14px;
   border-radius: 6px;
   box-shadow: 1px 1px 11px #0006;
@@ -18,7 +18,7 @@ h1{
   .order-dollar-amount {
     display: inline;
     float: right;
-    border: 2px solid #6dd400;
+    border: 2px solid #1FCC6D;
     padding: 8px;
     position: relative;
     top: -17px;
@@ -64,5 +64,19 @@ h1{
       margin: 0;
       font-size: 0.85em;
     }
+  }
+}
+.order-toolbar{
+  --background: none;
+  margin-top: 24px;
+
+  ion-button {
+    font-weight: 600;
+  }
+
+  .preset-select {
+    --background: #1FCC6D;
+    --color: white;
+    --border-radius: 5px;
   }
 }

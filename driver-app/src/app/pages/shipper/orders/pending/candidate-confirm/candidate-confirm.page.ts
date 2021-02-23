@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-candidate-confirm',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CandidateConfirmPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router) { }
 
   ngOnInit() {
+  }
+  reviews() {
+    this.router.navigate(['/shipper-orders/pending/candidate-reviews']);
+  }
+  acceptCandidate() {
+    this.router.navigate(['/shipper-orders/pending/candidate-accept']);
   }
 
 }

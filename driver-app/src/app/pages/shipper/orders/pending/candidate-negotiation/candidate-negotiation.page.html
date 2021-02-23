@@ -1,9 +1,74 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>candidate-negotiation</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/shipper-orders/pending"></ion-back-button>
+      <ion-title>Candidate Rate Negotiation</ion-title>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <!-- Timer -->
+   <!-- <ion-row class="ion-justify-content-center">
+      <ion-col size="11">
+      <ion-col class="ion-text-center" size="3">
+        <div *ngIf="timerLoading">
+          <ion-spinner name="lines"></ion-spinner>
+        </div>
+        <div *ngIf="!timerLoading" id="timer-wrapper">
+          <h1 id="timer"></h1>
+        </div>
+      </ion-col>
+      </ion-col>
+    </ion-row> -->
+    <!-- Description -->
+    <ion-row class="ion-justify-content-center">
+      <!-- Page Description -->
+      <ion-col style="margin-top: 42px;" class="ion-text-center" size="11">
+        <img src="../../../../../../assets/icons/carrier-candidate.svg" alt="" srcset="">
+        <div *ngIf="!waitingForResponse">
+          <p>Candidate's Rate: ${{carrierRate}}</p>
+        </div>
+        <div *ngIf="waitingForResponse" style="margin-top: 24px;">
+          <ion-spinner style="--color: white;"></ion-spinner>
+          <p>Waiting for Carrier's Response.</p>
+        </div>
+      </ion-col>
+    </ion-row>
+    <!-- Rate Adjuster -->
+    <ion-row *ngIf="declined" class="rate-adjuster ion-justify-content-center">
+        <ion-col size="11">
+          <h3 style="margin-top: 0px;" class="detail-header">Your Rate</h3>
+        </ion-col>
+        <ion-col (click)="decrementRate()"  class="ion-text-center" size="3">
+          <img src="../../../../assets/buttons/minus-button.svg" alt="add-button" srcset="">
+        </ion-col>
+        <ion-col class="ion-text-center" size="6">
+          <form (ngSubmit)="submitRateAlert()" [formGroup]="rateForm">
+            <ion-input formControlName="rate" (ionChange)="logRate($event)" id="rate" type="number" placeholder="{{shipperRate}}" value="{{shipperRate}}"><span id="dollar-sign">$</span></ion-input>
+          </form>
+        </ion-col>
+        <ion-col (click)="incrementRate()" class="ion-text-center" size="3">
+          <img src="../../../../assets/buttons/add-button.svg" alt="add-button" srcset="">
+        </ion-col>
+    </ion-row>
+    <!-- Buttons -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col class="ion-text-center" size="11">
+        <ion-button [disabled]="declined || waitingForResponse" type="submit" class="green-button" expand="full" (click)="submitRateAlert()">
+          Finalize
+        </ion-button>
+        <ion-button [disabled]="declined || waitingForResponse" class="white-outline-button" (click)="decline()">
+          Decline
+        </ion-button>
+        <ion-button [disabled]="waitingForResponse" *ngIf="declined" class="red-button" (click)="submitNewRate()">
+          Submit New Rate
+        </ion-button>
+        <ion-button style="--background: none;" class="white-outline-button" (click)="decline()">
+          Cancel
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

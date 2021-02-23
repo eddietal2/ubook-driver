@@ -1,9 +1,32 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>candidate-confirm</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      <ion-title>Order Candidate</ion-title>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="11">
+        <p>After you have selected this Carrier, the Rate and the Carrier’s information will be released to you.</p>
+      </ion-col>
+      <ion-col class="candidate" size="11">
+        <img src="../../../../../../assets/icons/carrier-candidate.svg">
+        <p>Distance from Pickup: 200</p>
+        <p class="rating">4/5</p>
+        <img class="star" src="../../../../../assets/icons/star-icon.svg" alt="" srcset="">
+      </ion-col>
+      <ion-col size="11">
+        <ion-button class="white-outline-button" (click)="reviews()">
+          Reviews
+        </ion-button>
+        <ion-button class="green-button" (click)="acceptCandidate()">
+          Accept
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

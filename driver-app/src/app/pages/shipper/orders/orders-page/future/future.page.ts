@@ -49,5 +49,10 @@ export class FuturePage implements OnInit {
   message() {
     this.router.navigate(['/shipper-future/messages'])
   }
+  cancelOrder() {
+    
+  }
+  back() {
 
+  }
 }

@@ -1,9 +1,34 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>candidate-accept</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      <ion-title>Accept Candidate</ion-title>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="11">
+        <p class="big-message">Meet your new driver!</p>
+      </ion-col>
+      <ion-col class="candidate" size="11">
+        <img src="../../../../../../assets/placeholders/carrier.png">
+        <p style="color: white; font-weight: 600;">Eddie</p>
+        <p>Distance from Pickup: 200</p>
+        <p class="rating">4/5</p>
+        <img class="star" src="../../../../../assets/icons/star-icon.svg" alt="" srcset="">
+        <h3>$1,500</h3>
+      </ion-col>
+      <ion-col size="11">
+        <ion-button class="green-button" (click)="acceptCandidate()">
+          Accept
+        </ion-button>
+        <ion-button class="white-outline-button" (click)="cancelCandidate()">
+          Cancel
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -4,14 +4,10 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    
     // loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
-    // loadChildren: () => import('./pages/carrier/active-order/map/map.module').then( m => m.MapPageModule)
-    // loadChildren: () => import('./pages/carrier/home/home.module').then( m => m.HomePageModule)
-    // loadChildren: () => import('../app/pages/shipper/orders/new/presets/presets.module').then( m => m.PresetsPageModule)
-    // loadChildren: () => import('../app/pages/shipper/orders/new/new-presets/new-presets.module').then( m => m.NewPresetsPageModule)
-
-    loadChildren: () => import('./pages/shipper/orders/orders.module').then( m => m.OrdersPageModule)
+    // loadChildren: () => import('./pages/shipper/orders/orders-page/future/future.module').then( m => m.FuturePageModule)
+    // loadChildren: () => import('./pages/shipper/orders/orders.module').then( m => m.OrdersPageModule)
+    loadChildren: () => import('./pages/shipper/orders/pending/candidate-negotiation/candidate-negotiation.module').then( m => m.CandidateNegotiationPageModule)
   },
   {
     path: 'forgot-password',

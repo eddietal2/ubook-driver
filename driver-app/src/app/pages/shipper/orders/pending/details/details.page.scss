@@ -1,0 +1,70 @@
+ion-toolbar {
+  --background: #8a0083;
+}
+ion-title {
+  font-weight: 600;
+}
+ion-list{
+  margin-bottom: 72px;
+  background: none;
+}
+ion-item{
+  --background: none;
+  --color: white;
+  --detail-icon-color: white;
+}
+ion-label {
+  h4 {
+    font-weight: 700;
+  }
+}
+.ubook-logo{
+  position: relative;
+  right: 32px;
+}
+.star {
+  display: inline;
+  position: relative;
+  height: 20px;
+}
+.rating {
+  display: inline;
+  color: #F7B500;
+  margin-right: 8px;
+  font-weight: 600;
+}
+h5 {
+  color: white;
+  margin-left: 10px;
+  font-weight: 600;
+}
+.order-dollar-amount {
+  display: inline;
+  float: right;
+  border: 2px solid #EF06E4;
+  padding: 8px;
+  position: relative;
+  top: -17px;
+  font-size: 1em;
+  font-weight: 600;
+}
+ion-slides {
+  height: 300px;
+  background: lightgray;
+  --bullet-background: white;
+  --bullet-background-active: #D72F37;
+
+  ion-slide {
+    box-shadow: inset -120px 1px 100px #2223;
+    background-image: url('../../../../../../assets/placeholder-images/logistic-warehouse-courier-shipment-transportation-260nw-1207119298.webp');
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+.order-page-buttons {
+  margin: 60px auto;
+  ion-button {
+    margin: 20px auto;
+  }
+}

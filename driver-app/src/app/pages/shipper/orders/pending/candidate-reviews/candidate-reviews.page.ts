@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-candidate-reviews',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CandidateReviewsPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router) { }
 
   ngOnInit() {
   }
+  back() {
+    // Get Order ID to put as a Param in route?
+    this.router.navigate(['']);
+  }
+
 
 }

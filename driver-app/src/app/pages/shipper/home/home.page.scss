@@ -85,3 +85,17 @@ h1{
     }
   }
 }
+.order-toolbar{
+  --background: none;
+  margin-top: 24px;
+
+  ion-button {
+    font-weight: 600;
+  }
+
+  .preset-select {
+    --background: #1FCC6D;
+    --color: white;
+    --border-radius: 5px;
+  }
+}

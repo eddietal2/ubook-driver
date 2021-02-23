@@ -3,8 +3,8 @@ h1{
 }
 
 .pending-order {
-  background: #EF06E42b;
-  border-right: 8px solid #EF06E4;
+  background: #8a00832b;
+  border-right: 8px solid #8a0083;
   padding: 24px 14px;
   border-radius: 6px;
   box-shadow: 1px 1px 11px #0006;
@@ -18,7 +18,7 @@ h1{
   .order-dollar-amount {
     display: inline;
     float: right;
-    border: 2px solid #EF06E4;
+    border: 2px solid #8a0083;
     padding: 8px;
     position: relative;
     top: -17px;
@@ -36,7 +36,7 @@ h1{
 }
 .accepted-order {
   background: #eee2;
-  border-right: 8px solid #6DD400;
+  border-right: 8px solid #1FCC6D;
   padding: 24px 14px;
   border-radius: 6px;
   box-shadow: 1px 1px 11px #0006;
@@ -50,7 +50,7 @@ h1{
   .order-dollar-amount {
     display: inline;
     float: right;
-    border: 2px solid #6DD400;
+    border: 2px solid #1FCC6D;
     padding: 8px;
     position: relative;
     top: -17px;
@@ -64,5 +64,19 @@ h1{
       margin: 0;
       font-size: 0.85em;
     }
+  }
+}
+.order-toolbar{
+  --background: none;
+  margin-top: 24px;
+
+  ion-button {
+    font-weight: 600;
+  }
+
+  .preset-select {
+    --background: #1FCC6D;
+    --color: white;
+    --border-radius: 5px;
   }
 }

@@ -1,0 +1,32 @@
+ion-toolbar {
+  --background: #8a0083;
+}
+.candidate{
+  background: #eeeeee14;
+  padding: 1em;
+  margin: 42px auto;
+  border-radius: 5px;
+}
+.star {
+  display: inline;
+  position: relative;
+  height: 20px;
+}
+.rating {
+  display: inline;
+  color: #F7B500;
+  margin-right: 8px;
+  font-weight: 600;
+}
+.green-button {
+  margin: 24px auto;
+}
+.big-message{
+  font-size: 2em;
+  color: #F7B500;
+}
+h3{
+  font-size: 2em;
+  color: #1FCC6D;
+  font-weight: 600;
+}

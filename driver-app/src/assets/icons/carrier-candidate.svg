@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#ADADAD" stop-opacity="0.113772946" offset="0%"></stop>
+            <stop stop-color="#201F1F" stop-opacity="0.0498798077" offset="100%"></stop>
+        </linearGradient>
+        <path d="M14,13.65625 C12.71875,13.65625 12.1026786,14.375 10,14.375 C7.89732143,14.375 7.28571429,13.65625 6,13.65625 C2.6875,13.65625 0,16.3605469 0,19.69375 L0,20.84375 C0,22.0341797 0.959821429,23 2.14285714,23 L17.8571429,23 C19.0401786,23 20,22.0341797 20,20.84375 L20,19.69375 C20,16.3605469 17.3125,13.65625 14,13.65625 Z M17.8571429,20.84375 L2.14285714,20.84375 L2.14285714,19.69375 C2.14285714,17.5554688 3.875,15.8125 6,15.8125 C6.65178571,15.8125 7.70982143,16.53125 10,16.53125 C12.3080357,16.53125 13.34375,15.8125 14,15.8125 C16.125,15.8125 17.8571429,17.5554688 17.8571429,19.69375 L17.8571429,20.84375 Z M10,12.9375 C13.5491071,12.9375 16.4285714,10.0400391 16.4285714,6.46875 C16.4285714,2.89746094 13.5491071,0 10,0 C6.45089286,0 3.57142857,2.89746094 3.57142857,6.46875 C3.57142857,10.0400391 6.45089286,12.9375 10,12.9375 Z M10,2.15625 C12.3616071,2.15625 14.2857143,4.09238281 14.2857143,6.46875 C14.2857143,8.84511719 12.3616071,10.78125 10,10.78125 C7.63839286,10.78125 5.71428571,8.84511719 5.71428571,6.46875 C5.71428571,4.09238281 7.63839286,2.15625 10,2.15625 Z" id="path-2"></path>
+        <filter x="-35.0%" y="-21.7%" width="170.0%" height="160.9%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Carrier-" transform="translate(-13.000000, -23.000000)">
+            <g id="Group-2" transform="translate(13.000000, 23.000000)">
+                <rect id="Rectangle" stroke="#D72F37" fill="url(#linearGradient-1)" x="0.5" y="0.5" width="49" height="49" rx="24.5"></rect>
+                <g id="user" transform="translate(15.000000, 13.000000)" fill-rule="nonzero">
+                    <g id="Shape">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                        <use fill="#D72F37" xlink:href="#path-2"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

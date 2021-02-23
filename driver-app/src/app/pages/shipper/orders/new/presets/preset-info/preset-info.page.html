@@ -1,9 +1,71 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>preset-info</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Preset Order - Dates & Times</ion-title>
+    <p style="margin-right: 16px; font-weight: 600;
+" slot="end">1/3</p>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="11">
+        <h1 class="orders-header">Create New Preset</h1>
 
+        <div class="preset">
+          <h1>Preset Name</h1>
+          <div>
+            <h2 class="preset-datatype">From:</h2>
+            <h2 class="preset-data">11223 Detroit, MI, 48202</h2>
+          </div>
+          <div>
+            <h2 class="preset-datatype">To:</h2>
+            <h2 class="preset-data">33333 Miami, FL, 33109</h2>
+          </div>
+          <div>
+            <h2 class="preset-datatype">Rate:</h2>
+            <h2 class="preset-data">$1500</h2>
+          </div>
+          <div>
+            <h2 class="preset-datatype">Truck:</h2>
+            <h2 class="preset-data">Dry Van</h2>
+          </div>
+          <div>
+            <h2 class="preset-datatype">Weight:</h2>
+            <h2 class="preset-data">40,000 lbs</h2>
+          </div>
+          <div>
+            <h2 class="preset-datatype">Load:</h2>
+            <h2 class="preset-data">Oranges & Apples</h2>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="11">
+        <form (ngSubmit)="presetPhotos()">
+          <ion-label>Pick Up Date</ion-label>
+          <ion-input class="sign-up-input" type="date"></ion-input>
+          <ion-label>Pick Up Time</ion-label>
+          <ion-input class="sign-up-input" type="time" placeholder="Pick Up Time"></ion-input>
+          <ion-label>Delivery Date</ion-label>
+          <ion-input class="sign-up-input" type="date" placeholder="Delivery Date"></ion-input>
+          <ion-label>Delivery Time</ion-label>
+          <ion-input class="sign-up-input" type="time" placeholder="Delivery Time"></ion-input>
+          <ion-label>Special Request</ion-label>
+          <ion-textarea
+            style="color: white;"
+            rows="5"
+            spellcheck="true"
+            autoGrow="true"
+            placeholder="Enter text here:">
+          </ion-textarea>
+          <ion-button expand="full" class="green-button" type="submit">
+            Next
+          </ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

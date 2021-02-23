@@ -1,0 +1,36 @@
+ion-toolbar {
+  --background: radial-gradient(50% 150%, #1FCC6D 50%, #1ECB6C 100%);
+  box-shadow: 0 2px 31px 0 rgba(0,0,0,0.12);;
+  font-weight: 600;
+}
+ion-title {
+  font-weight: 600;
+}
+
+h1 {
+  margin-top: 100px;
+}
+.get-photo {
+  background: #eee2;
+  height: 200px;
+  margin: 57px auto;
+  border: 2px solid #eee;
+
+  p {
+    position: relative;
+    top: 64px;
+    font-size: 1.3em;
+    font-weight: 600;
+  }
+  // span {
+  //   position: relative;
+  //   right: 20px;
+  //   font-size: 2em;
+  //   font-weight: 600;
+  //   border-radius: 100px;
+  //   background: red;
+  //   height: 40px;
+  //   width: 40px;
+  //   padding: 0 11px;
+  // }
+}

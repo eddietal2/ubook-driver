@@ -42,6 +42,9 @@ hr {
 .spacer {
   margin-top: 50px;
 }
+p {
+  font-size: 1.2em;
+}
 p, h1, h2, h3, h4, h4, h6 {
   color: white;
 }
@@ -50,12 +53,16 @@ h1 {
   margin: 32px 0px 20px 0px;
 }
 .success-background {
-  --background: #6DD400;
+  --background: #1FCC6D;
 }
 ion-input {
   --background: white;
   font-size: 1.2em;
   margin: 10px auto;
+}
+
+ion-title{
+  font-weight: 600;
 }
 
 .bottom-buttons {
@@ -140,6 +147,14 @@ ion-checkbox {
   padding-top: 30px;
 }
 
+.white-outline-button{
+  --background: rgba(238, 238, 238, 0.356);
+  font-weight: 600;
+  height: 47px;
+  --box-shadow: none;
+  --border-radius: 5px;
+  display: block;
+}
 .green-button {
   --background: #1FCC6D;
   height: 47px;
@@ -147,6 +162,7 @@ ion-checkbox {
   --border-radius: 5px;
   font-size: 1.2em;
   font-weight: 600;
+  display: block;
 }
 .red-button {
   --background: linear-gradient(128deg, #D72F37 0%, #AE000E 100%);
@@ -155,6 +171,7 @@ ion-checkbox {
   border-radius: 31px;
   font-size: 1.2em;
   font-weight: 600;
+  display: block;
 }
 .ratings {
   margin: 40px auto;
@@ -179,16 +196,14 @@ ion-checkbox {
     border-radius: 8px;
   }
 }
-.white-outline-button{
-  --background: none;
-  --border-width: 2px;
-  --border-style: solid;
-  --border-color: white;
-  --border-radius: 5px;
-}
 
 ion-button {
   font-size: 1.1em;
+}
+.default-alert {
+  h2 {
+    color: white;
+  }
 }
 
 .validation-errors {
@@ -256,6 +271,15 @@ ion-toolbar {
   --border-width: 2px;
   font-weight: 600;
   --background: linear-gradient(90deg, #1fcc6d 19.625%,rgba(30, 203, 108,1) 19.625%,rgba(23, 191, 40,1) 79.625%);;
+  --color: white;
+  font-size: 1.2em;
+}
+.new-order-toast {
+  --border-color: #00C5FF;
+  --border-style: solid;
+  --border-width: 2px;
+  font-weight: 600;
+  --background: linear-gradient(90deg, #00C5FF 19.625%,#00C5FF 19.625%);
   --color: white;
   font-size: 1.2em;
 }

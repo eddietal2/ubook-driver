@@ -1,0 +1,81 @@
+ion-toolbar {
+  --background: #8a0083;
+}
+ion-title {
+  font-weight: 600;
+}
+ion-item{
+  --background: none;
+  --color: white;
+  --detail-icon-color: white;
+}
+*{
+  transition: 0.5s;
+}
+.star {
+  display: inline;
+  position: relative;
+  height: 20px;
+}
+.rating {
+  display: inline;
+  color: #F7B500;
+  margin-right: 8px;
+  font-weight: 600;
+}
+#timer-wrapper {
+  border: 2px solid #2F353D;
+  height: 80px;
+  border-radius: 5px;
+  margin: 20px auto;
+  width: 100%;
+  padding-top: 10px;
+  font-size: 1.4em;
+  transition: 0.5s;
+  box-shadow: 1px 1px 6px #3338;
+  animation: timer-wrapper-slide-down 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+@keyframes timer-wrapper-slide-down {
+  0%{
+    transform: translateY(-100px);
+  }
+  100%{
+    transform: translateY(0px);
+  }
+}
+#timer {
+  color: #2F353D;
+  font-weight: 600;
+  font-size: 1.4em;
+  display: inline;
+}
+.rate-adjuster {
+  background: #9991;
+  margin: 40px auto;
+  padding: 43px 0px 20px 0px;
+  box-shadow: 0 2px 15px 0 rgba(0,0,0,0.17);
+
+  #rate{
+    font-size: 3em;
+    color: white;
+    font-weight: 600;
+    position: relative;
+    top: -17px;
+    margin: 0;
+  }
+  ion-icon {
+    font-size: 3em;
+    position: relative;
+    top: 0px;
+  }
+}
+ion-button {
+  margin: 20px auto;
+}
+#dollar-sign{
+  position: relative;
+  left: 18px;
+}
+.alert-rate{
+  color: green;
+}

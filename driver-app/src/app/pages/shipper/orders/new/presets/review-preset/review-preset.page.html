@@ -1,9 +1,109 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>review-preset</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>New Preset Order - Review</ion-title>
+    <p style="margin-right: 16px; font-weight: 600;
+" slot="end">3/3</p>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
 
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="11">
+        <h1 class="orders-header">Review </h1>
+        <p>Please go over your order details and make any changes necissary before you post the order.</p>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center review-section">
+      <ion-col size="11">
+        <h3 class="detail-header">Order Details</h3>
+      </ion-col>
+      <ion-col class="order-details" size="11">
+        <div style="margin-bottom: 20px;">
+          <h3 class="order-dollar-amount">$1,500</h3>
+          <div>
+            <img style="display: inline;" src="../../../../../assets/icons/map-marker.svg" alt="" srcset="">
+            <h5 style="display: inline;">11223 Detroit, MI </h5>
+          </div>
+
+          <div style="margin: 10px auto;">
+            <img src="../../../../../assets/icons/order-card-line.svg" alt="">
+          </div>
+
+          <div>
+            <img style="display: inline;" src="../../../../../assets/icons/delivery-truck.svg" alt="" srcset="">
+            <h5 style="display: inline;">1234 Miami, FL</h5>
+          </div>
+        </div>
+        <div class="order-card-details">
+          <p>PU: Jan 1 06:00 - 09:00</p>
+          <p>DL: Jan 2 06:00 - 09:00</p>
+          <p>42,000 lbs - Reefer</p>
+          <p>Apples, Oranges, and Bananas.</p>
+        </div>
+      </ion-col>
+      <ion-col size="11">
+        <ion-button expand="full" class="red-button" (click)="editOrderDetails()">
+          Edit
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center review-section">
+      <ion-col size="11">
+        <h3 class="detail-header">Special Request</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, tempore qui iure nesciunt natus nobis est id aut sunt blanditiis rerum, consectetur eaque quae veniam labore ab repellendus at. Voluptas.</p>
+        <ion-button expand="full" class="red-button" (click)="editLocation()">
+          Edit
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center review-section">
+      <ion-col size="11">
+        <h3 class="detail-header">Photos</h3>
+        <p>1/3 - Please swipe to view all photos</p>
+        <ion-slides scrollbar="true" pager="true" [options]="slideOpts">
+          <!-- Each Photo needs to be -->
+          <ion-slide>
+          </ion-slide>
+          <ion-slide>
+          </ion-slide>
+          <ion-slide>
+          </ion-slide>
+        </ion-slides>
+        <ion-button expand="full" class="red-button" (click)="editPhotos()">
+          Edit
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center review-section">
+      <ion-col size="11">
+        <h3 class="detail-header">Broadcast Radius</h3>
+        <p>All Carriers within your Broadcast Radius will be notified when this order is submitted.
+        </p>
+        <h1 class="range-value">{{rangeValue}} Miles</h1>
+        <ion-item>
+          <p>100</p>
+          <ion-range (ionChange)="getRangeValue($event)" value="200" min="100" max="1000" step="100" snaps="true">
+          </ion-range>
+          <p>1000</p>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center bottom-buttons">
+      <ion-col size="10">
+        <div class="spacer"></div>
+        <ion-button class="green-button" expand="full" (click)="success()">
+          Submit
+        </ion-button>
+        <ion-button class="cancel-button" expand="full" (click)="cancelOrder()">
+          Cancel Order
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+

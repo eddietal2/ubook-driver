@@ -1,0 +1,17 @@
+ion-toolbar {
+  --background: #8a0083;
+}
+.star {
+  display: inline;
+  position: relative;
+  height: 20px;
+}
+.rating {
+  display: inline;
+  color: #F7B500;
+  margin-right: 8px;
+  font-weight: 600;
+}
+.rating-wrapper{
+  margin: 50px auto;
+}

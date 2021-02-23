@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-orders-page',
@@ -7,9 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrdersPagePage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private alertController: AlertController,
+
+  ) { }
 
   ngOnInit() {
   }
+  messageActiveORder() {
 
+  }
+  callActiveOrderAlert() {
+    
+  }
+  activeOrderPage() {
+    this.router.navigate(['/orders-page/active-order'])
+  }
+  futureOrderPage() {
+    this.router.navigate(['/orders-page/future-order'])
+  }
+  editFutureOrder() {
+
+  }
+  deleteFutureOrderAlert() {
+
+  }
 }

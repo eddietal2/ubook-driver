@@ -1,8 +1,6 @@
-// Shipper New Order
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
-
 
 @Component({
   selector: 'app-success',
@@ -18,18 +16,17 @@ export class SuccessPage implements OnInit {
   ngOnInit() {
   }
   async done() {
-    await this.router.navigate(['']);
+    await this.router.navigate(['/shipper-orders/pending']);
     await this.successToast();
   }
   async successToast() {
     const toast = await this.toastController.create({
       cssClass: 'new-order-toast',
-      message: '<img style="margin-right: 12px; display: inline;" src="../../../../../assets/icons/success-check.svg" alt=""><p style="display: inline; position: relative; top: -10px; left: 10px;">Order listed as a Future Order.</p>',
+      message: '<p style="display: inline; position: relative; top: -10px; left: 10px;">Order listed as a Future Order.</p>',
       duration: 2000
     });
     toast.present();
   }
-
 
 
 }

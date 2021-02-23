@@ -1,8 +1,9 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button defaultHref="/shipper-orders/new"></ion-back-button>
     </ion-buttons>
+    <ion-title>Presets</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -19,14 +20,47 @@
     </ion-row>
     <ion-row class="ion-justify-content-center">
       <ion-col size="11">
-        <h3 class="detail-header">Please select a Preset</h3>
         <div class="preset">
-          <h2><b>From</b>: Detroit, MI, 48202</h2>
-          <h2><b>To</b>: Miami, FL, 33109</h2>
-          <h2><b>Rate</b>: $1500</h2>
-          <h2><b>Truck</b>: Dry Van</h2>
-          <h2><b>Weight</b>: 40,000 lbs</h2>
-          <h2><b>Load</b>: Oranges & Apples</h2>
+          <h1>Preset Name</h1>
+          <div>
+            <h2 class="preset-datatype">From:</h2>
+            <h2 class="preset-data">11223 Detroit, MI, 48202</h2>
+          </div>
+          <div>
+            <h2 class="preset-datatype">To:</h2>
+            <h2 class="preset-data">33333 Miami, FL, 33109</h2>
+          </div>
+          <div>
+            <h2 class="preset-datatype">Rate:</h2>
+            <h2 class="preset-data">$1500</h2>
+          </div>
+          <div>
+            <h2 class="preset-datatype">Truck:</h2>
+            <h2 class="preset-data">Dry Van</h2>
+          </div>
+          <div>
+            <h2 class="preset-datatype">Weight:</h2>
+            <h2 class="preset-data">40,000 lbs</h2>
+          </div>
+          <div>
+            <h2 class="preset-datatype">Load:</h2>
+            <h2 class="preset-data">Oranges & Apples</h2>
+          </div>
+          <ion-toolbar class="preset-toolbar">
+            <ion-buttons slot="start">
+              <ion-button style="--color: red" (click)="deleteAlert()">
+                Delete
+              </ion-button>
+              <ion-button (click)="editPreset()">
+                Edit
+              </ion-button>
+            </ion-buttons>
+            <ion-buttons slot="end">
+              <ion-button class="preset-select" (click)="usePreset()">
+                Select
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar>
         </div>
       </ion-col>
     </ion-row>

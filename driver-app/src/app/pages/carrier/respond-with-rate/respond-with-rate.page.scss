@@ -3,13 +3,12 @@
 }
 #timer-wrapper {
   border: 2px solid #2F353D;
-  height: 200px;
-  font-size: 4em;
+  height: 80px;
   border-radius: 5px;
   margin: 20px auto;
   width: 100%;
-  padding-top: 50px;
-  font-size: 2em;
+  padding-top: 10px;
+  font-size: 1.4em;
   transition: 0.5s;
   box-shadow: 1px 1px 6px #3338;
   animation: timer-wrapper-slide-down 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
@@ -24,12 +23,9 @@
 }
 #timer {
   color: #2F353D;
-  position: relative;
-  top: 15px;
   font-weight: 600;
-  font-size: 2em;
+  font-size: 1.4em;
   display: inline;
-  letter-spacing: 0.12em;
 }
 .rate-adjuster {
   background: #9991;
@@ -39,7 +35,7 @@
 
   #rate{
     font-size: 3em;
-    color: #2F353D;
+    color: white;
     font-weight: 600;
     position: relative;
     top: -17px;
