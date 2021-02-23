@@ -25,10 +25,10 @@ export class OrdersPagePage implements OnInit {
     
   }
   activeOrderPage() {
-    this.router.navigate(['/orders-page/active-order'])
+    this.router.navigate(['/shipper-map'])
   }
   futureOrderPage() {
-    this.router.navigate(['/orders-page/future-order'])
+    this.router.navigate(['/shipper-future'])
   }
   editFutureOrder() {
 

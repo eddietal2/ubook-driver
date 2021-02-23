@@ -59,7 +59,7 @@
       <ion-col size="11">
         <h1>Future Orders</h1>
       </ion-col>
-      <ion-col (click)="futureOrder()" class="future-order" size="11">
+      <ion-col class="future-order" size="11">
         <div style="margin-bottom: 20px;">
           <h3 class="order-dollar-amount">$1,500</h3>
           <div>
@@ -84,13 +84,13 @@
         </div>
         <ion-toolbar class="order-toolbar">
           <ion-buttons slot="end">
-            <ion-button style="--color: red" (click)="deletePendingOrderAlert()">
+            <ion-button style="--color: red" (click)="deleteFutureOrderAlert()">
               Delete
             </ion-button>
-            <ion-button (click)="editPendingOrder()">
+            <ion-button (click)="editFutureOrder()">
               Edit
             </ion-button>
-            <ion-button class="preset-select" (click)="pendingOrderPage()">
+            <ion-button class="preset-select" (click)="futureOrder()">
               Info
             </ion-button>
           </ion-buttons>

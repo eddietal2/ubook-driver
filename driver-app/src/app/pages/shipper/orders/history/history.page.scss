@@ -3,7 +3,7 @@ h1{
 }
 
 .total-made {
-  color: #6DD400;
+  color: #1FCC6D;
   font-weight: 600;
   margin-bottom: 54px;
 }
@@ -20,7 +20,15 @@ h1{
     margin-left: 10px;
     font-weight: 600;
   }
-
+  .delivery-date{
+    border: 2px solid #1FCC6D;
+    color: #1FCC6D;
+    padding: 8px;
+    position: relative;
+    top: 20px;
+    font-size: 1em;
+    font-weight: 600;
+  }
   .order-dollar-amount {
     display: inline;
     float: right;
@@ -34,9 +42,23 @@ h1{
 
   .order-card-details {
     p {
-      line-height: 1.3em;
+      line-height: 1.4em;
       margin: 0;
-      font-size: 0.85em;
+      font-size: 1em;
     }
+  }
+}
+.order-toolbar{
+  --background: none;
+  margin-top: 24px;
+
+  ion-button {
+    font-weight: 600;
+  }
+
+  .preset-select {
+    --background: #1FCC6D;
+    --color: white;
+    --border-radius: 5px;
   }
 }

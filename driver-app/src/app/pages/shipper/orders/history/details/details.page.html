@@ -1,9 +1,74 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>details</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/shipper-orders/history"></ion-back-button>
+      <ion-title>Past Order</ion-title>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-grid style="margin-bottom: 100px">
+    <ion-row style="margin-top: 30px;" class="ion-justify-content-center">
+      <!-- Order Information -->
+      <ion-col size="11">
+        <h3 class="delivery-date">Delivered On January 1st, 2021</h3>
+        <div style="margin-bottom: 20px;">
+          <h3 class="order-dollar-amount">$1,500</h3>
+          <div>
+            <img style="display: inline;" src="../../../../../assets/icons/map-marker.svg" alt="" srcset="">
+            <h5 style="display: inline;">Detroit, MI </h5>
+          </div>
 
+          <div style="margin: 10px auto;">
+            <img src="../../../../../assets/icons/order-card-line.svg" alt="">
+          </div>
+
+          <div>
+            <img style="display: inline;" src="../../../../../assets/icons/delivery-truck.svg" alt="" srcset="">
+            <h5 style="display: inline;">Miami, FL</h5>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col class="order-information" size="11">
+        <p>PU: Jan 1 06:00 - 13:30</p>
+        <p>DL: Jan 5 06:00 - 13:30</p>
+        <p>Reefer - 42,000 lbs</p>
+        <p>Apples & Oranges</p>
+      </ion-col>
+      <!-- Special Requests -->
+      <ion-col class="order-special-request" size="11">
+        <h3 class="detail-header">Special Instructions.</h3>
+        <p>11 palettes 48 x 48 x 60 (stackable)</p>
+      </ion-col>
+      <!-- Line -->
+      <ion-col class="line" size="12">
+      </ion-col>
+      <!-- Photos -->
+      <ion-col size="11">
+        <h3 class="detail-header">Photos (3)</h3>
+        <p>1/3 - Please swipe to view all photos</p>
+      </ion-col>
+      <ion-col class="order-photos" size="11">
+        <ion-slides scrollbar="true" pager="true" [options]="slideOpts">
+          <!-- Each Photo needs to be -->
+          <ion-slide>
+          </ion-slide>
+          <ion-slide>
+          </ion-slide>
+          <ion-slide>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+      <!-- Buttons -->
+      <ion-col class="order-page-buttons" size="10">
+        <ion-button class="green-button" expand="full" (click)="createOrderPreset()">
+          Create Order Preset
+        </ion-button>
+        <!-- <ion-button class="white-outline-button" expand="full" (click)="back()">
+          Back
+        </ion-button> -->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

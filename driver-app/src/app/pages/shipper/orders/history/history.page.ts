@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-history',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router) { }
 
   ngOnInit() {
+  }
+  historyOrderPage() {
+    this.router.navigate(['/shipper-orders/history/details']);
   }
 
 }

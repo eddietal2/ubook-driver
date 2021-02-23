@@ -28,7 +28,7 @@ export class HomePage implements OnInit {
     this.router.navigate(['/shipper-map']);
   }
   futureOrder() {
-    this.router.navigate(['/orders-page/future-order']);
+    this.router.navigate(['/shipper-future']);
   }
 
 }
