@@ -3,7 +3,7 @@ ion-toolbar {
 }
 .pending-button {
   --background: none;
-  --border-color: #EF06E4;
+  --border-color: #8a0083;
   --border-style: solid;
   --border-width: 2px;
   width: 100%;
@@ -23,7 +23,7 @@ h1{
 
 .active-order {
   background: #6dd4002b;
-  border-right: 8px solid #6dd400;
+  border-right: 8px solid #1FCC6D;
   padding: 24px 14px;
   border-radius: 6px;
   box-shadow: 1px 1px 11px #0006;
@@ -37,7 +37,7 @@ h1{
   .order-dollar-amount {
     display: inline;
     float: right;
-    border: 2px solid #6dd400;
+    border: 2px solid #1FCC6D;
     padding: 8px;
     position: relative;
     top: -17px;
