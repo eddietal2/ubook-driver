@@ -1,6 +1,7 @@
 ion-toolbar {
-  --background: radial-gradient(50% 150%, #1FCC6D 50%, #1ECB6C 100%);
+  --background: radial-gradient(closest side at 50% 150%, #1FCC6D 50%, #1ECB6C 100%);
   box-shadow: 0 2px 31px 0 rgba(0,0,0,0.12);
+  font-weight: 600;
 }
 ion-label {
   color: #00C5FF;
