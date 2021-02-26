@@ -4,12 +4,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { SignUpPage } from './sign-up.page';
 
 const routes: Routes = [
+  // {
+  //   path: '',
+  //   component: SignUpPage
+  // },
   {
     path: '',
-    component: SignUpPage
-  },
-  {
-    path: 'carrier',
     loadChildren: () => import('./carrier/carrier.module').then( m => m.CarrierPageModule)
   },
   {
@@ -21,6 +21,7 @@ const routes: Routes = [
     loadChildren: () => import('./reciever/reciever.module').then( m => m.RecieverPageModule)
   }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

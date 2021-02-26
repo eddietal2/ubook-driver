@@ -20,46 +20,94 @@
   </ion-row>
   <ion-row class="ion-justify-content-center">
     <ion-col size="10" style="position: relative; top: -2px;">
-      <form>
-        <ion-input #firstInput class="sign-up-input" type="text" placeholder="First Name"></ion-input>
+      <form [formGroup]="carrierProfileForm" (submit)="profilePicturePage()">
+        <ion-input #firstInput class="sign-up-input" type="text"
+        formControlName="firstName" placeholder="First Name"></ion-input>
 
-        <ion-input class="sign-up-input" type="text" placeholder="Last Name"></ion-input>
+        <ion-input class="sign-up-input" type="text"
+        formControlName="lastName"  placeholder="Last Name"></ion-input>
 
-        <ion-input class="sign-up-input" type="phone" placeholder="Phone # (xxx)xxx-xxxx"></ion-input>
+        <ion-input class="sign-up-input" type="email"
+        formControlName="email"  placeholder="Email"></ion-input>
 
-        <p class="section-description">Is this your <span style="font-weight: 700">preferred</span> contact number? When on your route, your preferred contact number is the number a Shipper or Receiver will contact via the UBook Freight App if they have any questions or concerns. </p>
+        <!-- Email Validation-->
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validationMessasges.email">
+            <div class="error-message"
+              *ngIf="carrierProfileForm
+                .get('email')
+                .hasError(validation.type) && (carrierProfileForm.get('email')
+                .dirty || carrierProfileForm.get('email').touched)">
+              {{ validation.message }}
+            </div>
+          </ng-container>
+        </div>
 
-        <ion-checkbox></ion-checkbox><span class="checkbox-text">Yes</span>
-        <ion-checkbox></ion-checkbox><span class="checkbox-text">No</span>
+        <ion-input class="sign-up-input" maxlength="10" type="phone"
+        formControlName="phone"  placeholder="Phone # (xxx)xxx-xxxx"></ion-input>
 
-        <ion-input style="margin-top: 50px;" class="sign-up-input" type="text" placeholder="Preferred # (xxx)xxx - xxxx"></ion-input>
+        <!-- Phone Validation-->
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validationMessasges.phone">
+            <div class="error-message"
+              *ngIf="carrierProfileForm
+                .get('phone')
+                .hasError(validation.type) && (carrierProfileForm.get('phone')
+                .dirty || carrierProfileForm.get('phone').touched)">
+              {{ validation.message }}
+            </div>
+          </ng-container>
+        </div>
 
-        <ion-input class="sign-up-input" type="text" placeholder="Email"></ion-input>
+        <p class="detail-header">Is this your <span style="font-weight: 700">preferred</span> contact number? When on your route, your preferred contact number is the number a Shipper or Receiver will contact via the UBook Freight App if they have any questions or concerns. </p>
 
-        <ion-input class="sign-up-input" type="text" placeholder="Password"></ion-input>
+        <ion-checkbox #yesPC (ionChange)="preferredContactOption($event)"
+        value="yes"></ion-checkbox><span class="checkbox-text">Yes</span>
+        <ion-checkbox #noPC checked="true" (ionChange)="preferredContactOption($event)"
+        value="no"></ion-checkbox><span class="checkbox-text">No</span>
 
-        <ion-input class="sign-up-input" type="text" placeholder="Confirm Password"></ion-input>
+        <ion-input *ngIf="this.preferredContact" maxlength="10" style="margin-top: 50px;" class="sign-up-input" type="phone"
+        formControlName="preferredContactNumber" placeholder="Preferred # (xxx)xxx - xxxx"></ion-input>
 
-        <p class="section-description">Are you an owner operator? </p>
-        <ion-checkbox></ion-checkbox><span class="checkbox-text">Yes</span>
-        <ion-checkbox></ion-checkbox><span class="checkbox-text">No</span>
+        <!-- Phone Validation-->
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validationMessasges.phone">
+            <div class="error-message"
+              *ngIf="carrierProfileForm
+                .get('preferredContactNumber')
+                .hasError(validation.type) && (carrierProfileForm.get('preferredContactNumber')
+                .dirty || carrierProfileForm.get('preferredContactNumber').touched)">
+              {{ validation.message }}
+            </div>
+          </ng-container>
+        </div>
 
-        <ion-input class="sign-up-input" type="text" placeholder="MC #"></ion-input>
+        <p class="detail-header">Are you an owner operator? </p>
+        <ion-checkbox #yesOO (ionChange)="ownerOperatorOption($event)"
+        value="yes"></ion-checkbox><span class="checkbox-text">Yes</span>
+        <ion-checkbox #noOO checked="true" (ionChange)="ownerOperatorOption($event)"
+        value="no"></ion-checkbox><span class="checkbox-text">No</span>
 
-        <ion-input class="sign-up-input" type="text" placeholder="EIN #"></ion-input>
+        <div *ngIf="this.ownerOperator">
+          <ion-input class="sign-up-input" type="text"
+          formControlName="mc" placeholder="MC #"></ion-input>
 
-        <ion-input class="sign-up-input" type="text" placeholder="DOT"></ion-input>
+          <ion-input class="sign-up-input" type="text"
+          formControlName="ein" placeholder="EIN #"></ion-input>
+
+          <ion-input class="sign-up-input" type="text"
+          formControlName="dot" placeholder="DOT"></ion-input>
+        </div>
+
+        <div class="spacer"></div>
+        <ion-button class="red-button" expand="full" (click)="profilePicturePage()">
+          Next
+        </ion-button>
+
+        <ion-button class="cancel-button" expand="full" (click)="cancel()">
+          Cancel
+        </ion-button>
       </form>
     </ion-col>
-  </ion-row>
-  <ion-row class="ion-justify-content-center bottom-buttons">
-    <ion-col size="10">
-      <div class="spacer"></div>
-      <ion-button class="red-button" expand="full" (click)="profilePicture()">
-        Next
-      </ion-button>
-      <ion-button class="cancel-button" expand="full" (click)="cancel()">
-        Cancel
-      </ion-button></ion-col>
   </ion-row>
 </ion-content>

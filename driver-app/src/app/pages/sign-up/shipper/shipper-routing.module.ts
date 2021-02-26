@@ -27,6 +27,10 @@ const routes: Routes = [
   {
     path: 'success',
     loadChildren: () => import('./success/success.module').then( m => m.SuccessPageModule)
+  },
+  {
+    path: 'login-credentials',
+    loadChildren: () => import('./login-credentials/login-credentials.module').then( m => m.LoginCredentialsPageModule)
   }
 ];
 

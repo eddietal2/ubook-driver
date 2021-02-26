@@ -16,30 +16,29 @@
     </ion-row>
     <ion-row class="ion-justify-content-center">
       <ion-col size="10">
-        <form>
-          <p class="red-asterisk">*</p>
-          <ion-input class="sign-up-input" type="text" placeholder="MC #"></ion-input>
+        <form [formGroup]="carrierDriverInfoForm" (submit)="paymentInfo()">
 
-          <p class="red-asterisk">*</p>
-          <ion-input class="sign-up-input" type="text" placeholder="Driver License #"></ion-input>
+          <!-- <ion-input class="sign-up-input" type="text" placeholder="MC #"></ion-input> -->
+
+          <ion-input formControlName="licenseNumber" class="sign-up-input" type="text" placeholder="Driver License #"></ion-input>
         </form>
 
-
-        <p class="red-asterisk">*</p>
-        <ion-select placeholder="Driver License State">
+        <ion-select (ionChange)="selectStateOption($event)" placeholder="Driver License State">
           <!-- TODO -->
           <!-- Make array for states with loop. -->
-          <ion-select-option value="f">Female</ion-select-option>
-          <ion-select-option value="m">Male</ion-select-option>
+          <ion-select-option value="Michigan">Michigan</ion-select-option>
+          <ion-select-option value="">Male</ion-select-option>
         </ion-select>
       </ion-col>
-      <ion-col class="get-picture-button ion-text-center" size="10">
-        <img src="../../../../../assets/icons/user-shape.svg" alt="" srcset="">
-        <h3>Tap to get License Photo (Front)</h3>
+      <ion-col (click)="takePictureFront()" class="get-picture-button ion-text-center" size="10">
+        <img *ngIf="!this.uploadedPhotoFront" src="../../../../../assets/icons/user-shape.svg" alt="" srcset="">
+        <img *ngIf="this.uploadedPhotoFront" src="{{imageSrcFront}}" alt="" srcset="">
+        <h3>Tap to get License Photo (Front).  <span>Only .png, .jpg, and .jpeg allowed.</span></h3>
       </ion-col>
-      <ion-col class="get-picture-button ion-text-center" size="10">
-        <img src="../../../../../assets/icons/user-shape.svg" alt="" srcset="">
-        <h3>Tap to get License Photo (Back)</h3>
+      <ion-col (click)="takePictureBack()" class="get-picture-button ion-text-center" size="10">
+        <img *ngIf="!this.uploadedPhotoBack" src="../../../../../assets/icons/user-shape.svg" alt="" srcset="">
+        <img *ngIf="this.uploadedPhotoBack" src="{{imageSrcBack}}" alt="" srcset="">
+        <h3>Tap to get License Photo (Back).  <span>Only .png, .jpg, and .jpeg allowed.</span></h3>
       </ion-col>
     </ion-row>
     <ion-row class="bottom-buttons ion-justify-content-center">

@@ -14,26 +14,23 @@
         <p style="font-size: 1.2em;">You can finish your profile without setting up a payment option, but you will not be able to accept a payment until you have at least one valid payment option.</p>
       </ion-col>
       <ion-col size="10">
-        <form>
-          <ion-input class="sign-up-input" type="text" placeholder="Bank"></ion-input>
+        <form action="/charge" method="post" id="payment-form">
+          <div class="form-row">
+            <label style="color: #00C5FF" class="detail-header" for="card-element">Credit or debit card</label>
+            <div id="card-element"></div>
+            <div id="card-errors" role="alert"></div>
+          </div>
 
-          <ion-input class="sign-up-input" type="text" placeholder="Routing #"></ion-input>
-
-          <ion-input class="sign-up-input" type="text" placeholder="Account #"></ion-input>
+          <ion-button class="skip-button" expand="full" (click)="skipPaymentInfo()">
+            Skip
+          </ion-button>
+          <ion-button type="submit" class="green-button" expand="full">
+            Done
+          </ion-button>
+          <ion-button class="cancel-button" expand="full" (click)="cancel()">
+            Cancel
+          </ion-button>
         </form>
-      </ion-col>
-    </ion-row>
-    <ion-row class="bottom-buttons ion-justify-content-center">
-      <ion-col size="10">
-        <ion-button class="skip-button" expand="full" (click)="skipPaymentInfo()">
-          Skip
-        </ion-button>
-        <ion-button class="green-button" expand="full" (click)="finalizeSignUp()">
-          Done
-        </ion-button>
-        <ion-button class="cancel-button" expand="full" (click)="cancel()">
-          Cancel
-        </ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

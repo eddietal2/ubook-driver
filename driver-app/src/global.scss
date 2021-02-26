@@ -67,6 +67,7 @@ ion-title{
 
 .bottom-buttons {
   margin: 100px auto;
+  background: none;
 }
 .detail-header {
   color: #00C5FF;
@@ -141,10 +142,11 @@ ion-checkbox {
 }
 
 .get-picture-button {
-  height: 200px;
-  border: 2px dotted white;
+  height: auto;
+  border: 2px dotted #1FCC6D;
   margin-top: 60px;
-  padding-top: 30px;
+  padding: 1em;
+  box-shadow: 1px 10px 28px #111111d1;
 }
 
 .white-outline-button{
@@ -200,13 +202,16 @@ ion-checkbox {
 ion-button {
   font-size: 1.1em;
 }
+.alert-title {
+  color: white;
+}
 .default-alert {
   h2 {
     color: white;
   }
 }
 
-.validation-errors {
+.error-message {
   color: red;
   font-size: 1.1em;
   margin-bottom: 20px;
@@ -248,7 +253,8 @@ ion-button {
   font-weight: 600;
   transition: 0.5s;
   --background: #005191;
-  margin-top: 32px;
+  margin-top: 88px;
+  margin-bottom: 8px;
 }
 
 ion-toolbar {
@@ -302,7 +308,7 @@ ion-toolbar {
   font-size: 1em;
 }
 ion-footer {
-  background: linear-gradient(-52deg, #2F353D 0%, #292929 82%);
+  // background: linear-gradient(-52deg, #2F353D 0%, #292929 82%);
 }
 .order-footer {
   ion-button {

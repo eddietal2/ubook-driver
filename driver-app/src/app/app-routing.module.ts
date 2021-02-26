@@ -4,9 +4,8 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
-    // loadChildren: () => import('./pages/shipper/orders/orders-page/future/future.module').then( m => m.FuturePageModule)
-    // loadChildren: () => import('./pages/shipper/orders/orders.module').then( m => m.OrdersPageModule)
+    // loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./pages/sign-up/sign-up.module').then( m => m.SignUpPageModule)
   },
   {
     path: 'forgot-password',
@@ -159,7 +158,7 @@ const routes: Routes = [
     path: 'shipper-logo',
     loadChildren: () => import('./modals/shipper-profile/business/logo/logo.module').then( m => m.LogoPageModule)
   },
-  {
+  { 
     path: 'shipper-name',
     loadChildren: () => import('./modals/shipper-profile/business/name/name.module').then( m => m.NamePageModule)
   },

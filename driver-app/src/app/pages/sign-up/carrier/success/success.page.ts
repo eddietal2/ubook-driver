@@ -23,7 +23,7 @@ export class SuccessPage implements OnInit {
   async successToast() {
     const toast = await this.toastController.create({
       cssClass: 'success-login-toast',
-      message: '<img style="margin-right: 12px; display: inline;" src="../../../../../assets/icons/success-check.svg" alt=""><p style="display: inline; position: relative; top: -10px; left: 10px;">You can now log in.</p>',
+      message: '<p style="display: inline; position: relative; top: -10px; left: 10px;">You can now log in.</p>',
       duration: 2000
     });
     toast.present();

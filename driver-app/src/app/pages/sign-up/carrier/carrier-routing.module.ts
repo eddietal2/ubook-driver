@@ -23,6 +23,14 @@ const routes: Routes = [
   {
     path: 'success',
     loadChildren: () => import('./success/success.module').then( m => m.SuccessPageModule)
+  },
+  {
+    path: 'login-crendentials',
+    loadChildren: () => import('./login-credentials/login-credentials.module').then( m => m.LoginCredentialsPageModule)
+  },
+  {
+    path: 'enter-code',
+    loadChildren: () => import('./enter-code/enter-code.module').then( m => m.EnterCodePageModule)
   }
 ];
 

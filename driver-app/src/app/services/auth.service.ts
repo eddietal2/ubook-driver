@@ -22,6 +22,37 @@ export class AuthService {
   rating: number;
   title: string;
 
+  carrierSignUp = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    preferredContact: false,
+    preferredContactNumber: '',
+    ownerOperator: false,
+    mc: '',
+    ein: '',
+    dot: '',
+    profilePicture: '',
+    driverLicenseNumber: '',
+    driverLicenseState: '',
+    driverLicenseFrontPhoto: '',
+    driverLicenseBackPhoto: '',
+    stripeToken: ''
+  };
+  shipperSignUp = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    preferredContact: false,
+    preferredContactNumber: '',
+    ownerOperator: false,
+    mc: '',
+    ein: '',
+    dot: '',
+  };
+
   constructor(
     private http: HttpClient,
     private storage: Storage,
