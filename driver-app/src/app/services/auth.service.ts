@@ -23,6 +23,7 @@ export class AuthService {
   title: string;
 
   carrierSignUp = {
+    usertype: 'Carrier',
     firstName: '',
     lastName: '',
     email: '',
@@ -33,24 +34,58 @@ export class AuthService {
     mc: '',
     ein: '',
     dot: '',
+    businessName: '',
+    businessAddressOne: '',
+    businessAddressTwo: '',
+    businessCity: '',
+    businessState: '',
+    businessZip: '',
+    businessLogo: '',
     profilePicture: '',
     driverLicenseNumber: '',
     driverLicenseState: '',
     driverLicenseFrontPhoto: '',
     driverLicenseBackPhoto: '',
-    stripeToken: ''
+    insurance: '',
+    insurancePolicyNumber: '',
+    stripeToken: '',
+    password: ''
   };
   shipperSignUp = {
+    usertype: 'Shipper',
+    businessName: '',
+    businessAddressOne: '',
+    businessAddressTwo: '',
+    businessCity: '',
+    businessState: '',
+    businessZip: '',
+    businessPhone: '',
+    businessLogo: '',
     firstName: '',
     lastName: '',
     email: '',
     phone: '',
-    preferredContact: false,
-    preferredContactNumber: '',
-    ownerOperator: false,
-    mc: '',
-    ein: '',
-    dot: '',
+    profilePicture: '',
+    stripeToken: '',
+    password: '',
+  };
+  recieverSignUp = {
+    usertype: 'Reciever',
+    businessName: '',
+    businessAddressOne: '',
+    businessAddressTwo: '',
+    businessCity: '',
+    businessState: '',
+    businessZip: '',
+    businessPhone: '',
+    businessLogo: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    profilePicture: '',
+    stripeToken: '',
+    password: '',
   };
 
   constructor(
@@ -72,7 +107,6 @@ export class AuthService {
     console.log('Authentication State');
     this.authenticationState.subscribe(console.log);
   }
-
   // looks up our storage for a valid JWT and if found, changes our authenticationState
   async checkToken() {
     this.storage.get(this.TOKEN_KEY).then(token => {
@@ -91,7 +125,6 @@ export class AuthService {
       }
     });
   }
-
   getEmailFromToken() {
     this.storage.get(this.TOKEN_KEY).then(token => {
       if (token) {
@@ -101,7 +134,6 @@ export class AuthService {
       }
     });
   }
-
   // Login User
   login(data, usertype) {
     console.log('Logging in');
@@ -192,11 +224,52 @@ export class AuthService {
           this.presentLoading();
         });
     }
+    if (usertype === 'Reciever') {
+      console.log('Reciever is attempting to log in...');
+      return this.loginSub = this.http.post(`${this.BACKEND_URL}/api/reciever/login/`,
+    { email: data.email,
+      password: data.password,
+      usertype
+    })
+      .pipe(
+        tap(res => {
+          if (!res) {
+            console.log('There was no response. There might be a bad password');
+          }
+          this.storage.set(this.TOKEN_KEY, res['token']);
+          this.user = this.helper.decodeToken( res['token']);
+          this.email = this.user.email;
+          this.title = this.user.title;
+          this.usertype = this.user.usertype;
+          this.name = this.user.name;
+          this.rating = this.user.rating;
+          console.log('Email: ' + this.user.email);
+          console.log('Name: ' + this.user.name);
+          console.log('Usertype: ' + this.user.usertype);
+          console.log('Title: ' + this.user.title);
+          console.log('Rating: ' + this.user.rating);
+        }),
+        catchError(e => {
+          console.error(e);
+          if (e.error.msg === 'The email and password don\'t match.') {
+            this.presentAlert('Incorrect Email/Password', 'The email and password don\'t match.');
+          } else if (e.error.msg === 'The Reciever does not exist') {
+            this.presentAlert('Reciever does not exist', 'There is no account with that email address.');
+          } else if (e.message.startsWith('Http failure response')) {
+            this.presentAlert('Server Connection Error', 'There was a problem connecting to the server. Please try again later.');
+          }  else {
+            this.presentAlert('Email/Password Error', 'Please try again.');
+          }
+          throw new Error(e);
+        })
+      ).subscribe(
+        () => {
+          this.presentLoading();
+        });
+    }
   }
-
   async presentAlert(header: string, msg: string) {
     const alert = await this.alertController.create({
-      cssClass: 'danger-alert',
       header,
       message: msg,
       buttons: [{
@@ -225,7 +298,6 @@ export class AuthService {
         console.log(e);
       });
   }
-
   async presentLoading() {
     const loading = await this.loadingController.create({
       message: 'Logging in...',
@@ -240,7 +312,6 @@ export class AuthService {
     }
     );
   }
-
   async logoutAlert(msg: string) {
     const alert = await this.alertController.create({
       cssClass: 'danger-alert',
@@ -261,7 +332,6 @@ export class AuthService {
 
     await alert.present();
   }
-
   async logoutToast() {
     const toast = await this.toastController.create({
       cssClass: 'success-toast',
@@ -270,7 +340,6 @@ export class AuthService {
     });
     toast.present();
   }
-
   logout() {
     this.storage.remove(this.TOKEN_KEY).then((token) => {
       console.log('Logging out...');
@@ -278,7 +347,6 @@ export class AuthService {
       window.location.reload();
     });
   }
-
   isAuthenticated() {
     return this.authenticationState.value;
   }

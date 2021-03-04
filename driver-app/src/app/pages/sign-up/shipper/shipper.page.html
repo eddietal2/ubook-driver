@@ -20,31 +20,29 @@
   </ion-row>
   <ion-row class="ion-justify-content-center">
     <ion-col size="10" style="position: relative; top: -2px;">
-      <form>
-        <ion-input #firstInput class="sign-up-input" type="text" placeholder="Company Name"></ion-input>
+      <form [formGroup]="shipperBusinessProfileForm" (submit)="businessLogo()">
+        <ion-input formControlName="businessName" #firstInput class="sign-up-input" type="text" placeholder="Company Name"></ion-input>
 
-        <ion-input class="sign-up-input" type="text" placeholder="Address 1"></ion-input>
+        <ion-input formControlName="businessAddressOne" class="sign-up-input" type="text" placeholder="Address 1"></ion-input>
 
-        <ion-input class="sign-up-input" type="text" placeholder="Address 2"></ion-input>
+        <ion-input formControlName="businessAddressTwo" class="sign-up-input" type="text" placeholder="Address 2"></ion-input>
 
-        <ion-input class="sign-up-input" type="text" placeholder="City"></ion-input>
+        <ion-input formControlName="businessCity" class="sign-up-input" type="text" placeholder="City"></ion-input>
 
-        <ion-input class="sign-up-input" type="text" placeholder="State"></ion-input>
+        <ion-input formControlName="businessState" class="sign-up-input" type="text" placeholder="State"></ion-input>
 
-        <ion-input class="sign-up-input" type="text" placeholder="Zip"></ion-input>
+        <ion-input formControlName="businessZip" class="sign-up-input" type="text" placeholder="Zip"></ion-input>
 
-        <ion-input class="sign-up-input" type="phone" placeholder="Phone"></ion-input>
+        <ion-input formControlName="businessPhone" class="sign-up-input" type="phone" placeholder="Phone" maxlength="10"></ion-input>
+
+        <div class="spacer"></div>
+        <ion-button class="red-button" expand="full" type="submit">
+          Next
+        </ion-button>
+        <ion-button class="cancel-button" expand="full" (click)="cancel()">
+          Cancel
+        </ion-button>
       </form>
     </ion-col>
-  </ion-row>
-  <ion-row class="ion-justify-content-center bottom-buttons">
-    <ion-col size="10">
-      <div class="spacer"></div>
-      <ion-button class="red-button" expand="full" (click)="profilePicture()">
-        Next
-      </ion-button>
-      <ion-button class="cancel-button" expand="full" (click)="cancel()">
-        Cancel
-      </ion-button></ion-col>
   </ion-row>
 </ion-content>

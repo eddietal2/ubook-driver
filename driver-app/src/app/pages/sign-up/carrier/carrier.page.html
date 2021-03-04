@@ -61,9 +61,9 @@
 
         <p class="detail-header">Is this your <span style="font-weight: 700">preferred</span> contact number? When on your route, your preferred contact number is the number a Shipper or Receiver will contact via the UBook Freight App if they have any questions or concerns. </p>
 
-        <ion-checkbox #yesPC (ionChange)="preferredContactOption($event)"
+        <ion-checkbox #yesPC checked="true" (ionChange)="preferredContactOption($event)"
         value="yes"></ion-checkbox><span class="checkbox-text">Yes</span>
-        <ion-checkbox #noPC checked="true" (ionChange)="preferredContactOption($event)"
+        <ion-checkbox #noPC (ionChange)="preferredContactOption($event)"
         value="no"></ion-checkbox><span class="checkbox-text">No</span>
 
         <ion-input *ngIf="this.preferredContact" maxlength="10" style="margin-top: 50px;" class="sign-up-input" type="phone"
@@ -89,14 +89,21 @@
         value="no"></ion-checkbox><span class="checkbox-text">No</span>
 
         <div *ngIf="this.ownerOperator">
+          <!-- https://usafamilymoving.com/expert-moving-advice/what-is-the-difference-between-usdot-numbers-and-mc-numbers/#:~:text=An%20MC%20number%20(Motor%20Carrier,hauling%20cargo%20across%20state%20lines. -->
           <ion-input class="sign-up-input" type="text"
-          formControlName="mc" placeholder="MC #"></ion-input>
+          formControlName="mc" placeholder="MC #" maxlength="6"></ion-input>
+
+          <!-- https://www.irs.gov/pub/irs-pdf/p1635.pdf -->
+          <ion-input class="sign-up-input" type="text"
+          formControlName="ein" placeholder="EIN #" maxlength="9"></ion-input>
+
+          <!-- https://www.mpofcinci.com/blog/usdot-numbers-for-commercial-trucks/ -->
+          <ion-input class="sign-up-input" type="text"
+          formControlName="dot" placeholder="USDOT #" maxlength="6"></ion-input>
 
           <ion-input class="sign-up-input" type="text"
-          formControlName="ein" placeholder="EIN #"></ion-input>
+          formControlName="dot" placeholder="USDOT State" maxlength="6"></ion-input>
 
-          <ion-input class="sign-up-input" type="text"
-          formControlName="dot" placeholder="DOT"></ion-input>
         </div>
 
         <div class="spacer"></div>

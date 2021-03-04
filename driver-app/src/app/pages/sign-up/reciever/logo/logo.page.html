@@ -15,13 +15,22 @@
       </ion-col>
     </ion-row>
     <ion-row class="ion-justify-content-center">
-      <ion-col class="get-picture-button ion-text-center" size="10">
-        <img src="../../../../../assets/icons/user-shape.svg" alt="" srcset="">
-        <h3>Tap to get Logo?</h3>
+      <ion-col (click)="takePicture()" class="get-picture-button ion-text-center" size="10">
+        <img *ngIf="!this.uploadedPhoto" src="../../../../../assets/icons/upload.svg" alt="" srcset="">
+        <img *ngIf="this.uploadedPhoto" src="{{imageSrc}}" alt="" srcset="">
+        <h3>Tap to get Logo. <span>Only .png, .jpg, and .jpeg are allowed.</span></h3>
       </ion-col>
       <ion-col class="ion-text-center" size="10">
         <ion-button class="skip-button" expand="full" (click)="skipAlert()">
           Skip
+        </ion-button>
+
+        <div class="spacer"></div>
+        <ion-button class="red-button" expand="full" (click)="recieverInfo()">
+          Next
+        </ion-button>
+        <ion-button class="cancel-button" expand="full" (click)="cancel()">
+          Cancel
         </ion-button>
       </ion-col>
     </ion-row>
@@ -31,12 +40,6 @@
 <ion-footer class="bottom-buttons">
   <ion-row class="ion-justify-content-center">
     <ion-col size="10">
-      <ion-button class="red-button" expand="full" (click)="recieverInfo()">
-        Next
-      </ion-button>
-      <ion-button class="cancel-button" expand="full" (click)="cancel()">
-        Cancel
-      </ion-button>
     </ion-col>
   </ion-row>
 </ion-footer>

@@ -20,7 +20,7 @@ export class LoginCredentialsPage implements OnInit {
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private auth: AuthService,) { }
+    private auth: AuthService) { }
 
   ngOnInit() {
     this.carrierPasswordForm = this.formBuilder.group({
@@ -41,56 +41,60 @@ export class LoginCredentialsPage implements OnInit {
   }
 
 
-formOnChanges(): void {
-  console.log(this.carrierPasswordForm);
-  this.carrierPasswordForm.valueChanges
-  .subscribe(
-    data => {
-      console.log(data);
+  formOnChanges(): void {
+    console.log(this.carrierPasswordForm);
+    this.carrierPasswordForm.valueChanges
+    .subscribe(
+      data => {
+        console.log(data);
 
-      this.carrierPasswordForm.statusChanges.subscribe(status => {
-        console.log(status);
-        if ( status === 'VALID') {
-          console.log('you did it bruh');
-          this.passwordsMatch = true;
-        }
-      });
+        this.carrierPasswordForm.statusChanges.subscribe(status => {
+          console.log(status);
+          if ( status === 'VALID') {
+            console.log('you did it bruh');
+            this.passwordsMatch = true;
+          }
+        });
 
-      if (this.carrierPasswordForm.controls.password.value === this.carrierPasswordForm.controls.confirmPassword.value &&
-        this.carrierPasswordForm.controls.password.touched &&
-        this.carrierPasswordForm.controls.email.valid) {
-        console.log('Passwords Match');
+        if (this.carrierPasswordForm.controls.password.value === this.carrierPasswordForm.controls.confirmPassword.value &&
+          this.carrierPasswordForm.controls.password.touched &&
+          this.carrierPasswordForm.controls.email.valid) {
+          console.log('Passwords Match');
+      }
+
+        if (this.carrierPasswordForm.controls.password.value !== this.carrierPasswordForm.controls.confirmPassword.value) {
+        console.log('Passwords dont match');
+        this.passwordsMatch = false;
     }
-
-      if (this.carrierPasswordForm.controls.password.value !== this.carrierPasswordForm.controls.confirmPassword.value) {
-      console.log('Passwords dont match');
-      this.passwordsMatch = false;
+      }
+    );
   }
+  sendCodePage() {
+      this.auth.carrierSignUp.password = this.carrierPasswordForm.controls.password.value;
+      console.log(this.auth.carrierSignUp);
+      
+      this.router.navigate(['/sign-up/carrier/enter-code']);
     }
-  );
-}
-  success() {
-
-  }
   cancel() {
-    this.auth.carrierSignUp = {
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      preferredContact: false,
-      preferredContactNumber: '',
-      ownerOperator: false,
-      mc: '',
-      ein: '',
-      dot: '',
-      profilePicture: '',
-      driverLicenseNumber: '',
-      driverLicenseState: '',
-      driverLicenseFrontPhoto: '',
-      driverLicenseBackPhoto: '',
-      stripeToken: ''
-    }
+      // this.auth.carrierSignUp = {
+      //   firstName: '',
+      //   lastName: '',
+      //   email: '',
+      //   phone: '',
+      //   preferredContact: false,
+      //   preferredContactNumber: '',
+      //   ownerOperator: false,
+      //   mc: '',
+      //   ein: '',
+      //   dot: '',
+      //   profilePicture: '',
+      //   driverLicenseNumber: '',
+      //   driverLicenseState: '',
+      //   driverLicenseFrontPhoto: '',
+      //   driverLicenseBackPhoto: '',
+      //   stripeToken: '',
+      //   password: ''
+      // }
   }
 
 }

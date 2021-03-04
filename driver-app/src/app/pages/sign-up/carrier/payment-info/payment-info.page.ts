@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
-import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../../../../services/auth.service';
 declare var Stripe: any;
 const testPubApiKey = 'pk_test_TYooMQauvdEDq54NiTphI7jx';
@@ -18,8 +17,7 @@ export class PaymentInfoPage implements OnInit {
     private alertController: AlertController,
     private loadingController: LoadingController,
     private router: Router,
-    private formBuilder: FormBuilder,
-    private auth: AuthService,) { }
+    private auth: AuthService) { }
 
   ngOnInit() {
 
@@ -87,7 +85,7 @@ export class PaymentInfoPage implements OnInit {
 
     loading.onDidDismiss().then(
       () => {
-        this.router.navigate(['/sign-up/carrier/login-credentials']);
+        this.router.navigate(['/sign-up/carrier/login-crendentials']);
       }
     );
     console.log('Loading dismissed!');

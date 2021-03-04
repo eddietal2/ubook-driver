@@ -29,13 +29,39 @@ export class RegisterService {
   };
 
   newShipper = {
-    name: '',
+    usertype: '',
+    firstName: '',
+    lastName: '',
     email: '',
     phone: '',
-    addressOne: '',
-    addressTwo: '',
+    businessAddressOne: '',
+    businessAddressTwo: '',
+    businessCity: '',
+    businessState: '',
+    businessZip: '',
+    businessPhone: '',
+    businessName: '',
+    businessLogo: '',
+    stripeToken: '',
     password: '',
-    profilePicture: '',
+  };
+
+  newReciever = {
+    usertype: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    businessAddressOne: '',
+    businessAddressTwo: '',
+    businessCity: '',
+    businessState: '',
+    businessZip: '',
+    businessPhone: '',
+    businessName: '',
+    businessLogo: '',
+    stripeToken: '',
+    password: '',
   };
 
   constructor(
@@ -49,21 +75,143 @@ export class RegisterService {
     // tslint:disable-next-line: max-line-length
     return this.http.post(`${this.BACKEND_URL}/api/shipper/register/check-email-and-phone`, {email, phone});
   }
-  sendSMSCode(phone) {
-    // tslint:disable-next-line: max-line-length
-    return this.http.post(`${this.BACKEND_URL}/api/carrier/register/send-sms-code`, {phone});
-  }
+  // Carrier
   sendEmailCode(email, code) {
     console.log(email, code);
     // tslint:disable-next-line: max-line-length
     return this.http.post(`${this.BACKEND_URL}/api/carrier/register/send-email-code`, { email, code});
   }
-  registerCarrier(name, email, phone, password) {
+
+  registerCarrier(
+    usertype,
+    firstName,
+    lastName,
+    email,
+    phone,
+    preferredContactNumber,
+    mc,
+    ein,
+    dot,
+    profilePicture,
+    driverLicenseNumber,
+    driverLicenseState,
+    driverLicenseFrontPhoto,
+    driverLicenseBackPhoto,
+    stripeToken,
+    password
+    ) {
     // tslint:disable-next-line: max-line-length
-    return this.http.post(`${this.BACKEND_URL}/api/carrier/register`, {name, email, phone, password});
+    return this.http.post(`${this.BACKEND_URL}/api/carrier/register`, {
+      usertype,
+      firstName,
+      lastName,
+      email,
+      phone,
+      preferredContactNumber,
+      mc,
+      ein,
+      dot,
+      profilePicture,
+      driverLicenseNumber,
+      driverLicenseState,
+      driverLicenseFrontPhoto,
+      driverLicenseBackPhoto,
+      stripeToken,
+      password
+    });
   }
-  registerShipper(name, email, phone, password) {
+  sendSMSCodeCarrier(phone) {
     // tslint:disable-next-line: max-line-length
-    return this.http.post(`${this.BACKEND_URL}/api/shipper/register`, {name, email, phone, password});
+    console.log('Sending SMS Code');
+    return this.http.post(`${this.BACKEND_URL}/api/carrier/register/send-sms-code`, {phone});
+  }
+
+
+  registerShipper(
+    usertype,
+    firstName,
+    lastName,
+    email,
+    phone,
+    profilePicture,
+    businessAddressOne,
+    businessAddressTwo,
+    businessCity,
+    businessState,
+    businessZip,
+    businessPhone,
+    businessName,
+    businessLogo,
+    stripeToken,
+    password,
+    ) {
+    // tslint:disable-next-line: max-line-length
+    return this.http.post(`${this.BACKEND_URL}/api/shipper/register`, {
+      usertype,
+      firstName,
+      lastName,
+      email,
+      phone,
+      profilePicture,
+      businessName,
+      businessAddressOne,
+      businessAddressTwo,
+      businessCity,
+      businessState,
+      businessZip,
+      businessPhone,
+      businessLogo,
+      stripeToken,
+      password,
+    });
+  }
+  sendSMSCodeShipper(phone) {
+    // tslint:disable-next-line: max-line-length
+    console.log('Sending SMS Code');
+    return this.http.post(`${this.BACKEND_URL}/api/shipper/register/send-sms-code`, {phone});
+  }
+
+  registerReciever(
+    usertype,
+    firstName,
+    lastName,
+    email,
+    phone,
+    profilePicture,
+    businessAddressOne,
+    businessAddressTwo,
+    businessCity,
+    businessState,
+    businessZip,
+    businessPhone,
+    businessName,
+    businessLogo,
+    stripeToken,
+    password,
+    ) {
+    // tslint:disable-next-line: max-line-length
+    return this.http.post(`${this.BACKEND_URL}/api/reciever/register`, {
+      usertype,
+      firstName,
+      lastName,
+      email,
+      phone,
+      profilePicture,
+      businessName,
+      businessAddressOne,
+      businessAddressTwo,
+      businessCity,
+      businessState,
+      businessZip,
+      businessPhone,
+      businessLogo,
+      stripeToken,
+      password,
+    });
+  }
+  sendSMSCodeReciever(phone) {
+    // tslint:disable-next-line: max-line-length
+    console.log('Sending SMS Code');
+    return this.http.post(`${this.BACKEND_URL}/api/reciever/register/send-sms-code`, {phone});
   }
 }

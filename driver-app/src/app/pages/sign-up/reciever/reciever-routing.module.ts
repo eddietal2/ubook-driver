@@ -31,6 +31,10 @@ const routes: Routes = [
   {
     path: 'login-credentials',
     loadChildren: () => import('./login-credentials/login-credentials.module').then( m => m.LoginCredentialsPageModule)
+  },
+  {
+    path: 'enter-code',
+    loadChildren: () => import('./enter-code/enter-code.module').then( m => m.EnterCodePageModule)
   }
 ];
 

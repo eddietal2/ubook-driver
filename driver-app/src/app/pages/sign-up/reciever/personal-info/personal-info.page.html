@@ -17,43 +17,42 @@
 <ion-content>
   <ion-row class="ion-justify-content-center">
     <ion-col size="10">
-      <h1>Reciever Personal Profile</h1>
+      <h1>Shipper Personal Information</h1>
     </ion-col>
   </ion-row>
   <ion-row class="ion-justify-content-center">
     <ion-col size="10" style="position: relative; top: -2px;">
-      <form>
-        <ion-input #firstInput class="sign-up-input" type="text" placeholder="First Name"></ion-input>
+      <form [formGroup]="recieverPersonalProfileForm" (submit)="recieverProfilePicture()">
+        <ion-input formControlName="firstName" #firstInput class="sign-up-input" type="text" placeholder="First Name"></ion-input>
 
-        <ion-input class="sign-up-input" type="text" placeholder="Last Name"></ion-input>
+        <ion-input formControlName="lastName" class="sign-up-input" type="text" placeholder="Last Name"></ion-input>
 
-        <ion-input class="sign-up-input" type="text" placeholder="Address 1"></ion-input>
+        <ion-input formControlName="phone" class="sign-up-input" type="phone" placeholder="Phone" maxlength="10"></ion-input>
 
-        <ion-input class="sign-up-input" type="text" placeholder="Address 2"></ion-input>
+        <ion-input formControlName="email" class="sign-up-input" type="text" placeholder="Email"></ion-input>
 
-        <ion-input class="sign-up-input" type="text" placeholder="City"></ion-input>
+        <!-- Email Validation-->
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validationMessasges.email">
+            <div class="error-message"
+              *ngIf="recieverPersonalProfileForm
+                .get('email')
+                .hasError(validation.type) && (recieverPersonalProfileForm.get('email')
+                .dirty || recieverPersonalProfileForm.get('email').touched)">
+              {{ validation.message }}
+            </div>
+          </ng-container>
+        </div>
 
-        <ion-input class="sign-up-input" type="text" placeholder="State"></ion-input>
+        <div class="spacer"></div>
+        <ion-button class="red-button" expand="full" (click)="recieverProfilePicture()">
+          Next
+        </ion-button>
+        <ion-button class="cancel-button" expand="full" (click)="cancel()">
+          Cancel
+        </ion-button>
 
-        <ion-input class="sign-up-input" type="text" placeholder="Zip"></ion-input>
-
-        <ion-input class="sign-up-input" type="phone" placeholder="Phone"></ion-input>
-        <ion-input class="sign-up-input" type="text" placeholder="Email"></ion-input>
-
-        <ion-input class="sign-up-input" type="phone" placeholder="Password"></ion-input>
-
-        <ion-input class="sign-up-input" type="phone" placeholder="Confirm Password"></ion-input>
       </form>
     </ion-col>
-  </ion-row>
-  <ion-row class="ion-justify-content-center bottom-buttons">
-    <ion-col size="10">
-      <div class="spacer"></div>
-      <ion-button class="red-button" expand="full" (click)="recieverProfilePicture()">
-        Next
-      </ion-button>
-      <ion-button class="cancel-button" expand="full" (click)="cancel()">
-        Cancel
-      </ion-button></ion-col>
   </ion-row>
 </ion-content>

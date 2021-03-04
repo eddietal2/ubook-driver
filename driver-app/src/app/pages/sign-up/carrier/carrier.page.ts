@@ -52,7 +52,6 @@ export class CarrierPage implements OnInit {
   }
   profilePicturePage() {
     this.auth.carrierSignUp.firstName = this.carrierProfileForm.controls['firstName'].value;
-    
     this.auth.carrierSignUp.lastName = this.carrierProfileForm.controls['lastName'].value;
     this.auth.carrierSignUp.email = this.carrierProfileForm.controls['email'].value;
     this.auth.carrierSignUp.phone = this.carrierProfileForm.controls['phone'].value;
@@ -74,14 +73,14 @@ export class CarrierPage implements OnInit {
     // yes box should be unchecked
     if(checkboxData.value === 'no' && checkboxData.checked) {
       console.log('NO Preferred Contact!');
-      this.preferredContact = false;
+      this.preferredContact = true;
       this.yesPC.checked = false;
     }
     // if yes box is checked
     // no box should be unchecked
     if(checkboxData.value === 'yes' && checkboxData.checked) {
       console.log('YES Preferred Contact!');
-      this.preferredContact = true;
+      this.preferredContact = false;
       this.noPC.checked = false;
     }
   }

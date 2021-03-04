@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: '',
     component: CarrierPage
-  },
+   },
   {
     path: 'picture',
     loadChildren: () => import('./picture/picture.module').then( m => m.PicturePageModule)

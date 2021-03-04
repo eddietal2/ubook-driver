@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from '../../../../services/auth.service';
 
 @Component({
   selector: 'app-login-credentials',
@@ -6,10 +9,71 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login-credentials.page.scss'],
 })
 export class LoginCredentialsPage implements OnInit {
+  recieverPasswordForm: FormGroup;
+  passwordsMatch = false;
+  validationMessasges = {
+    password: [
+      { type: 'password', message: 'Please enter a valid password. At least 1 number, 1 uppercase letter, and one lowercase letter, and 8 characters long'}
+    ]
+  };
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private auth: AuthService) { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+      this.recieverPasswordForm = this.formBuilder.group({
+        password: ['', Validators.compose([
+          Validators.minLength(8),
+          Validators.required,
+          // at least 1 number, 1 uppercase letter, and one lowercase letter
+          Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')
+       ])],
+       confirmPassword: ['', Validators.compose([
+        Validators.minLength(8),
+        Validators.required,
+        // at least 1 number, 1 uppercase letter, and one lowercase letter
+        Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')
+     ])]
+      });
+      this.formOnChanges();
+    }
+    formOnChanges(): void {
+      console.log(this.recieverPasswordForm);
+      this.recieverPasswordForm.valueChanges
+      .subscribe(
+        data => {
+          console.log(data);
+
+          this.recieverPasswordForm.statusChanges.subscribe(status => {
+            console.log(status);
+            if ( status === 'VALID') {
+              this.passwordsMatch = true;
+            }
+          });
+
+          if (this.recieverPasswordForm.controls.password.value === this.recieverPasswordForm.controls.confirmPassword.value &&
+            this.recieverPasswordForm.controls.password.touched) {
+            console.log('Passwords Match');
+        }
+
+          if (this.recieverPasswordForm.controls.password.value !== this.recieverPasswordForm.controls.confirmPassword.value) {
+          console.log('Passwords dont match');
+          this.passwordsMatch = false;
+      }
+        }
+      );
+    }
+    sendCodePage() {
+        this.auth.recieverSignUp.password = this.recieverPasswordForm.controls.password.value;
+        console.log(this.recieverPasswordForm.controls.password.value);
+        console.log(this.auth.recieverSignUp);
+        this.router.navigate(['/sign-up/reciever/enter-code']);
+      }
+    cancel() {
+        // this.auth.shipperSignUp = {
+        // }
+    }
 
 }
