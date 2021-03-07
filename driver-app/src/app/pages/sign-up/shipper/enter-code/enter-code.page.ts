@@ -105,11 +105,11 @@ export class EnterCodePage implements OnInit {
         this.auth.shipperSignUp.businessAddressOne,
         this.auth.shipperSignUp.businessAddressTwo,
         this.auth.shipperSignUp.businessCity,
-        this.auth.shipperSignUp.businessLogo,
-        this.auth.shipperSignUp.businessName,
         this.auth.shipperSignUp.businessState,
         this.auth.shipperSignUp.businessZip,
+        this.auth.shipperSignUp.businessName,
         this.auth.shipperSignUp.businessPhone,
+        this.auth.shipperSignUp.businessLogo,
         this.auth.shipperSignUp.stripeToken,
         this.auth.shipperSignUp.password,
       ).subscribe(

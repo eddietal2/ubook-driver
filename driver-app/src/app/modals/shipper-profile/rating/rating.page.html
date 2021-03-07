@@ -1,9 +1,39 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>rating</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="icon-only" name="close" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Shipper Ratings</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row class="rating-wrapper ion-justify-content-center">
+      <ion-col size="2">
+        <img class="rater-picture" src="../../../../assets/placeholders/carrier.png">
+      </ion-col>
+      <ion-col size="8">
+        <p class="rating">4/5</p>
+        <img class="star" src="../../../../../assets/icons/star-icon.svg" alt="" srcset="">
+      </ion-col>
+      <ion-col size="10">
+        <p class="ratings-text">"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit quia minus suscipit, unde repellat, consectetur ea esse totam iste dolor ullam voluptatem quas distinctio fuga voluptates nihil laborum ex sint."</p>
+      </ion-col>
+    </ion-row>
+    <ion-row class="rating-wrapper ion-justify-content-center">
+      <ion-col size="2">
+        <img class="rater-picture" src="../../../../assets/placeholders/carrier.png">
+      </ion-col>
+      <ion-col size="8">
+        <p class="rating">4/5</p>
+        <img class="star" src="../../../../../assets/icons/star-icon.svg" alt="" srcset="">
+      </ion-col>
+      <ion-col size="10">
+        <p class="ratings-text">"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit quia minus suscipit, unde repellat, consectetur ea esse totam iste dolor ullam voluptatem quas distinctio fuga voluptates nihil laborum ex sint."</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

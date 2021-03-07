@@ -13,51 +13,168 @@
   <ion-grid>
     <ion-row class="ion-justify-content-center">
       <ion-col size="11">
-        <h1>Pick-Up & Delivery</h1>
-      </ion-col>
-    </ion-row>
-    <ion-row class="ion-justify-content-center">
-      <ion-col size="11">
-        <p class="section-description">Pick-Up Details</p>
-        <form>
-          <ion-input class="sign-up-input" type="date" placeholder="Date"></ion-input>
+        <form [formGroup]="shipperNewOrderLocationsForm" (submit)="photos()">
 
-          <ion-input class="sign-up-input" type="text" placeholder="Address 1"></ion-input>
+          <p class="detail-header">
+            <img slot="start" src="../../../../../../assets/icons/map-marker.svg">
+            Pick-Up Details</p>
 
-          <ion-input class="sign-up-input" type="text" placeholder="Address 2"></ion-input>
+          <!-- TODO -->
+          <!-- Make Dynamic: If the date is later than October, add the next month to yearly values so shippers and recievers can book January of next year whiles its December of this year, ect. -->
+          <ion-datetime #firstInput class="sign-up-input"
+            monthShortNames="Jan, Feb, Mar, Apr, May, June, July, August, Sep, Oct, Nov, Dec"
+            formControlName="PUDate"
+            minuteValues="0,15,30,45"
+            placeholder="Date & Time"
+            display-format="DDDD, MMMM DD YYYY - h:mm A">
+          </ion-datetime>
 
-          <ion-input class="sign-up-input" type="text" placeholder="City"></ion-input>
+          <ion-input formControlName="PUAddressOne" class="sign-up-input" type="text" placeholder="Address 1"></ion-input>
 
-          <ion-input class="sign-up-input" type="text" placeholder="State"></ion-input>
+          <ion-input formControlName="PUAddressTwo" class="sign-up-input" type="text" placeholder="Address 2"></ion-input>
 
-          <ion-input class="sign-up-input" type="text" placeholder="Zip"></ion-input>
+          <ion-input formControlName="PUCity" class="sign-up-input" type="text" placeholder="City"></ion-input>
+
+          <ion-select formControlName="PUState"  class="sign-up-input" placeholder="State">
+            <ion-select-option value="AL">Alabama</ion-select-option>
+            <ion-select-option value="AK">Alaska</ion-select-option>
+            <ion-select-option value="AZ">Arizona</ion-select-option>
+            <ion-select-option value="AR">Arkansas</ion-select-option>
+            <ion-select-option value="CA">California</ion-select-option>
+            <ion-select-option value="CO">Colorado</ion-select-option>
+            <ion-select-option value="CT">Connecticut</ion-select-option>
+            <ion-select-option value="DE">Delaware</ion-select-option>
+            <ion-select-option value="DC">District Of Columbia</ion-select-option>
+            <ion-select-option value="FL">Florida</ion-select-option>
+            <ion-select-option value="GA">Georgia</ion-select-option>
+            <ion-select-option value="HI">Hawaii</ion-select-option>
+            <ion-select-option value="ID">Idaho</ion-select-option>
+            <ion-select-option value="IL">Illinois</ion-select-option>
+            <ion-select-option value="IN">Indiana</ion-select-option>
+            <ion-select-option value="IA">Iowa</ion-select-option>
+            <ion-select-option value="KS">Kansas</ion-select-option>
+            <ion-select-option value="KY">Kentucky</ion-select-option>
+            <ion-select-option value="LA">Louisiana</ion-select-option>
+            <ion-select-option value="ME">Maine</ion-select-option>
+            <ion-select-option value="MD">Maryland</ion-select-option>
+            <ion-select-option value="MA">Massachusetts</ion-select-option>
+            <ion-select-option value="MI">Michigan</ion-select-option>
+            <ion-select-option value="MN">Minnesota</ion-select-option>
+            <ion-select-option value="MS">Mississippi</ion-select-option>
+            <ion-select-option value="MO">Missouri</ion-select-option>
+            <ion-select-option value="MT">Montana</ion-select-option>
+            <ion-select-option value="NE">Nebraska</ion-select-option>
+            <ion-select-option value="NV">Nevada</ion-select-option>
+            <ion-select-option value="NH">New Hampshire</ion-select-option>
+            <ion-select-option value="NJ">New Jersey</ion-select-option>
+            <ion-select-option value="NM">New Mexico</ion-select-option>
+            <ion-select-option value="NY">New York</ion-select-option>
+            <ion-select-option value="NC">North Carolina</ion-select-option>
+            <ion-select-option value="ND">North Dakota</ion-select-option>
+            <ion-select-option value="OH">Ohio</ion-select-option>
+            <ion-select-option value="OK">Oklahoma</ion-select-option>
+            <ion-select-option value="OR">Oregon</ion-select-option>
+            <ion-select-option value="PA">Pennsylvania</ion-select-option>
+            <ion-select-option value="RI">Rhode Island</ion-select-option>
+            <ion-select-option value="SC">South Carolina</ion-select-option>
+            <ion-select-option value="SD">South Dakota</ion-select-option>
+            <ion-select-option value="TN">Tennessee</ion-select-option>
+            <ion-select-option value="TX">Texas</ion-select-option>
+            <ion-select-option value="UT">Utah</ion-select-option>
+            <ion-select-option value="VT">Vermont</ion-select-option>
+            <ion-select-option value="VA">Virginia</ion-select-option>
+            <ion-select-option value="WA">Washington</ion-select-option>
+            <ion-select-option value="WV">West Virginia</ion-select-option>
+            <ion-select-option value="WI">Wisconsin</ion-select-option>
+            <ion-select-option value="WY">Wyoming</ion-select-option>
+          </ion-select>
+
+          <ion-input formControlName="PUZip" class="sign-up-input" type="text" placeholder="Zip" maxlength="6"></ion-input>
+          <div class="spacer" style="margin-bottom: 100px;"></div>
+
+          <p class="detail-header">
+            <img slot="start" src="../../../../../../assets/icons/delivery-truck.svg">
+            Delivery Details</p>
+
+          <!-- TODO -->
+          <!-- Make Dynamic: If the date is later than October, add the next month to yearly values so shippers and recievers can book January of next year whiles its December of this year, ect. -->
+          <!-- Make sure Delivery Date is AFTER Pick Date -->
+          <ion-datetime #firstInput class="sign-up-input"
+            monthShortNames="Jan, Feb, Mar, Apr, May, June, July, August, Sep, Oct, Nov, Dec"
+            formControlName="DLDate"
+            minuteValues="0,15,30,45"
+            placeholder="Date & Time"
+            display-format="DDDD, MMMM DD YYYY - h:mm A">
+          </ion-datetime>
+
+          <ion-input formControlName="DLAddressOne" class="sign-up-input" type="text" placeholder="Address 1"></ion-input>
+
+          <ion-input formControlName="DLAddressTwo" class="sign-up-input" type="text" placeholder="Address 2"></ion-input>
+
+          <ion-input formControlName="DLCity" class="sign-up-input" type="text" placeholder="City"></ion-input>
+
+          <ion-select formControlName="DLState"  class="sign-up-input" placeholder="State">
+            <ion-select-option value="AL">Alabama</ion-select-option>
+            <ion-select-option value="AK">Alaska</ion-select-option>
+            <ion-select-option value="AZ">Arizona</ion-select-option>
+            <ion-select-option value="AR">Arkansas</ion-select-option>
+            <ion-select-option value="CA">California</ion-select-option>
+            <ion-select-option value="CO">Colorado</ion-select-option>
+            <ion-select-option value="CT">Connecticut</ion-select-option>
+            <ion-select-option value="DE">Delaware</ion-select-option>
+            <ion-select-option value="DC">District Of Columbia</ion-select-option>
+            <ion-select-option value="FL">Florida</ion-select-option>
+            <ion-select-option value="GA">Georgia</ion-select-option>
+            <ion-select-option value="HI">Hawaii</ion-select-option>
+            <ion-select-option value="ID">Idaho</ion-select-option>
+            <ion-select-option value="IL">Illinois</ion-select-option>
+            <ion-select-option value="IN">Indiana</ion-select-option>
+            <ion-select-option value="IA">Iowa</ion-select-option>
+            <ion-select-option value="KS">Kansas</ion-select-option>
+            <ion-select-option value="KY">Kentucky</ion-select-option>
+            <ion-select-option value="LA">Louisiana</ion-select-option>
+            <ion-select-option value="ME">Maine</ion-select-option>
+            <ion-select-option value="MD">Maryland</ion-select-option>
+            <ion-select-option value="MA">Massachusetts</ion-select-option>
+            <ion-select-option value="MI">Michigan</ion-select-option>
+            <ion-select-option value="MN">Minnesota</ion-select-option>
+            <ion-select-option value="MS">Mississippi</ion-select-option>
+            <ion-select-option value="MO">Missouri</ion-select-option>
+            <ion-select-option value="MT">Montana</ion-select-option>
+            <ion-select-option value="NE">Nebraska</ion-select-option>
+            <ion-select-option value="NV">Nevada</ion-select-option>
+            <ion-select-option value="NH">New Hampshire</ion-select-option>
+            <ion-select-option value="NJ">New Jersey</ion-select-option>
+            <ion-select-option value="NM">New Mexico</ion-select-option>
+            <ion-select-option value="NY">New York</ion-select-option>
+            <ion-select-option value="NC">North Carolina</ion-select-option>
+            <ion-select-option value="ND">North Dakota</ion-select-option>
+            <ion-select-option value="OH">Ohio</ion-select-option>
+            <ion-select-option value="OK">Oklahoma</ion-select-option>
+            <ion-select-option value="OR">Oregon</ion-select-option>
+            <ion-select-option value="PA">Pennsylvania</ion-select-option>
+            <ion-select-option value="RI">Rhode Island</ion-select-option>
+            <ion-select-option value="SC">South Carolina</ion-select-option>
+            <ion-select-option value="SD">South Dakota</ion-select-option>
+            <ion-select-option value="TN">Tennessee</ion-select-option>
+            <ion-select-option value="TX">Texas</ion-select-option>
+            <ion-select-option value="UT">Utah</ion-select-option>
+            <ion-select-option value="VT">Vermont</ion-select-option>
+            <ion-select-option value="VA">Virginia</ion-select-option>
+            <ion-select-option value="WA">Washington</ion-select-option>
+            <ion-select-option value="WV">West Virginia</ion-select-option>
+            <ion-select-option value="WI">Wisconsin</ion-select-option>
+            <ion-select-option value="WY">Wyoming</ion-select-option>
+          </ion-select>
+
+          <ion-input formControlName="DLZip" class="sign-up-input" type="text" placeholder="Zip" maxlength="6"></ion-input>
+
+          <div class="spacer"></div>
+          <ion-button type="submit" class="red-button" expand="full">
+            Next
+          </ion-button>
+          <div class="spacer"></div>
         </form>
-      </ion-col>
-    </ion-row>
-    <ion-row class="ion-justify-content-center">
-      <ion-col size="11">
-        <p class="section-description">Delivery Details</p>
-        <form>
-          <ion-input class="sign-up-input" type="date" placeholder="Date"></ion-input>
-
-          <ion-input class="sign-up-input" type="text" placeholder="Address 1"></ion-input>
-
-          <ion-input class="sign-up-input" type="text" placeholder="Address 2"></ion-input>
-
-          <ion-input class="sign-up-input" type="text" placeholder="City"></ion-input>
-
-          <ion-input class="sign-up-input" type="text" placeholder="State"></ion-input>
-
-          <ion-input class="sign-up-input" type="text" placeholder="Zip"></ion-input>
-        </form>
-      </ion-col>
-    </ion-row>
-    <ion-row class="ion-justify-content-center bottom-buttons">
-      <ion-col size="10">
-        <div class="spacer"></div>
-        <ion-button class="red-button" expand="full" (click)="photos()">
-          Next
-        </ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

@@ -87,9 +87,9 @@ export class EnterCodePage implements OnInit {
   sendSMSCode() {
     console.log('Attempting to send code..');
     this.sentAnotherCodeToast();
-    return this.registerService.sendSMSCode(this.phone).subscribe( data => {
-      this.code = data['code'];
-    });
+    // return this.registerService.sendSMSCode(this.phone).subscribe( data => {
+    //   this.code = data['code'];
+    // });
   }
   sendEmailCode() {
     console.log('Attempting to send code..');

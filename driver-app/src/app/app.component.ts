@@ -62,16 +62,16 @@ export class AppComponent implements OnInit, OnDestroy {
     },
     {
       title: 'Shipper Orders',
-      url: '/shipper-orders/orders-page',
+      url: '/shipper-orders',
       icon: 'list',
       usertype: 'Shipper'
     },
-    {
-      title: 'Shipper Settings',
-      url: '/shipper-settings',
-      icon: 'list',
-      usertype: 'Shipper'
-    }
+    // {
+    //   title: 'Shipper Settings',
+    //   url: '/shipper-settings',
+    //   icon: 'list',
+    //   usertype: 'Shipper'
+    // }
   ];
 
   constructor(

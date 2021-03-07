@@ -20,10 +20,10 @@
       </ion-col>
       <ion-col class="order-details" size="11">
         <div style="margin-bottom: 20px;">
-          <h3 class="order-dollar-amount">$1,500</h3>
+          <h3 class="order-dollar-amount">${{this.newService.newOrder.startingRate}}</h3>
           <div>
             <img style="display: inline;" src="../../../../../assets/icons/map-marker.svg" alt="" srcset="">
-            <h5 style="display: inline;">11223 Detroit, MI </h5>
+            <h5 style="display: inline;">{{this.newService.newOrder.PUAddressOne}}, {{this.newService.newOrder.PUAddressTwo}}, {{this.newService.newOrder.PUCity}}, {{this.newService.newOrder.PUState}}, {{this.newService.newOrder.PUZip}}</h5>
           </div>
 
           <div style="margin: 10px auto;">
@@ -32,17 +32,18 @@
 
           <div>
             <img style="display: inline;" src="../../../../../assets/icons/delivery-truck.svg" alt="" srcset="">
-            <h5 style="display: inline;">1234 Miami, FL</h5>
+            <h5 style="display: inline;">{{this.newService.newOrder.DLAddressOne}}, {{this.newService.newOrder.DLAddressTwo}}, {{this.newService.newOrder.DLCity}}, {{this.newService.newOrder.DLState}}, {{this.newService.newOrder.DLZip}}</h5>
           </div>
         </div>
         <div class="order-card-details">
-          <p>PU: Jan 1 06:00 - 09:00</p>
-          <p>DL: Jan 2 06:00 - 09:00</p>
-          <p>42,000 lbs - Reefer</p>
-          <p>Apples, Oranges, and Bananas.</p>
+          <p>PU: {{this.newService.newOrder.PUDate}}</p>
+          <p>DL: {{this.newService.newOrder.PUDate}}</p>
+          <p>{{this.newService.newOrder.weight}} lbs - {{this.newService.newOrder.truckType}}</p>
+          <p>{{this.newService.newOrder.loadDescription}}</p>
         </div>
       </ion-col>
       <ion-col size="11">
+        <div class="spacer"></div>
         <ion-button expand="full" class="red-button" (click)="editOrderDetails()">
           Edit
         </ion-button>
@@ -52,6 +53,7 @@
       <ion-col size="11">
         <h3 class="detail-header">Special Request</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, tempore qui iure nesciunt natus nobis est id aut sunt blanditiis rerum, consectetur eaque quae veniam labore ab repellendus at. Voluptas.</p>
+        <div class="spacer"></div>
         <ion-button expand="full" class="red-button" (click)="editLocation()">
           Edit
         </ion-button>
@@ -70,6 +72,7 @@
           <ion-slide>
           </ion-slide>
         </ion-slides>
+        <div class="spacer"></div>
         <ion-button expand="full" class="red-button" (click)="editPhotos()">
           Edit
         </ion-button>
@@ -91,7 +94,6 @@
     </ion-row>
     <ion-row class="ion-justify-content-center bottom-buttons">
       <ion-col size="10">
-        <div class="spacer"></div>
         <ion-button class="green-button" expand="full" (click)="success()">
           Submit
         </ion-button>

@@ -7,92 +7,55 @@
 
   <ion-grid>
     <ion-row class="ion-justify-content-center">
-
-      <ion-col size="11">
-        <h1 class="orders-header">Accepted Orders</h1>
-      </ion-col>
-      <ion-col class="accepted-order" size="11">
-        <div style="margin-bottom: 20px;">
-          <h3 class="order-dollar-amount">$1,500</h3>
-          <div>
-            <img style="display: inline;" src="../../../../../assets/icons/map-marker.svg" alt="" srcset="">
-            <h5 style="display: inline;">Detroit, MI </h5>
-          </div>
-
-          <div style="margin: 10px auto;">
-            <img src="../../../../../assets/icons/order-card-line.svg" alt="">
-          </div>
-
-          <div>
-            <img style="display: inline;" src="../../../../../assets/icons/delivery-truck.svg" alt="" srcset="">
-            <h5 style="display: inline;">Miami, FL</h5>
-          </div>
-        </div>
-        <div class="order-card-details">
-          <p>PU: Jan 1 06:00 - 09:00</p>
-          <p>DL: Jan 2 06:00 - 09:00</p>
-          <p>42,000 lbs - Reefer</p>
-          <p>Apples, Oranges, and Bananas.</p>
-        </div>
-      </ion-col>
-      <ion-col size="11">
-        <h1 class="orders-header">Pending Orders</h1>
-      </ion-col>
-      <ion-col class="pending-order" size="11">
-        <div style="margin-bottom: 20px;">
-          <h3 class="order-dollar-amount">$1,500</h3>
-          <div>
-            <img style="display: inline;" src="../../../../../assets/icons/map-marker.svg" alt="" srcset="">
-            <h5 style="display: inline;">Detroit, MI </h5>
-          </div>
-
-          <div style="margin: 10px auto;">
-            <img src="../../../../../assets/icons/order-card-line.svg" alt="">
-          </div>
-
-          <div>
-            <img style="display: inline;" src="../../../../../assets/icons/delivery-truck.svg" alt="" srcset="">
-            <h5 style="display: inline;">Miami, FL</h5>
-          </div>
-        </div>
-        <div class="order-card-details">
-          <p>PU: Jan 1 06:00 - 09:00</p>
-          <p>DL: Jan 2 06:00 - 09:00</p>
-          <p>42,000 lbs - Reefer</p>
-          <p>Apples, Oranges, and Bananas.</p>
-        </div>
-      </ion-col>
       <ion-col size="11">
         <h1 class="orders-header">Open Orders</h1>
       </ion-col>
-      <ion-col class="open-order" size="11">
-        <div style="margin-bottom: 20px;">
-          <h3 class="order-dollar-amount">$1,500</h3>
-          <div>
-            <img style="display: inline;" src="../../../../../assets/icons/map-marker.svg" alt="" srcset="">
-            <h5 style="display: inline;">Detroit, MI </h5>
-          </div>
+      <ion-col size="11">
+        <div class="open-order" *ngFor="let pending of this.openOrders">
+          <div style="margin-bottom: 20px;">
+            <!-- <h3 class="order-dollar-amount">$1,500</h3> -->
+            <div>
+              <img style="display: inline;" src="../../../../../assets/icons/map-marker.svg" alt="" srcset="">
+              <h5 style="display: inline;">{{pending.PUAddressOne}}, {{pending.PUAddressTwo}}, {{pending.PUCity}}, {{pending.PUState}}, {{pending.PUZip}}</h5>
+            </div>
 
-          <div style="margin: 10px auto;">
-            <img src="../../../../../assets/icons/order-card-line.svg" alt="">
-          </div>
+            <div style="margin: 10px auto;">
+              <img src="../../../../../assets/icons/order-card-line.svg" alt="">
+            </div>
 
-          <div>
-            <img style="display: inline;" src="../../../../../assets/icons/delivery-truck.svg" alt="" srcset="">
-            <h5 style="display: inline;">Miami, FL</h5>
+            <div>
+              <img style="display: inline;" src="../../../../../assets/icons/delivery-truck.svg" alt="" srcset="">
+              <h5 style="display: inline;">{{pending.DLAddressOne}}, {{pending.DLAddressTwo}}, {{pending.DLCity}}, {{pending.DLState}}, {{pending.DLZip}}</h5>
+            </div>
           </div>
+          <div class="order-card-details">
+            <p>PU: {{pending.PUDate}}</p>
+            <p>DL: {{pending.PUDate}}</p>
+            <p>{{pending.weight}} lbs - {{pending.truckType}}</p>
+            <p>{{pending.loadDescription}}</p>
+          </div>
+          <ion-toolbar class="order-toolbar">
+            <ion-buttons slot="start">
+              <div *ngIf="pending.bonusTimer.minutes < 15">
+                {{pending.bonusTimer.minutes}}:{{pending.bonusTimer.seconds}}
+              </div>
+              <div *ngIf="pending.bonusTimer.minutes >= 15">
+                Expired.
+              </div>
+            </ion-buttons>
+            <ion-buttons slot="end">
+              <ion-button style="--color: red" (click)="deletePendingOrderAlert()">
+                Delete
+              </ion-button>
+              <ion-button (click)="editPendingOrder()">
+                Edit
+              </ion-button>
+              <ion-button class="preset-select" (click)="openOrderPage(pending.orderID)">
+                Info
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar>
         </div>
-        <div class="order-card-details">
-          <p>PU: Jan 1 06:00 - 09:00</p>
-          <p>DL: Jan 2 06:00 - 09:00</p>
-          <p>42,000 lbs - Reefer</p>
-          <p>Apples, Oranges, and Bananas.</p>
-        </div>
-      </ion-col>
-    </ion-row>
-    <ion-row class="ion-justify-content-center">
-      <ion-col size="10">
-        <h1>Open Orders</h1>
       </ion-col>
     </ion-row>
   </ion-grid>

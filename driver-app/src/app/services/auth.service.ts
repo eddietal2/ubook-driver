@@ -16,11 +16,10 @@ export class AuthService {
   user = null;
   authenticationState = new BehaviorSubject(false);
   loginSub: Subscription;
-  email: string;
-  usertype: string;
+  email = '';
+  usertype = '';
   name: string;
   rating: number;
-  title: string;
 
   carrierSignUp = {
     usertype: 'Carrier',
@@ -139,48 +138,7 @@ export class AuthService {
     console.log('Logging in');
     console.log(data, usertype);
 
-    if (usertype === 'Carrier') {
-      console.log('Carrier is attempting to log in...');
-      return this.loginSub = this.http.post(`${this.BACKEND_URL}/api/carrier/login/`,
-    { email: data.email,
-      password: data.password,
-      usertype
-    })
-      .pipe(
-        tap(res => {
-          if (!res) {
-            console.log('There was no response. There might be a bad password');
-          }
-          this.storage.set(this.TOKEN_KEY, res['token']);
-          this.user = this.helper.decodeToken( res['token']);
-          this.email = this.user.email;
-          this.usertype = this.user.usertype;
-          this.name = this.user.name;
-          this.rating = this.user.rating;
-          console.log('Email: ' + this.user.email);
-          console.log('Name: ' + this.user.name);
-          console.log('Usertype: ' + this.user.usertype);
-          console.log('Rating: ' + this.user.rating);
-        }),
-        catchError(e => {
-          console.error(e);
-          if (e.error.msg === 'The email and password don\'t match.') {
-            this.presentAlert('Incorrect Email/Password', 'The email and password don\'t match.');
-          } else if (e.error.msg === 'The Carrier does not exist') {
-            this.presentAlert('Carrier does not exist', 'There is no account with that email address.');
-          } else if (e.message.startsWith('Http failure response')) {
-            this.presentAlert('Server Connection Error', 'There was a problem connecting to the server. Please try again later.');
-          }  else {
-            this.presentAlert('Email/Password Error', 'Please try again.');
-          }
-          throw new Error(e);
-        })
-      ).subscribe(
-        () => {
-          this.presentLoading();
-        }
-      );
-    }
+
     if (usertype === 'Shipper') {
       console.log('Shipper is attempting to log in...');
       return this.loginSub = this.http.post(`${this.BACKEND_URL}/api/shipper/login/`,
@@ -196,7 +154,6 @@ export class AuthService {
           this.storage.set(this.TOKEN_KEY, res['token']);
           this.user = this.helper.decodeToken( res['token']);
           this.email = this.user.email;
-          this.title = this.user.title;
           this.usertype = this.user.usertype;
           this.name = this.user.name;
           this.rating = this.user.rating;
@@ -239,7 +196,6 @@ export class AuthService {
           this.storage.set(this.TOKEN_KEY, res['token']);
           this.user = this.helper.decodeToken( res['token']);
           this.email = this.user.email;
-          this.title = this.user.title;
           this.usertype = this.user.usertype;
           this.name = this.user.name;
           this.rating = this.user.rating;
@@ -255,6 +211,48 @@ export class AuthService {
             this.presentAlert('Incorrect Email/Password', 'The email and password don\'t match.');
           } else if (e.error.msg === 'The Reciever does not exist') {
             this.presentAlert('Reciever does not exist', 'There is no account with that email address.');
+          } else if (e.message.startsWith('Http failure response')) {
+            this.presentAlert('Server Connection Error', 'There was a problem connecting to the server. Please try again later.');
+          }  else {
+            this.presentAlert('Email/Password Error', 'Please try again.');
+          }
+          throw new Error(e);
+        })
+      ).subscribe(
+        () => {
+          this.presentLoading();
+        });
+    }
+    if (usertype === 'Carrier') {
+      console.log('Carrier is attempting to log in...');
+      return this.loginSub = this.http.post(`${this.BACKEND_URL}/api/carrier/login/`,
+    { email: data.email,
+      password: data.password,
+      usertype
+    })
+      .pipe(
+        tap(res => {
+          if (!res) {
+            console.log('There was no response. There might be a bad password');
+          }
+          this.storage.set(this.TOKEN_KEY, res['token']);
+          this.user = this.helper.decodeToken( res['token']);
+          this.email = this.user.email;
+          this.usertype = 'Carrier';
+          this.name = this.user.name;
+          this.rating = this.user.rating;
+          console.log('Email: ' + this.user.email);
+          console.log('Name: ' + this.user.name);
+          console.log('Usertype: ' + this.user.usertype);
+          console.log('Title: ' + this.user.title);
+          console.log('Rating: ' + this.user.rating);
+        }),
+        catchError(e => {
+          console.error(e);
+          if (e.error.msg === 'The email and password don\'t match.') {
+            this.presentAlert('Incorrect Email/Password', 'The email and password don\'t match.');
+          } else if (e.error.msg === 'The Carrier does not exist') {
+            this.presentAlert('Carrier does not exist', 'There is no account with that email address.');
           } else if (e.message.startsWith('Http failure response')) {
             this.presentAlert('Server Connection Error', 'There was a problem connecting to the server. Please try again later.');
           }  else {

@@ -1,9 +1,46 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>pre-availability-survey</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="icon-only" name="close" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Pre Availability Survey</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col style="margin-top: 54px;" size="11">
+        <ion-item>
+          <ion-checkbox (ionChange)="gasCheckbox($event)"
+          value="yes"></ion-checkbox><span class="checkbox-text">Do you have a full tank of gas?</span>
+        </ion-item>
+        <ion-item>
+          <ion-checkbox (ionChange)="safetyCheckbox($event)"
+          value="yes"></ion-checkbox><span class="checkbox-text">Safety and Inspection Check.</span>
+        </ion-item>
+        <ion-item>
+          <ion-checkbox (ionChange)="phoneCheckbox($event)"
+          value="yes"></ion-checkbox><span class="checkbox-text">Phone is Charged.</span>
+        </ion-item>
+      </ion-col>
+      <ion-col size="11">
+        <p>How far are you willing to travel to pick up an order?</p>
+        <h1 class="range-value">{{rangeValue}} Miles</h1>
+        <ion-item>
+          <p>100</p>
+          <ion-range (ionChange)="getRangeValue($event)" value="200" min="100" max="1000" step="100" snaps="true">
+          </ion-range>
+          <p>1000</p>
+        </ion-item>
+      </ion-col>
+      <ion-col size="11">
+        <ion-button [disabled]="!gas && !safety && !phone" class="red-button" (click)="submit()">
+          Submit
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

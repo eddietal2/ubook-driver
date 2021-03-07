@@ -50,7 +50,7 @@ export class EnterCodePage implements OnInit {
     this.enterCodeButton = document.getElementById('enter-code-button');
 
     // Send Code to SMS when this page is initiated.
-    this.sendSMSCode();
+    // this.sendSMSCode();
 
     this.enterCodeForm = this.formBuilder.group({
       code: ['', [Validators.required]],
@@ -84,13 +84,13 @@ export class EnterCodePage implements OnInit {
   }
 
 
-  sendSMSCode() {
-    console.log('Attempting to send code..');
-    this.sentAnotherCodeToast();
-    return this.registerService.sendSMSCode(this.phone).subscribe( data => {
-      this.code = data['code'];
-    });
-  }
+  // sendSMSCode() {
+  //   console.log('Attempting to send code..');
+  //   this.sentAnotherCodeToast();
+  //   return this.registerService.sendSMSCode(this.phone).subscribe( data => {
+  //     this.code = data['code'];
+  //   });
+  // }
   sendEmailCode() {
     console.log('Attempting to send code..');
     this.sentToEmailToast();

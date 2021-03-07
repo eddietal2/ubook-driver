@@ -6,7 +6,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { PaymentPageRoutingModule } from './payment-routing.module';
 
-import { PaymentPage } from './payment.page';
+import { BusinessPaymentPage } from './payment.page';
 
 @NgModule({
   imports: [
@@ -15,6 +15,6 @@ import { PaymentPage } from './payment.page';
     IonicModule,
     PaymentPageRoutingModule
   ],
-  declarations: [PaymentPage]
+  declarations: [BusinessPaymentPage]
 })
 export class PaymentPageModule {}

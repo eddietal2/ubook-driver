@@ -4,9 +4,19 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
+    // loadChildren: () => import('./pages/shipper/orders/new/new.module').then( m => m.NewPageModule)
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
-    // loadChildren: () => import('./pages/sign-up/sign-up.module').then( m => m.SignUpPageModule)
-  },
+    // loadChildren: () => import('./pages/shipper/profile/profile.module').then( m => m.ProfilePageModule)
+    // loadChildren: () => import('./modals/shipper-profile/personal/name/name.module').then( m => m.NamePageModule)
+    // loadChildren: () => import('./modals/shipper-profile/rating/rating.module').then( m => m.RatingPageModule)
+    // loadChildren: () => import('./modals/shipper-profile/personal/email/email.module').then( m => m.EmailPageModule)
+    // loadChildren: () => import('./modals/shipper-profile/personal/phone/phone.module').then( m => m.PhonePageModule)
+    // loadChildren: () => import('./modals/shipper-profile/personal/picture/picture.module').then( m => m.PicturePageModule)
+    // loadChildren: () => import('./modals/shipper-profile/personal/password/password.module').then( m => m.PasswordPageModule)
+    // loadChildren: () => import('./modals/shipper-profile/business/payment/payment.module').then( m => m.PaymentPageModule)
+    // loadChildren: () => import('./modals/shipper-profile/business/logo/logo.module').then( m => m.LogoPageModule)
+    // loadChildren: () => import('./modals/shipper-profile/business/profile/profile.module').then( m => m.ProfilePageModule)
+    },
   {
     path: 'forgot-password',
     loadChildren: () => import('./pages/carrier/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
@@ -131,10 +141,6 @@ const routes: Routes = [
     loadChildren: () => import('./modals/shipper-profile/personal/name/name.module').then( m => m.NamePageModule)
   },
   {
-    path: 'shipper-location',
-    loadChildren: () => import('./modals/shipper-profile/personal/location/location.module').then( m => m.LocationPageModule)
-  },
-  {
     path: 'shipper-email',
     loadChildren: () => import('./modals/shipper-profile/personal/email/email.module').then( m => m.EmailPageModule)
   },
@@ -158,21 +164,9 @@ const routes: Routes = [
     path: 'shipper-logo',
     loadChildren: () => import('./modals/shipper-profile/business/logo/logo.module').then( m => m.LogoPageModule)
   },
-  { 
-    path: 'shipper-name',
-    loadChildren: () => import('./modals/shipper-profile/business/name/name.module').then( m => m.NamePageModule)
-  },
   {
-    path: 'shipper-location',
-    loadChildren: () => import('./modals/shipper-profile/business/location/location.module').then( m => m.LocationPageModule)
-  },
-  {
-    path: 'shipper-phone',
-    loadChildren: () => import('./modals/shipper-profile/business/phone/phone.module').then( m => m.PhonePageModule)
-  },
-  {
-    path: 'shipper-email',
-    loadChildren: () => import('./modals/shipper-profile/business/email/email.module').then( m => m.EmailPageModule)
+    path: 'shipper-business-profile',
+    loadChildren: () => import('./modals/shipper-profile/business/profile/profile.module').then( m => m.ProfilePageModule)
   },
   {
     path: 'shipper-map',

@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { Plugins, CameraResultType } from "@capacitor/core";
 const { Camera } = Plugins;
-import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../../../../services/auth.service';
 
 @Component({
@@ -18,7 +17,6 @@ export class PicturePage implements OnInit {
   constructor(
     private alertController: AlertController,
     private router: Router,
-    private formBuilder: FormBuilder,
     private auth: AuthService) { }
 
   ngOnInit() {

@@ -9,45 +9,47 @@
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content>
   <ion-row class="ion-justify-content-center">
     <ion-col size="11">
-      <h1 class="orders-header">Photos </h1>
-      <p>Please upload at least 2 photos of the load. You can upload as many as 5. </p>
+      <h3 style="margin-top: 54px;">Please upload at least <b>2 photos </b> of the load. You can upload as many as 5. </h3>
+    </ion-col>
+    <ion-col (click)="takePhoto1()" class="get-photo ion-text-center ion-align-self-center" size="11">
+      <p *ngIf="!this.photo1"><span class="number">1</span>Tap to get Photo</p>
+      <img class="order-photo" *ngIf="this.photo1" src="{{this.photo1}}" alt="" srcset="">
     </ion-col>
   </ion-row>
   <ion-row class="ion-justify-content-center">
-    <ion-col class="get-photo ion-text-center ion-align-self-center" size="11">
-      <p>Tap to get Photo</p>
+    <ion-col (click)="takePhoto2()" class="get-photo ion-text-center ion-align-self-center" size="11">
+      <p *ngIf="!this.photo2"><span class="number">2</span>Tap to get Photo</p>
+      <img class="order-photo" *ngIf="this.photo2" src="{{this.photo2}}" alt="" srcset="">
     </ion-col>
   </ion-row>
   <ion-row class="ion-justify-content-center">
-    <ion-col class="get-photo ion-text-center ion-align-self-center" size="11">
-      <p>Tap to get Photo</p>
+    <ion-col (click)="takePhoto3()" class="get-photo ion-text-center ion-align-self-center" size="11">
+      <p *ngIf="!this.photo3"><span class="number">3</span>Tap to get Photo</p>
+      <img class="order-photo" *ngIf="this.photo3" src="{{this.photo3}}" alt="" srcset="">
     </ion-col>
   </ion-row>
   <ion-row class="ion-justify-content-center">
-    <ion-col class="get-photo ion-text-center ion-align-self-center" size="11">
-      <p>Tap to get Photo</p>
+    <ion-col (click)="takePhoto4()" class="get-photo ion-text-center ion-align-self-center" size="11">
+      <p *ngIf="!this.photo4"><span class="number">4</span>Tap to get Photo</p>
+      <img class="order-photo" *ngIf="this.photo4" src="{{this.photo4}}" alt="" srcset="">
     </ion-col>
   </ion-row>
   <ion-row class="ion-justify-content-center">
-    <ion-col class="get-photo ion-text-center ion-align-self-center" size="11">
-      <p>Tap to get Photo</p>
+    <ion-col (click)="takePhoto5()" class="get-photo ion-text-center ion-align-self-center" size="11">
+      <p *ngIf="!this.photo4"><span class="number">5</span>Tap to get Photo</p>
+      <img class="order-photo" *ngIf="this.photo5" src="{{this.photo5}}" alt="" srcset="">
     </ion-col>
-  </ion-row>
-  <ion-row class="ion-justify-content-center">
-    <ion-col class="get-photo ion-text-center ion-align-self-center" size="11">
-      <p>Tap to get Photo</p>
-    </ion-col>
-  </ion-row>
-  <ion-row class="ion-justify-content-center bottom-buttons">
-    <ion-col size="10">
+
+    <ion-col size="11">
       <div class="spacer"></div>
+      <!-- [disabled]="orderPhotos.length < 2"  -->
       <ion-button class="red-button" expand="full" (click)="review()">
-        Next
+      Next
       </ion-button>
+      <div class="spacer"></div>
     </ion-col>
   </ion-row>
 </ion-content>

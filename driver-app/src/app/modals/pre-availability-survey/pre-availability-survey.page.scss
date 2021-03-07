@@ -1,0 +1,24 @@
+ion-item{
+  --background: none;
+}
+ion-range{
+  --bar-background: white;
+  --bar-background-active: #1FCC6D;
+  --bar-borderradius: 5px;
+  --bar-height: 5px;
+  --knob-background: url('../../../assets/icons/range-knob.svg');
+  --knob-size: 45px;
+
+  p{
+    margin: 5px;
+  }
+}
+.range-value{
+  font-size: 2em;
+  transition: 500ms;
+}
+.checkbox-text{
+  font-size: 1.2em;
+  margin: 0 10px;
+  color: white;
+}

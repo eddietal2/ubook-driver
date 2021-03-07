@@ -23,36 +23,38 @@
           Order Details
         </p>
 
-        <form>
-          <ion-input class="sign-up-input" type="text" placeholder="Rate - $"></ion-input>
-          <ion-select placeholder="Truck Type">
-            <ion-select-option value="dryvan">Dry Van</ion-select-option>
-            <ion-select-option value="reefer">Reefer</ion-select-option>
-            <ion-select-option value="flatbed">Flatbed</ion-select-option>
+        <form [formGroup]="shipperNewOrderDetailsForm" (submit)="locations()">
+
+          <ion-input formControlName="startingRate" #firstInput  class="sign-up-input" type="text" placeholder="Rate">$</ion-input>
+
+          <ion-select (ionChange)="truckTypeSelection($event)" placeholder="Truck Type">
+            <ion-select-option value="DRYVAN">Dry Van</ion-select-option>
+            <ion-select-option value="REEFER">Reefer</ion-select-option>
+            <ion-select-option value="FLATBED">Flatbed</ion-select-option>
           </ion-select>
-          <ion-input class="sign-up-input" type="text" placeholder="Weight - Lbs"></ion-input>
-          <ion-input class="sign-up-input" type="text" placeholder="Description - 100 Characters"></ion-input>
+
+          <ion-input formControlName="weight" class="sign-up-input" type="number" placeholder="Weight - Lbs"></ion-input>
+
+          <ion-input formControlName="loadDescription" class="sign-up-input" type="text" placeholder="Description - 100 Characters"></ion-input>
+
+          <p class="detail-header">
+            Special Request
+          </p>
+          <p>Add any additional details or requests to the order. (Example: Call office if no one is at gate) Optional.</p>
+          <ion-textarea
+            formControlName="specialRequest"
+            style="color: white;"
+            rows="14"
+            spellcheck="true"
+            autoGrow="true"
+            placeholder="Enter text here:"></ion-textarea>
+
+            <div class="spacer"></div>
+            <ion-button type="submit" class="red-button" expand="full">
+              Next
+            </ion-button>
+            <div class="spacer"></div>
         </form>
-
-
-        <p class="detail-header">
-          Special Request
-        </p>
-        <p>Add any additional details or requests to the order. (Example: Call office if no one is at gate) Optional.</p>
-        <ion-textarea
-          style="color: white;"
-          rows="20"
-          spellcheck="true"
-          autoGrow="true"
-          placeholder="Enter text here:"></ion-textarea>
-      </ion-col>
-    </ion-row>
-    <ion-row class="ion-justify-content-center bottom-buttons">
-      <ion-col size="10">
-        <div class="spacer"></div>
-        <ion-button class="red-button" expand="full" (click)="locations()">
-          Next
-        </ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

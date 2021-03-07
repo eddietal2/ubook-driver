@@ -1,6 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild, Output, Input, AfterViewInit } from '@angular/core';
 import { GestureController, Platform } from '@ionic/angular';
 import { EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
+import { OpenService } from '../../services/orders/open.service';
+
 
 @Component({
   selector: 'app-drawer',
@@ -17,14 +20,25 @@ export class DrawerComponent implements OnInit, AfterViewInit {
   pendingfiltering = false;
   openfilter = false;
   openfiltering = false;
+  openOrders;
 
   constructor(
     private plt: Platform,
+    private router: Router,
+    private openService: OpenService,
     private gesture: GestureController) { }
 
   ngOnInit() {
     console.log(this.available);
-    
+    // An Open Order on the Carrier side is a Pending Order for a Shipper/Reciever.
+    // A Pending Order for a Carrier is one that they have bidded on.
+    this.openService.getOpenOrders()
+      .subscribe(
+        data => {
+          console.log(data);
+          return this.openOrders = data;
+        }
+      )
   }
 
   async ngAfterViewInit() {
@@ -80,6 +94,17 @@ export class DrawerComponent implements OnInit, AfterViewInit {
       this.isOpen = true;
     }
   }
+
+  openOrderPage(orderID) {
+    console.log(orderID)
+    this.router.navigate(['/carrier-orders/open/details', orderID]);
+    
+  }
+
+
+
+
+
   filterPendingOrders() {
     if (this.pendingfilter === false) {
       console.log('Filter options already closed');

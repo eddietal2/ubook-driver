@@ -1,9 +1,31 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>picture</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="icon-only" name="close" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Shipper Profile Picture</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-row class="ion-justify-content-center">
+    <ion-col (click)="takePicture()" class="get-picture-button ion-text-center" size="10">
+      <img height="80" *ngIf="!this.uploadedPhoto" src="../../../../../assets/placeholders/shipper.png" alt="" srcset="">
+      <img *ngIf="this.uploadedPhoto" src="{{imageSrc}}" alt="" srcset="">
+      <h3>Tap to get Profile Picture. <span>Only .png, .jpg, and .jpeg are allowed.</span></h3>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="10">
+      <div class="spacer"></div>
+      <ion-button [disabled]="!uploadedPhoto" class="red-button" expand="full" (click)="editProfilePicture()">
+        Edit
+      </ion-button>
+      <ion-button class="cancel-button" expand="full" (click)="dismiss()">
+        Cancel
+      </ion-button>
+    </ion-col>
+  </ion-row>
 </ion-content>

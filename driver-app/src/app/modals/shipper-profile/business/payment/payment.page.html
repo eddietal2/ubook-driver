@@ -1,9 +1,40 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>payment</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="icon-only" name="close" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Shipper Payment</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-grid>
+    <ion-row style="margin-top: 54px;" class="ion-justify-content-center">
+      <ion-col size="10">
+        <p>{{this.card.card.brand}} - {{this.card.card.last4}}</p>
+      </ion-col>
 
+      <ion-col size="10">
+        <form action="/charge" method="post" id="payment-form">
+          <!-- TODO -->
+          <!-- When New Card form is valid, enable Done button -->
+          <div class="form-row">
+            <label style="color: #00C5FF; text-transform: capitalize;" class="detail-header" for="card-element">{{this.card.card.funding}}</label>
+            <div id="card-element"></div>
+            <div id="card-errors" role="alert"></div>
+          </div>
+
+          <div class="spacer"></div>
+          <ion-button [disabled]="!editCard" type="submit" class="red-button" style="margin-bottom: 32px;" expand="full">
+            Change Card
+          </ion-button>
+          <ion-button class="cancel-button" expand="full" (click)="dismiss()">
+            Cancel
+          </ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

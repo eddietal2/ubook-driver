@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="icon-only" name="close" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Shipper Business Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row style="margin-top: 50px;" class="ion-justify-content-center">
+    <ion-col class="logo-wrapper" size="10">
+      <h3 class="detail-header">Edit your Business Profile</h3>
+      <form [formGroup]="editBusinessProfileForm" (submit)="editPhone()">
+        <ion-input formControlName="businessName" class="sign-up-input" type="text" placehlolder="Business Name"></ion-input>
+        <ion-input formControlName="businessAddressOne" class="sign-up-input" type="text" placehlolder="Address One"></ion-input>
+        <ion-input formControlName="businessAddressTwo" class="sign-up-input" type="text" placehlolder="Address Two"></ion-input>
+        <ion-input formControlName="businessCity" class="sign-up-input" type="text" placehlolder="City"></ion-input>
+        <ion-input formControlName="businessState" class="sign-up-input" type="text" placehlolder="State"></ion-input>
+        <ion-input formControlName="businessZip" class="sign-up-input" type="text" placehlolder="Zip"></ion-input>
+        <ion-input formControlName="businessPhone" class="sign-up-input" type="text" placehlolder="Phone">+1</ion-input>
+        <div class="spacer"></div>
+        <ion-button class="red-button" expand="full" type="submit">
+          Edit
+        </ion-button>
+        <ion-button class="cancel-button" expand="full" (click)="dismiss()">
+          Cancel
+        </ion-button>
+      </form>
+    </ion-col>
+  </ion-row>
+</ion-content>

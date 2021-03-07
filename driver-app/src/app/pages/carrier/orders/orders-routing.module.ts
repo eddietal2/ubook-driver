@@ -6,7 +6,7 @@ import { OrdersPage } from './orders.page';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/carrier-orders/orders-page',
+    redirectTo: '/carrier-orders',
     pathMatch: 'full'
   },
   {

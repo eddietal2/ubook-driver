@@ -1,0 +1,29 @@
+// Main form styling
+.StripeElement {
+  border: 1px solid white;
+  margin: 25px auto;
+  font-size: 3em;
+}
+
+// Focused field that user has text cursor in
+.StripeElement--focus {
+  border: 2px solid #1FCC6D;
+ }
+
+// A field with an error or incomplete
+.StripeElement--invalid {
+  border: 2px solid #D72F37;
+ }
+
+ #card-errors {
+   color: #D72F37;
+ }
+
+label{
+  color: white;
+}
+
+.ElementsApp {
+  top: 14px !important;
+}
+

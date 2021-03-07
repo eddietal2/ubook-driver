@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { PendingPageUdateService } from '../../../../../emitters/pending-page-udate.service';
 
 
 @Component({
@@ -13,12 +14,14 @@ export class SuccessPage implements OnInit {
 
   constructor(
     private router: Router,
+    private pendingPageUdateService: PendingPageUdateService,
     public toastController: ToastController) { }
 
   ngOnInit() {
   }
   async done() {
-    await this.router.navigate(['']);
+    await this.router.navigate(['/shipper-orders/pending']);
+    await this.pendingPageUdateService.updatePage();
     await this.successToast();
   }
   async successToast() {

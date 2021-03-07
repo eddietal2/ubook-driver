@@ -129,5 +129,22 @@ export class EnterCodePage implements OnInit {
 
     this.router.navigate(['/sign-up']);
   }
+  async generateCode(length) {
+    let result = '';
+    const characters = '0123456789';
+    const charactersLength = characters.length;
+
+    for ( let i = 0; i < length; i++ ) {
+       result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    console.log('Generated Code: ' + result);
+    this.register.sendSMSCodeShipper(this.phone).subscribe(
+      data => {
+        console.log(data);
+        
+      }
+    );
+    return this.code = result;
+ }
 
 }

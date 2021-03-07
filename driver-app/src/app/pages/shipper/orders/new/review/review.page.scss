@@ -64,12 +64,10 @@ h1 {
   }
 
   .order-dollar-amount {
-    display: inline;
-    float: right;
-    border: 2px solid #eee;
+    color: #1FCC6D;
+    border: 2px solid #1FCC6D;
+    margin-bottom: 16px;
     padding: 8px;
-    position: relative;
-    top: -17px;
     font-size: 1em;
     font-weight: 600;
   }

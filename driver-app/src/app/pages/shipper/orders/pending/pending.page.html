@@ -44,44 +44,59 @@
       </ion-col> -->
       <ion-col size="11">
         <h1 class="orders-header">Pending Orders</h1>
-        <p>These orders are open for bidding. Once you select a Carrier and they agree to the terms of the Rate, it will become an <b>Accepted Order</b>.
+        <p>These orders are open for bidding. Once you select a Carrier and they agree to the terms of the Rate, it will become an <b>Future Order</b>.
       </ion-col>
-      <ion-col class="pending-order" size="11">
-        <div style="margin-bottom: 20px;">
-          <!-- <h3 class="order-dollar-amount">$1,500</h3> -->
-          <div>
-            <img style="display: inline;" src="../../../../../assets/icons/map-marker.svg" alt="" srcset="">
-            <h5 style="display: inline;">Detroit, MI </h5>
-          </div>
 
-          <div style="margin: 10px auto;">
-            <img src="../../../../../assets/icons/order-card-line.svg" alt="">
-          </div>
+      <ion-col *ngIf="noOrders" size="11">
+        <p style="color: #D72F37; font-weight: 600;">There are currently no Pending Orders. In order for there to be a Pending Order, you need to Create an Order.</p>
+      </ion-col>
 
-          <div>
-            <img style="display: inline;" src="../../../../../assets/icons/delivery-truck.svg" alt="" srcset="">
-            <h5 style="display: inline;">Miami, FL</h5>
+      <ion-col *ngIf="!noOrders" size="11">
+        <div *ngFor="let pending of this.pendingOrders" class="pending-order">
+          <div style="margin-bottom: 20px;">
+            <!-- <h3 class="order-dollar-amount">$1,500</h3> -->
+            <div>
+              <img style="display: block;" src="../../../../../assets/icons/map-marker.svg" alt="" srcset="">
+              <h5 style="display: block;">{{pending.PUAddressOne}}, {{pending.PUAddressTwo}}, {{pending.PUCity}}, {{pending.PUState}}, {{pending.PUZip}}</h5>
+            </div>
+
+            <div style="margin: 10px auto;">
+              <img src="../../../../../assets/icons/order-card-line.svg" alt="">
+            </div>
+
+            <div>
+              <img style="display: block;" src="../../../../../assets/icons/delivery-truck.svg" alt="" srcset="">
+              <h5 style="display: block;">{{pending.DLAddressOne}}, {{pending.DLAddressTwo}}, {{pending.DLCity}}, {{pending.DLState}}, {{pending.DLZip}}</h5>
+            </div>
           </div>
+          <div class="order-card-details">
+            <p>PU: {{pending.PUDate}}</p>
+            <p>DL: {{pending.PUDate}}</p>
+            <p>{{pending.weight}} lbs - {{pending.truckType}}</p>
+            <p>{{pending.loadDescription}}</p>
+          </div>
+          <ion-toolbar class="order-toolbar">
+            <ion-buttons slot="start">
+              <div *ngIf="pending.bonusTimer.minutes < 15">
+                {{pending.bonusTimer.minutes}}:{{pending.bonusTimer.seconds}}
+              </div>
+              <div *ngIf="pending.bonusTimer.minutes >= 15">
+                Expired.
+              </div>
+            </ion-buttons>
+            <ion-buttons slot="end">
+              <ion-button style="--color: red" (click)="deletePendingOrderAlert()">
+                Delete
+              </ion-button>
+              <ion-button (click)="editPendingOrder()">
+                Edit
+              </ion-button>
+              <ion-button class="preset-select" (click)="pendingOrderPage(pending.orderID)">
+                Info
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar>
         </div>
-        <div class="order-card-details">
-          <p>PU: Jan 1 06:00 - 09:00</p>
-          <p>DL: Jan 2 06:00 - 09:00</p>
-          <p>42,000 lbs - Reefer</p>
-          <p>Apples, Oranges, and Bananas.</p>
-        </div>
-        <ion-toolbar class="order-toolbar">
-          <ion-buttons slot="end">
-            <ion-button style="--color: red" (click)="deletePendingOrderAlert()">
-              Delete
-            </ion-button>
-            <ion-button (click)="editPendingOrder()">
-              Edit
-            </ion-button>
-            <ion-button class="preset-select" (click)="pendingOrderPage()">
-              Info
-            </ion-button>
-          </ion-buttons>
-        </ion-toolbar>
       </ion-col>
     </ion-row>
   </ion-grid>

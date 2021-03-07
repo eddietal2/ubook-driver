@@ -12,9 +12,18 @@
 <ion-content>
   <ion-row style="margin-top: 50px;" class="ion-justify-content-center">
     <ion-col class="logo-wrapper" size="10">
-      <h3 class="section-header">Edit your Name.</h3>
-      <p class="detail-header">Name: Eddie Taliaferro</p>
-      <ion-input class="sign-up-input" type="text" placeholder="First & Last Name"></ion-input>
+      <h3 class="detail-header">Edit your Name.</h3>
+      <form [formGroup]="editNameForm" (submit)="editName()">
+        <ion-input formControlName="firstName" class="sign-up-input" type="text" placehlolder="this.firstName"></ion-input>
+        <ion-input formControlName="lastName" class="sign-up-input" type="text" placehlolder="this.lastName"></ion-input>
+        <div class="spacer"></div>
+        <ion-button class="red-button" expand="full" type="submit">
+          Edit
+        </ion-button>
+        <ion-button class="cancel-button" expand="full" (click)="dismiss()">
+          Cancel
+        </ion-button>
+      </form>
     </ion-col>
   </ion-row>
 

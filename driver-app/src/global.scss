@@ -43,7 +43,7 @@ hr {
   margin-top: 50px;
 }
 p {
-  font-size: 1.2em;
+  font-size: 1em;
 }
 p, h1, h2, h3, h4, h4, h6 {
   color: white;
@@ -162,7 +162,6 @@ ion-checkbox {
   height: 47px;
   --box-shadow: none;
   --border-radius: 5px;
-  font-size: 1.2em;
   font-weight: 600;
   display: block;
 }
@@ -171,7 +170,6 @@ ion-checkbox {
   height: 47px;
   --box-shadow: none;
   border-radius: 31px;
-  font-size: 1.2em;
   font-weight: 600;
   display: block;
 }
@@ -200,7 +198,7 @@ ion-checkbox {
 }
 
 ion-button {
-  font-size: 1.1em;
+  font-size: 0.9em;
 }
 .alert-title {
   color: white;
@@ -230,6 +228,7 @@ ion-button {
 
 .cancel-button {
   height: 50px;
+  width: 100%;
   font-weight: 600;
   transition: 0.5s;
   --border-radius: 5px;

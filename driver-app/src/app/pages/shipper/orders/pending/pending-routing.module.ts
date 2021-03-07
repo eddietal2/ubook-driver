@@ -33,7 +33,7 @@ const routes: Routes = [
     loadChildren: () => import('./candidate-reviews/candidate-reviews.module').then( m => m.CandidateReviewsPageModule)
   },
   {
-    path: 'details',
+    path: 'details/:orderID',
     loadChildren: () => import('./details/details.module').then( m => m.DetailsPageModule)
   },
   {

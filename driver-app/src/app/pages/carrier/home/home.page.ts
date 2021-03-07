@@ -1,10 +1,9 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoadingController, MenuController } from '@ionic/angular';
+import { LoadingController, MenuController, ModalController } from '@ionic/angular';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { format } from 'date-fns'
-
-
+import { PreAvailabilitySurveyPage } from '../../../modals/pre-availability-survey/pre-availability-survey.page';
 
 
 @Component({
@@ -30,6 +29,7 @@ export class HomePage implements OnInit {
 
 
   constructor(
+    private modalController: ModalController,
     private loadingController: LoadingController,
     private nenuController: MenuController,
     private router: Router,
@@ -63,6 +63,7 @@ export class HomePage implements OnInit {
       duration: 2000
     });
     await loading.present();
+    await this.preAvailableSurvey();
     const { role, data } = await loading.onDidDismiss();
     console.log('Loading dismissed!');
     }
@@ -78,6 +79,18 @@ export class HomePage implements OnInit {
     const { role, data } = await loading.onDidDismiss();
     console.log('Loading dismissed!');
     }
+  }
+  async preAvailableSurvey() {
+    const modal = await this.modalController.create({
+      component: PreAvailabilitySurveyPage,
+      cssClass: 'my-custom-class',
+      componentProps: {
+        'firstName': 'Douglas',
+        'lastName': 'Adams',
+        'middleInitial': 'N'
+      }
+    });
+    return await modal.present();
   }
   openMenu() {
     this.nenuController.open();

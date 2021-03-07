@@ -19,12 +19,14 @@
 h1{
   margin-top: 75px;
 }
+
 .open-order {
   background: #D72F372b;
   border-right: 8px solid #D72F37;
   padding: 24px 14px;
   border-radius: 6px;
   box-shadow: 1px 1px 11px #0006;
+  margin-bottom: 16px;
 
   h5 {
     color: white;
@@ -113,5 +115,13 @@ h1{
       margin: 0;
       font-size: 0.85em;
     }
+  }
+}
+.order-toolbar{
+  --background: none;
+  margin-top: 24px;
+
+  ion-button {
+    font-weight: 600;
   }
 }

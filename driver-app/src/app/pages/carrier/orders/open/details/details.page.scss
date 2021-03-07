@@ -1,5 +1,5 @@
 ion-toolbar {
-  --background: #8a0083;
+  --background: #D72F37;
 }
 ion-title {
   font-weight: 600;
@@ -68,28 +68,28 @@ ion-slides {
     margin: 20px auto;
   }
 }
-.timer-wrapper {
+#timer-wrapper {
   height: 80px;
   border-radius: 5px;
   margin: 20px auto;
   width: 100%;
-  padding-top: 10px;
+  padding-top: 16px;
   font-size: 1.4em;
   transition: 0.5s;
   box-shadow: 1px 1px 6px #3338;
   animation: timer-wrapper-slide-down 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 .after-five-minutes {
-  border: 5px solid blue;
+  border: 2px solid blue;
 }
 .after-ten-minutes {
-  border: 5px solid orange;
+  border: 2px solid orange;
 }
 .after-fourteen-minutes {
-  border: 5px solid #D72F37;
+  border: 2px solid #D72F37;
 }
 .expired{
-  border: 5px solid white;
+  border: 2px solid white;
 }
 
 

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { IonDatetime } from '@ionic/angular';
+import { AuthService } from '../../../../../services/auth.service';
+import { NewService } from '../../../../../services/orders/new.service';
 
 
 @Component({
@@ -15,6 +18,8 @@ export class ReviewPage implements OnInit {
   };
 
   constructor(
+    public newService: NewService,
+    private auth: AuthService,
     private router: Router) { }
 
   ngOnInit() {
@@ -22,6 +27,11 @@ export class ReviewPage implements OnInit {
     this.rangeValue = 200;
   }
   success() {
+    this.newService.newOrder.broadcastRadius = this.rangeValue;
+    this.newService.newOrder.creatorEmail = this.auth.email;
+    this.newService.newOrder.dateCreated = new Date();
+    console.log(this.newService.newOrder);
+    this.newService.createNewOrder().subscribe();
     this.router.navigate(['/shipper-orders/new/success']);
   }
   editOrderDetails() {

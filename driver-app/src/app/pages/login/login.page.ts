@@ -6,7 +6,6 @@ import { trigger, style, animate, transition } from '@angular/animations';
 import { AuthService } from '../../services/auth.service';
 import { ModalController } from '@ionic/angular';
 import { DownloadAppPage } from '../../modals/download-app/download-app.page';
-import { TextAttribute } from '@angular/compiler/src/render3/r3_ast';
 
 
 @Component({

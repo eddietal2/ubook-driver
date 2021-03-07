@@ -1,9 +1,28 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>email</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="icon-only" name="close" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Shipper Email</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-row style="margin-top: 50px;" class="ion-justify-content-center">
+    <ion-col class="logo-wrapper" size="10">
+      <h3 class="detail-header">Edit your Email.</h3>
+      <form [formGroup]="editEmailForm" (submit)="editEmail()">
+        <ion-input formControlName="newEmail" class="sign-up-input" type="text" placehlolder="this.email"></ion-input>
+        <div class="spacer"></div>
+        <ion-button class="red-button" expand="full" type="submit">
+          Edit
+        </ion-button>
+        <ion-button class="cancel-button" expand="full" (click)="dismiss()">
+          Cancel
+        </ion-button>
+      </form>
+    </ion-col>
+  </ion-row>
 </ion-content>

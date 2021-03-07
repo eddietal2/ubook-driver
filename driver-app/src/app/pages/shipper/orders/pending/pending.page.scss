@@ -8,6 +8,7 @@ h1{
   padding: 24px 14px;
   border-radius: 6px;
   box-shadow: 1px 1px 11px #0006;
+  margin-bottom: 54px;
 
   h5 {
     color: white;
@@ -79,4 +80,16 @@ h1{
     --color: white;
     --border-radius: 5px;
   }
+}
+.after-five-minutes {
+  border: 2px solid blue;
+}
+.after-ten-minutes {
+  border: 2px solid orange;
+}
+.after-fourteen-minutes {
+  border: 2px solid #D72F37;
+}
+.expired{
+  border: 2px solid white;
 }
