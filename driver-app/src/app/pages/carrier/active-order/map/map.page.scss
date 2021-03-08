@@ -12,13 +12,9 @@ ion-title {
   position: relative;
   top: 12px;
 }
-#map{
-  position: relative;
-  top: 0;
-  right: 0;
-  height: 60vh;
+#map {
+  height: 70vh;
   width: 100%;
-  margin-bottom: 20px;
 }
 .loaded, .unloaded{
   background: #d8d8d817;
@@ -28,12 +24,6 @@ ion-title {
   h1 {
     font-size: 2em;
   }
-}
-.mapboxgl-control-container {
-  display: none;
-}
-.mapboxgl-ctrl-attrib-inner {
-  display: none;
 }
 .carrier-picture {
   height: 50px;

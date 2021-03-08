@@ -15,6 +15,10 @@ export class DetailsPage implements OnInit {
   timer;
   timerLoading = true;
   timerInterval: Subscription;
+  slideOpts = {
+    initialSlide: 1,
+    speed: 400
+  };
 
   weight: number;
   truckType: string;
@@ -124,6 +128,9 @@ export class DetailsPage implements OnInit {
   }
   respondWithRate() {
     this.router.navigate(['carrier-respond-with-rate']);
+  }
+  editRate() {
+    
   }
 
 }

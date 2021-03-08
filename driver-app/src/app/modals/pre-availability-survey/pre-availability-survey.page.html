@@ -13,23 +13,24 @@
   <ion-grid>
     <ion-row class="ion-justify-content-center">
       <ion-col style="margin-top: 54px;" size="11">
-        <ion-item>
+        <ion-item lines="none">
           <ion-checkbox (ionChange)="gasCheckbox($event)"
           value="yes"></ion-checkbox><span class="checkbox-text">Do you have a full tank of gas?</span>
         </ion-item>
-        <ion-item>
+        <ion-item lines="none">
           <ion-checkbox (ionChange)="safetyCheckbox($event)"
           value="yes"></ion-checkbox><span class="checkbox-text">Safety and Inspection Check.</span>
         </ion-item>
-        <ion-item>
+        <ion-item lines="none">
           <ion-checkbox (ionChange)="phoneCheckbox($event)"
           value="yes"></ion-checkbox><span class="checkbox-text">Phone is Charged.</span>
         </ion-item>
       </ion-col>
       <ion-col size="11">
-        <p>How far are you willing to travel to pick up an order?</p>
+        <div class="spacer"></div>
+        <p style="font-size: 1.2em;">How far are you willing to travel to pick up an order?</p>
         <h1 class="range-value">{{rangeValue}} Miles</h1>
-        <ion-item>
+        <ion-item lines="none">
           <p>100</p>
           <ion-range (ionChange)="getRangeValue($event)" value="200" min="100" max="1000" step="100" snaps="true">
           </ion-range>
@@ -37,7 +38,8 @@
         </ion-item>
       </ion-col>
       <ion-col size="11">
-        <ion-button [disabled]="!gas && !safety && !phone" class="red-button" (click)="submit()">
+        <div class="spacer"></div>
+        <ion-button [disabled]="!gas || !safety || !phone" class="red-button" (click)="submit()">
           Submit
         </ion-button>
       </ion-col>

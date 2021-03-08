@@ -37,48 +37,43 @@ export class HomePage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.currentDate = format(new Date(2014, 1, 11), 'MM/dd/yyyy')
+    this.currentDate = format(Date.now(), 'EEEE, LLLL Mo')
   }
   toggle(e) {
     console.log(e);
     if (e.detail.checked) {
       this.cd.detectChanges()
-      this.available = true;
-      this.availableLoading();
+      this.preAvailableSurvey();
     }
     if (!e.detail.checked) {
+      this.unavailableLoading();
       this.cd.detectChanges()
-      this.available = false;
-      this.unavailableLoading()
     }
   }
   profilePage() {
     this.router.navigate(['/carrier-profile'])
   }
   async availableLoading() {
-    if (this.available) {
-      const loading = await this.loadingController.create({
+    const loading = await this.loadingController.create({
       cssClass: 'my-custom-class',
       message: 'Making you available ...',
       duration: 2000
     });
     await loading.present();
-    await this.preAvailableSurvey();
     const { role, data } = await loading.onDidDismiss();
+    this.available = true;
     console.log('Loading dismissed!');
-    }
   }
   async unavailableLoading() {
-    if (!this.available) {
-      const loading = await this.loadingController.create({
+    const loading = await this.loadingController.create({
       cssClass: 'my-custom-class',
       message: 'You are Unavailable ...',
       duration: 2000
     });
     await loading.present();
     const { role, data } = await loading.onDidDismiss();
+    this.available = false;
     console.log('Loading dismissed!');
-    }
   }
   async preAvailableSurvey() {
     const modal = await this.modalController.create({
@@ -90,7 +85,19 @@ export class HomePage implements OnInit {
         'middleInitial': 'N'
       }
     });
-    return await modal.present();
+     await modal.present();
+     await modal.onDidDismiss().then(
+       data => {
+         console.log(data.data.available);
+         if(data.data.available) {
+          console.log('User Successfully Completed Survey and Selected Search Radius.');
+          this.availableLoading();
+        }
+        if(!data.data.available) {
+         this.unavailableLoading()
+        }
+       });
+     console.log('Modal dismissed!');
   }
   openMenu() {
     this.nenuController.open();

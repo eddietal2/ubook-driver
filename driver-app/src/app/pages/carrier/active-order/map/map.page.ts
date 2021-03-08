@@ -1,9 +1,9 @@
-import { Component, OnInit, ChangeDetectorRef, AfterViewInit} from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef, OnInit } from
+  '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from '../../../../../environments/environment';
-import * as mapboxgl from 'mapbox-gl';
 import { AlertController, ModalController } from '@ionic/angular';
-
+import { LocationService } from '../../../../services/location.service';
 
 
 @Component({
@@ -14,40 +14,29 @@ import { AlertController, ModalController } from '@ionic/angular';
 export class MapPage implements OnInit, AfterViewInit {
   isLoaded = false;
   isSigned = false;
-  map: mapboxgl.Map;
-  style = 'mapbox://styles/mapbox/streets-v11';
-  lat = 42.5;
-  lng = -83.06;
-
   slideOpts = {
     initialSlide: 1,
     speed: 400
   };
 
+  map: google.maps.Map;
+
   constructor(
     private router: Router,
-    private activatedRoute: ActivatedRoute,
+    private locationService: LocationService,
     private alertController: AlertController) { }
 
 
     ngOnInit() {
     }
-
     ngAfterViewInit() {
-      this.map = new mapboxgl.Map({
-          accessToken: environment.mapbox.accessToken,
-          container: 'map',
-          style: this.style,
-          zoom: 9,
-          center: [this.lng, this.lat]
-      })
-
-      this.map.on('render', () => {
-        // this.map.resize();
-      })
-      // Add map controls
-      this.map.addControl(new mapboxgl.NavigationControl());
-
+      this.initMap();
+    }
+    initMap(): void {
+     this.map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
+        center: { lat: this.locationService.lat, lng: this.locationService.lng },
+        zoom: 8,
+      });
     }
     loadedPage(e) {
       if (e.detail.checked) {
@@ -66,9 +55,8 @@ export class MapPage implements OnInit, AfterViewInit {
       this.router.navigate(['/carrier-map/cancel']);
     }
     toggleBackdrop() {
-    
     }
-  async call() {
+    async call() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'Confirm!',
@@ -91,6 +79,6 @@ export class MapPage implements OnInit, AfterViewInit {
     });
 
     await alert.present();
-  }
+    }
 
 }

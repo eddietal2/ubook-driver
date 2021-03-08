@@ -30,6 +30,7 @@
     "@ionic/angular": "^5.0.0",
     "@ionic/pwa-elements": "^3.0.2",
     "@ionic/storage": "^2.3.1",
+    "@types/googlemaps": "^3.43.3",
     "@types/hammerjs": "^2.0.36",
     "@types/mapbox-gl": "^2.0.4",
     "angular-jwt": "github:auth0/angular-jwt",

@@ -5,6 +5,8 @@
     </ion-buttons>
     <ion-title>Active Order</ion-title>
   </ion-toolbar>
+
+  
 </ion-header>
 
 <!-- ScrollY is set to false so that the user cannot scroll the pages and see the contens of the Bottom Drawer -->
@@ -20,13 +22,13 @@
   </ion-grid>
 
   <!-- Mobile -->
-  <div class="ion-hide-md-up" id="map"></div>
   <ion-grid class="ion-hide-md-up">
     <ion-row class="ion-justify-content-center">
-      <ion-col size="11">
-        <h2 style="font-weight: 600;
-        margin-bottom: 50px;">Active Order Details</h2>
-      </ion-col>
+      <!-- <ion-col size="11">
+      </ion-col> -->
+      <div id="map"></div>
+
+
       <ion-col size="11">
         <ion-row class="carrier-card">
           <ion-col size="2">
@@ -138,3 +140,7 @@
     </ion-row>
   </ion-grid>
 </ion-footer>
+
+<script async
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcCS5t7NJlCYCgeuAe1ESYVr_r-E0WkrI&callback=initMap">
+</script>

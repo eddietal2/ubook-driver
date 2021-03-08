@@ -78,5 +78,7 @@ export class PasswordPage implements OnInit {
       'dismissed': true
     });
   }
-
+  changePassword() {
+    
+  }
 }

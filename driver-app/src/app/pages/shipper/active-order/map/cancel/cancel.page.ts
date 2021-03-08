@@ -16,5 +16,8 @@ export class CancelPage implements OnInit {
   confirmCancelPage(type) {
     this.router.navigate(['/cancel/confirm', type]);
   }
+  back() {
+    this.router.navigate(['/shipper-mar']);
+  }
 
 }

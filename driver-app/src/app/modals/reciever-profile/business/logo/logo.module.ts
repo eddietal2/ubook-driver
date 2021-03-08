@@ -6,7 +6,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { LogoPageRoutingModule } from './logo-routing.module';
 
-import { LogoPage } from './logo.page';
+import { BusinessLogoPage } from './logo.page';
 
 @NgModule({
   imports: [
@@ -15,6 +15,6 @@ import { LogoPage } from './logo.page';
     IonicModule,
     LogoPageRoutingModule
   ],
-  declarations: [LogoPage]
+  declarations: [BusinessLogoPage]
 })
 export class LogoPageModule {}

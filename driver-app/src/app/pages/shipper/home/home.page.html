@@ -11,7 +11,7 @@
     <ion-row class="ion-justify-content-center">
       <ion-col size="11">
         <ion-button class="pending-button" (click)="pendingOrders()">
-          Pending Orders (2)
+          Pending Orders ({{pendingOrdersAmount}})
         </ion-button>
       </ion-col>
     </ion-row>
@@ -44,13 +44,13 @@
         </div>
         <ion-toolbar class="order-toolbar">
           <ion-buttons slot="end">
-            <ion-button style="--color: red" (click)="deletePendingOrderAlert()">
+            <ion-button style="--color: red" (click)="deleteActiveOrderAlert()">
               Delete
             </ion-button>
-            <ion-button (click)="editPendingOrder()">
+            <ion-button (click)="editActiveOrder()">
               Edit
             </ion-button>
-            <ion-button class="preset-select" (click)="pendingOrderPage()">
+            <ion-button class="preset-select" (click)="activeOrder()">
               Info
             </ion-button>
           </ion-buttons>

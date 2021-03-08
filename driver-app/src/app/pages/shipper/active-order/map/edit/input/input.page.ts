@@ -29,5 +29,20 @@ export class InputPage implements OnInit {
   changePUAddress() {
 
   }
+  changePUTime() {
+    
+  }
+  changeDeliveryTime() {
+
+  }
+  changeDeliveryAddress() {
+
+  }
+  changeSpecialRequest() {
+
+  }
+  changeLoadDescription() {
+
+  }
 
 }

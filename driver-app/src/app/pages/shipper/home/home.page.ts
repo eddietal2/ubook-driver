@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  pendingOrdersAmount;
 
   constructor(
     private router: Router
@@ -30,5 +31,18 @@ export class HomePage implements OnInit {
   futureOrder() {
     this.router.navigate(['/shipper-future']);
   }
+  deleteFutureOrderAlert() {
+    
+  }
+  editFutureOrder() {
+
+  }
+  deleteActiveOrderAlert() {
+    
+  }
+  editActiveOrder() {
+
+  }
+
 
 }

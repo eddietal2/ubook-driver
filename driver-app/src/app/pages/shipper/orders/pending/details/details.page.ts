@@ -15,6 +15,10 @@ export class DetailsPage implements OnInit, OnDestroy {
   timer;
   timerLoading = true;
   timerInterval: Subscription;
+  slideOpts = {
+    initialSlide: 1,
+    speed: 400
+  };
 
   weight: number;
   truckType: string;

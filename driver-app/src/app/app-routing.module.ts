@@ -5,17 +5,8 @@ const routes: Routes = [
   {
     path: '',
     // loadChildren: () => import('./pages/shipper/orders/new/new.module').then( m => m.NewPageModule)
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
-    // loadChildren: () => import('./pages/shipper/profile/profile.module').then( m => m.ProfilePageModule)
-    // loadChildren: () => import('./modals/shipper-profile/personal/name/name.module').then( m => m.NamePageModule)
-    // loadChildren: () => import('./modals/shipper-profile/rating/rating.module').then( m => m.RatingPageModule)
-    // loadChildren: () => import('./modals/shipper-profile/personal/email/email.module').then( m => m.EmailPageModule)
-    // loadChildren: () => import('./modals/shipper-profile/personal/phone/phone.module').then( m => m.PhonePageModule)
-    // loadChildren: () => import('./modals/shipper-profile/personal/picture/picture.module').then( m => m.PicturePageModule)
-    // loadChildren: () => import('./modals/shipper-profile/personal/password/password.module').then( m => m.PasswordPageModule)
-    // loadChildren: () => import('./modals/shipper-profile/business/payment/payment.module').then( m => m.PaymentPageModule)
-    // loadChildren: () => import('./modals/shipper-profile/business/logo/logo.module').then( m => m.LogoPageModule)
-    // loadChildren: () => import('./modals/shipper-profile/business/profile/profile.module').then( m => m.ProfilePageModule)
+    // loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./pages/carrier/active-order/map/map.module').then( m => m.MapPageModule)
     },
   {
     path: 'forgot-password',
@@ -47,10 +38,6 @@ const routes: Routes = [
   {
     path: 'carrier-settings',
     loadChildren: () => import('./pages/carrier/settings/settings.module').then( m => m.SettingsPageModule)
-  },
-  {
-    path: 'carrier-order-page',
-    loadChildren: () => import('./pages/carrier/order-page-old/order-page.module').then( m => m.OrderPagePageModule)
   },
   {
     path: 'carrier-respond-with-rate',
@@ -232,22 +219,6 @@ const routes: Routes = [
     loadChildren: () => import('./modals/reciever-profile/business/logo/logo.module').then( m => m.LogoPageModule)
   },
   {
-    path: 'reciever-name',
-    loadChildren: () => import('./modals/reciever-profile/business/name/name.module').then( m => m.NamePageModule)
-  },
-  {
-    path: 'reciever-location',
-    loadChildren: () => import('./modals/reciever-profile/business/location/location.module').then( m => m.LocationPageModule)
-  },
-  {
-    path: 'reciever-phone',
-    loadChildren: () => import('./modals/reciever-profile/business/phone/phone.module').then( m => m.PhonePageModule)
-  },
-  {
-    path: 'reciever-email',
-    loadChildren: () => import('./modals/reciever-profile/business/email/email.module').then( m => m.EmailPageModule)
-  },
-  {
     path: 'reciever-home',
     loadChildren: () => import('./pages/reciever/home/home.module').then( m => m.HomePageModule)
   },
@@ -258,6 +229,10 @@ const routes: Routes = [
   {
     path: 'reciver-profile',
     loadChildren: () => import('./pages/reciever/profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./modals/reciever-profile/business/profile/profile.module').then( m => m.ProfilePageModule)
   }
 ];
 

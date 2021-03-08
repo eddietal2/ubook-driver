@@ -28,11 +28,17 @@ export class PreAvailabilitySurveyPage implements OnInit {
     if(e.detail.checked) {
       this.gas = true;
     }
+    if(!e.detail.checked) {
+      this.gas = false;
+    }
   }
   safetyCheckbox(e) {
     console.log(e);
     if(e.detail.checked) {
       this.safety = true;
+    }
+    if(!e.detail.checked) {
+      this.safety = false;
     }
   }
   phoneCheckbox(e) {
@@ -40,18 +46,24 @@ export class PreAvailabilitySurveyPage implements OnInit {
     if(e.detail.checked) {
       this.phone = true;
     }
+    if(!e.detail.checked) {
+      this.phone = false;
+    }
   }
   dismiss() {
     // using the injected ModalController this page
     // can "dismiss" itself and optionally pass back data
     this.modalController.dismiss({
-      'dismissed': true
+      data: {
+        available: false
+      }
     });
   }
   submit() {
     // Pass radius
     this.modalController.dismiss({
-      'dismissed': true
+        searchRadius: this.rangeValue,
+        available: true
     });
   }
 }

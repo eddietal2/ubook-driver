@@ -43,7 +43,7 @@ export class DrawerComponent implements OnInit, AfterViewInit {
 
   async ngAfterViewInit() {
     const drawer = this.drawer.nativeElement;
-    this.openHeight = (this.plt.height() / 100) * 70;
+    this.openHeight = (this.plt.height() / 100) * 10;
     console.log('openHeight: ' + this.openHeight);
     drawer.style.transition = '.4s ease-out';
     drawer.style.transform = `translateY(${-this.openHeight}px)`;
